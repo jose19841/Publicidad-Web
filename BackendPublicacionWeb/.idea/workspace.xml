@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/admin/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/admin/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/admin/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/admin/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/admin/service/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/categories/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/categories/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/categories/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/categories/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/categories/service/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/comments/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/comments/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/comments/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/comments/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/comments/service/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/config/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/config/general/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/config/persistence/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/config/security/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/providers/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/providers/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/providers/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/providers/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/providers/service/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/ratings/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/ratings/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/ratings/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/ratings/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/ratings/service/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/shared/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/shared/constants/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/shared/dto/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/shared/exceptions/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/shared/utils/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/users/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/users/controller/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/users/domain/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/users/infrastructure/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/users/service/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/demo/PublicidadWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/publicacionWeb/src/main/java/com/example/backend/PublicidadWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/vite.config.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="30qBqFFwiFe24eWkPHSj4ef16I9" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "C:/SPRINGBOOT/publicacionWebApp/BackendPublicacionWeb/BackendPublicacionWeb",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="" />
+      <created>1754345413612</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754345413612</updated>
+    </task>
+    <servers />
+  </component>
+</project>
