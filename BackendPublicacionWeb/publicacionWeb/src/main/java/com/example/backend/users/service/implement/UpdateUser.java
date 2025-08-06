@@ -2,6 +2,7 @@ package com.example.backend.users.service.implement;
 
 import com.example.backend.shared.exceptions.UserRegisterException;
 import com.example.backend.users.controller.dto.UserRequestDTO;
+import com.example.backend.users.domain.Role;
 import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.UserRepository;
 import com.example.backend.users.service.usecase.UpdateUserUseCase;
@@ -36,7 +37,7 @@ public class UpdateUser implements UpdateUserUseCase {
         // Actualiza la información permitida
         user.setEmail(userRequest.getEmail());
         user.setUsername(userRequest.getUsername());
-        user.setRole(userRequest.getRole());
+        user.setRole(Role.USER);
 
         // updatedAt se actualiza automáticamente con @PreUpdate en la entidad
         userRepository.save(user);

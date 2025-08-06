@@ -2,6 +2,7 @@ package com.example.backend.users.service.mapper;
 
 import com.example.backend.users.controller.dto.UserRequestDTO;
 import com.example.backend.users.controller.dto.UserResponseDTO;
+import com.example.backend.users.domain.Role;
 import com.example.backend.users.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +27,7 @@ public class UserMapper {
                 .email(dto.getEmail())
                 .username(dto.getUsername())
                 .password(passwordEncoder.encode(dto.getPassword()))
-                .role(dto.getRole())
+                .role(Role.USER)
                 .enabled(true)
                 .build();
     }

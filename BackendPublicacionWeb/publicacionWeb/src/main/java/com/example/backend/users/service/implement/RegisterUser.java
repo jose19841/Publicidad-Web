@@ -29,7 +29,7 @@ public class RegisterUser implements RegisterUserUseCase {
             throw new UserRegisterException("El usuario con email " + userRequest.getEmail() + " ya está registrado.");
         }
         User user = userMapper.toEntity(userRequest);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
         userRepository.save(user);
     }
 }

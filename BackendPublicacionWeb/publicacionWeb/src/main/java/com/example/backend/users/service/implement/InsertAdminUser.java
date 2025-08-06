@@ -30,7 +30,7 @@ public class InsertAdminUser implements InsertAdminUserUseCase {
             User admin = User.builder()
                     .email("admin@admin.com")
                     .username("admin")  // usando username en vez de firstName/lastName
-                    .password(passwordEncoder.encode("admin"))
+                    .password(passwordEncoder.encode("admin123"))
                     .role(Role.ADMIN)
                     .enabled(true)
                     .build();
