@@ -1,9 +1,10 @@
 import { useState } from "react";
 import authService from "../services/authService";
-
+import { useAuth } from "../../../context/AuthContext"; 
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { login } = useAuth(); // <-- Usá el método del contexto
 
   const validateForm = (email, password) => {
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
@@ -27,7 +28,8 @@ const useLogin = () => {
 
     try {
       const user = await authService.login({ email, password, rememberMe });
-      alert('login exitoso')
+      login(user); // <-- Guarda el user en el contexto
+      // alert('login exitoso'); // Mejor usá un SweetAlert, o hacé la redirección desde el componente
       return user;
     } catch (err) {
       setError(err.response?.data?.error || "Error al iniciar sesión.");

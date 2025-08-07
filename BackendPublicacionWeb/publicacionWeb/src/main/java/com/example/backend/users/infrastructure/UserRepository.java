@@ -1,5 +1,7 @@
 package com.example.backend.users.infrastructure;
 import com.example.backend.users.domain.User;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +25,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
 
+    Optional<User> findByUsername(@NotBlank(message = "El nombre de usuario no puede estar vacío.") @Size(min = 4, max = 20, message = "El nombre de usuario debe tener entre 3 y 20 caracteres.") String username);
 }

@@ -13,6 +13,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -21,13 +22,18 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const { loading, error, handleLogin } = useLogin();
-
+  const navigate = useNavigate();
   const onSubmit = async (e) => {
     e.preventDefault();
     const user = await handleLogin(email, password, rememberMe);
     if (user) {
-      console.log("Login exitoso:", user);
-      // aquí podrías redirigir al dashboard
+      if (user.role === "ADMIN") {
+        navigate("/admin/dashboard"); // O la ruta real de tu dashboard admin
+      } else if (user.role === "USER") {
+        navigate("/publicaciones"); // O la ruta real para usuarios normales
+      } else {
+        navigate("/"); // fallback, por si algún otro rol inesperado
+      }
     }
   };
 
@@ -71,8 +77,15 @@ const LoginForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Icon icon={showPassword ? "solar:eye-bold" : "solar:eye-closed-bold"} />
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  <Icon
+                    icon={
+                      showPassword ? "solar:eye-bold" : "solar:eye-closed-bold"
+                    }
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -108,7 +121,9 @@ const LoginForm = () => {
         </Button>
       </Box>
 
-      <Divider sx={{ my: 3, "&::before, &::after": { borderTopStyle: "dashed" } }}>
+      <Divider
+        sx={{ my: 3, "&::before, &::after": { borderTopStyle: "dashed" } }}
+      >
         <Typography
           variant="overline"
           sx={{ color: "text.secondary", fontWeight: "fontWeightMedium" }}
@@ -118,10 +133,16 @@ const LoginForm = () => {
       </Divider>
 
       <Box sx={{ gap: 1, display: "flex", justifyContent: "center" }}>
-        <IconButton color="inherit" onClick={() => authService.socialLogin("google")}>
+        <IconButton
+          color="inherit"
+          onClick={() => authService.socialLogin("google")}
+        >
           <Icon width={22} icon="logos:google-icon" />
         </IconButton>
-        <IconButton color="inherit" onClick={() => authService.socialLogin("facebook")}>
+        <IconButton
+          color="inherit"
+          onClick={() => authService.socialLogin("facebook")}
+        >
           <Icon width={22} icon="mdi:facebook" />
         </IconButton>
       </Box>
