@@ -1,7 +1,7 @@
 import apiClient from '../../../services/apiClient';
 
 export default async function getCategoriesService({ page = 1, pageSize = 10 } = {}) {
-  const response = await apiClient.get(`/categories`, {
+  const response = await apiClient.get(`/api/categories`, {
     params: { page, pageSize },
   });
 

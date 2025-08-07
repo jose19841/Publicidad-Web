@@ -1,8 +1,9 @@
-import React from "react";
 import DataTable from "../../../components/DataTable";
 import useCategoriesTable from "../hooks/useCategoriesTable";
 import useCategoryModal from "../hooks/useCategoryModal";
 import CategoryModal from "./CategoryModal";
+import React, { useState } from "react";
+
 
 export default function CategoryList() {
   const table = useCategoriesTable();
@@ -12,6 +13,8 @@ export default function CategoryList() {
     openModal,
     closeModal
   } = useCategoryModal();
+
+  const [search, setSearch] = useState("");
 
   const columns = [
     { field: "name", label: "Nombre" },
@@ -33,15 +36,28 @@ export default function CategoryList() {
   if (table.loading) return <div>Cargando...</div>;
   if (table.error) return <div className="text-danger">Error: {table.error}</div>;
 
+  // Filtrar datos según búsqueda (por nombre o descripción)
+  const filteredData = table.data.filter(
+    (cat) =>
+      cat.name.toLowerCase().includes(search.toLowerCase()) ||
+      cat.description?.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
+      <input
+        className="form-control mb-3"
+        placeholder="Buscar categoría..."
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
       <DataTable
         columns={columns}
-        data={table.data}
+        data={filteredData}
         actions={actions}
         page={table.page}
         pageSize={table.pageSize}
-        total={table.total}
+        total={filteredData.length}
         onPageChange={table.handlePageChange}
       />
       <CategoryModal
