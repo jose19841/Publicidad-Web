@@ -14,4 +14,11 @@ const socialLogin = (provider) => {
   window.location.href = `/auth/oauth2/${provider}`;
 };
 
-export default { login, register, socialLogin };
+const getProfile = async () => {
+  const response = await apiClient.get("/auth/me", { withCredentials: true });
+  return response.data;
+};
+const logout = async () => {
+  await apiClient.post("/auth/logout", {}, { withCredentials: true });
+};
+export default { login, register, socialLogin, getProfile, logout };

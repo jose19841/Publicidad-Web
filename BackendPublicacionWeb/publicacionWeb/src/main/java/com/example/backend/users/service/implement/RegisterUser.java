@@ -25,11 +25,20 @@ public class RegisterUser implements RegisterUserUseCase {
      */
     @Override
     public void execute(UserRequestDTO userRequest) {
+        // Validar email repetido
         if (userRepository.findByEmail(userRequest.getEmail()).isPresent()) {
             throw new UserRegisterException("El usuario con email " + userRequest.getEmail() + " ya está registrado.");
         }
+
+        // Validar username repetido
+        if (userRepository.findByUsername(userRequest.getUsername()).isPresent()) {
+            throw new UserRegisterException("El nombre de usuario " + userRequest.getUsername() + " ya está registrado.");
+        }
+
+        // Crear usuario nuevo y guardar
         User user = userMapper.toEntity(userRequest);
-        user.setPassword(user.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
+
 }

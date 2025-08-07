@@ -5,17 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/vite.config.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$iorizacion Historias Usuario .docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$quitectura_Frontend docx.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$storias Usuario Tareas con Rubros.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$storias de Usuario con Códigos y Criterios de Aceptación.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/DataTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/useModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/useTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/layout/MainLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoriesTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoryForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoryModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CategoryListPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CreateCategoryPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/createCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/deleteCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/editCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/getCategoriesService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/routes/AppRoutes.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/services/apiClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/routes/.gitkeep" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,37 +50,43 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="30qBqFFwiFe24eWkPHSj4ef16I9" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="30svzxBj3yL56dNnPs8Yh5z97FI" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Application.PublicidadWebApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "C:/SPRINGBOOT/publicacionWebApp/BackendPublicacionWeb/BackendPublicacionWeb",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "jose",
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="" />
-      <created>1754345413612</created>
+      <created>1754429375615</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1754345413612</updated>
+      <updated>1754429375615</updated>
     </task>
     <servers />
   </component>
