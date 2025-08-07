@@ -13,7 +13,7 @@ const DataTable = ({
 
   return (
     <div className="card card-body shadow-sm">
-      <div className="table-responsive">
+      <div className="table-responsive " style={{ overflow: "visible" }}>
         <table className="table table-striped align-middle">
           <thead>
             <tr>
