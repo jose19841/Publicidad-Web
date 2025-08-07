@@ -4,7 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="" />
+    <list default="true" id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$iorizacion Historias Usuario .docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$quitectura_Frontend docx.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$storias Usuario Tareas con Rubros.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Diseño/~$storias de Usuario con Códigos y Criterios de Aceptación.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/DataTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/useModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/useTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/layout/MainLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoriesTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoryForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/useCategoryModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CategoryListPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CreateCategoryPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/createCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/deleteCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/editCategoryService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/getCategoriesService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/routes/AppRoutes.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/services/apiClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/hooks/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/hooks/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/routes/.gitkeep" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
