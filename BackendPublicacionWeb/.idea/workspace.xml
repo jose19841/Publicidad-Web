@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Diseño/Historias Usuario .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Diseño/Historias Usuario .docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/~$iorizacion Historias Usuario .docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/~$quitectura_Frontend docx.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/~$storias Usuario .docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/~$storias Usuario Tareas con Rubros.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Diseño/~$storias de Usuario con Códigos y Criterios de Aceptación.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/DataTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/components/DataTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/layout/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/layout/MainLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/layout/MainLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/components/CategoryList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CategoryListPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/pages/CategoryListPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/createCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/createCategoryService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/deleteCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/deleteCategoryService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/editCategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/editCategoryService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/getCategoriesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/modules/categories/services/getCategoriesService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/routes/AppRoutes.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/services/apiClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendPublicacionWeb/publicidadWeb/src/services/apiClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Diseño/Historias Usuario .docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,17 +35,17 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.PublicidadWebApplication.executor": "Run",
-    "Application.inicio.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "jose",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.PublicidadWebApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.inicio.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;jose&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3085c9c5-1d91-49dd-977d-3b5b3a81d65f" name="Changes" comment="" />
