@@ -133,17 +133,21 @@ const LoginForm = () => {
       </Divider>
 
       <Box sx={{ gap: 1, display: "flex", justifyContent: "center" }}>
+        {/* Botón Google */}
+         <Typography
+          variant="overline"
+          sx={{ color: "text.secondary", fontWeight: "fontWeightMedium" }}
+        >
+          inicia sesion con
+        </Typography>
         <IconButton
           color="inherit"
-          onClick={() => authService.socialLogin("google")}
+          onClick={() => {
+            window.location.href =
+              "http://localhost:8080/oauth2/authorization/google";
+          }}
         >
-          <Icon width={22} icon="logos:google-icon" />
-        </IconButton>
-        <IconButton
-          color="inherit"
-          onClick={() => authService.socialLogin("facebook")}
-        >
-          <Icon width={22} icon="mdi:facebook" />
+          <Icon icon="logos:google-icon" width={25} style={{ marginTop: -7 }} />
         </IconButton>
       </Box>
     </Box>
