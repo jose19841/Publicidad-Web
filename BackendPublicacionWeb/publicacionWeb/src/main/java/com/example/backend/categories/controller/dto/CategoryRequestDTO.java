@@ -1,4 +1,4 @@
-package com.example.backend.categories.controller;
+package com.example.backend.categories.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
