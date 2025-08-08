@@ -21,7 +21,7 @@ public class UpdateCategories implements UpdateCategoriesUsecase {
     @Override
     public CategoryResponseDTO updateCategory(Long id, CategoryRequestDTO requestDTO) {
         Category existing = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));    
+                .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
         existing.setName(requestDTO.getName());
         existing.setDescription(requestDTO.getDescription());
         existing.setUpdatedAt(LocalDateTime.now());
