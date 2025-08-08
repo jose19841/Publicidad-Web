@@ -22,7 +22,12 @@ const RegisterForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const user = await handleRegister(email, username, password, confirmPassword);
+    const user = await handleRegister(
+      email,
+      username,
+      password,
+      confirmPassword
+    );
     if (user) {
       console.log("Registro exitoso:", user);
       // Podés redirigir al login o dashboard
@@ -78,8 +83,15 @@ const RegisterForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Icon icon={showPassword ? "solar:eye-bold" : "solar:eye-closed-bold"} />
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  <Icon
+                    icon={
+                      showPassword ? "solar:eye-bold" : "solar:eye-closed-bold"
+                    }
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -115,7 +127,9 @@ const RegisterForm = () => {
         </Button>
       </Box>
 
-      <Divider sx={{ my: 3, "&::before, &::after": { borderTopStyle: "dashed" } }}>
+      <Divider
+        sx={{ my: 3, "&::before, &::after": { borderTopStyle: "dashed" } }}
+      >
         <Typography
           variant="overline"
           sx={{ color: "text.secondary", fontWeight: "fontWeightMedium" }}
@@ -125,11 +139,21 @@ const RegisterForm = () => {
       </Divider>
 
       <Box sx={{ gap: 1, display: "flex", justifyContent: "center" }}>
-        <IconButton color="inherit">
-          <Icon width={22} icon="logos:google-icon" />
-        </IconButton>
-        <IconButton color="inherit">
-          <Icon width={22} icon="mdi:facebook" />
+        {/* Botón Google */}
+        <Typography
+          variant="overline"
+          sx={{ color: "text.secondary", fontWeight: "fontWeightMedium" }}
+        >
+          Registrate con
+        </Typography>
+        <IconButton
+          color="inherit"
+          onClick={() => {
+            window.location.href =
+              "http://localhost:8080/oauth2/authorization/google";
+          }}
+        >
+          <Icon icon="logos:google-icon" width={25} style={{ marginTop: -7 }} />
         </IconButton>
       </Box>
     </Box>

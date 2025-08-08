@@ -1,6 +1,6 @@
 package com.example.backend.config.security;
 
-
+import com.example.backend.config.security.oauth.GoogleOAuth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,24 +24,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-
     @Value("${security.public-paths}")
     private String[] publicPaths;
 
     @Value("${security.cors.allowed-origins}")
     private String[] allowedOrigins;
+
     private final JwtCookieAuthenticationFilter jwtCookieAuthenticationFilter;  // Filtro para manejar la autenticación mediante cookies.
     private final AuthenticationProvider authenticationProvider;  // Proveedor de autenticación.
+    private final GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler; // 🔹 Inyectamos el handler
 
     /**
      * Configura el filtrado de seguridad para la aplicación web.
-     *
-     * @param http objeto HttpSecurity que permite configurar los filtros y reglas de seguridad.
-     * @return SecurityFilterChain con la configuración de seguridad.
-     * @throws Exception en caso de error durante la configuración.
      */
     @Bean
-
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.configurationSource(request -> {
@@ -62,6 +57,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(publicPaths).permitAll()
                         .anyRequest().authenticated()
+                )
+                // 🔹 Configuración para Google OAuth2
+                .oauth2Login(oauth2 -> oauth2
+                        .successHandler(googleOAuth2SuccessHandler)
                 );
 
         return http.build();
