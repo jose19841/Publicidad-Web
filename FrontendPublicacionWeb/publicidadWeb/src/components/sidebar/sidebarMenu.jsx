@@ -20,8 +20,10 @@ export const sidebarSections = [
     title: "Gestión de Prestadores",
     icon: <FaUsers />,
     children: [
-      { title: "Listar Prestadores", path: "/prestadores", icon: <FaList /> },
-      { title: "Registrar Prestador", path: "/prestadores/crear", icon: <FaUserPlus /> }
+      { title: "Registrar Prestador", path: "/prestadores/crear", icon: <FaUserPlus /> },
+      { title: "Listar Prestadores", path: "/prestadores", icon: <FaList /> }
+      
+      
     ]
   },
   {

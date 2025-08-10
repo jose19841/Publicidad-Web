@@ -15,7 +15,10 @@ public class ProviderMapper {
         provider.setPhone(dto.getPhone());
         provider.setDescription(dto.getDescription());
         provider.setPhotoUrl(dto.getPhotoUrl());
-        provider.setIsActive(dto.getIsActive());
+
+        // ✅ Si no se envía isActive en el DTO, lo dejamos true por defecto
+        provider.setIsActive(dto.getIsActive() != null ? dto.getIsActive() : true);
+
         return provider;
     }
     public ProviderResponseDTO toDTO(Provider entity) {
@@ -23,9 +26,16 @@ public class ProviderMapper {
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setLastName(entity.getLastName());
+        dto.setAddress(entity.getAddress());
         dto.setPhone(entity.getPhone());
+        dto.setDescription(entity.getDescription());
         dto.setPhotoUrl(entity.getPhotoUrl());
         dto.setIsActive(entity.getIsActive());
+        dto.setCreatedAt(entity.getCreatedAt());
+        dto.setUpdatedAt(entity.getUpdatedAt());
+        if (entity.getCategory() != null) {
+            dto.setCategoryName(entity.getCategory().getName());
+        }
         return dto;
     }
     }
