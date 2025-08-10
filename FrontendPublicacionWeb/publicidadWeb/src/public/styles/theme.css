@@ -1,0 +1,43 @@
+:root {
+  --ct-bg: #0b1b2b; /* azul muy oscuro */
+  --ct-surface: #12263a; /* azul oscuro */
+  --ct-primary: #1f6feb; /* azul vibrante */
+  --ct-text: #e6edf3; /* texto claro */
+  --ct-muted: #9fb3c8; /* texto secundario */
+  --ct-border: #274057; /* bordes */
+  --ct-focus: #9ecbff; /* foco accesible */
+}
+
+.ct-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.ct-btn {
+  border: 1px solid var(--ct-border);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ct-text);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ct-btn.primary {
+  background: var(--ct-primary);
+  border-color: var(--ct-primary);
+  color: #fff;
+}
+.ct-btn:focus {
+  outline: 3px solid var(--ct-focus);
+  outline-offset: 2px;
+}
+.ct-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1px;
+}
