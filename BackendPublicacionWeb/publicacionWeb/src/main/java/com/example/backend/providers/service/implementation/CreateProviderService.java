@@ -26,7 +26,7 @@ public class CreateProviderService implements CreateProviderUsecase {
                 ));
 
         Provider provider = providerMapper.toEntity(request);
-        provider.setCategory(category); // 🔹 Asignamos la categoría al provider
+        provider.setCategory(category);
 
         Provider saved = providerRepository.save(provider);
         return providerMapper.toDTO(saved);

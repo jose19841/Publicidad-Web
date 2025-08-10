@@ -10,6 +10,8 @@ import HomePage from "../public/pages/HomePage.jsx";
 import DashboardAdminPage from "../modules/admin/pages/DashboardAdminPage.jsx";
 import UserListPage from "../modules/users/pages/UserListPage.jsx";
 import UserRegisterPage from "../modules/users/pages/UserRegisterPage.jsx";
+import CreateProviderPage from "../modules/providers/pages/CreateProviderPage.jsx";
+import ProviderListPage from "../modules/providers/pages/ProviderListPage.jsx";
 
 const AppRouter = () => (
   <Routes>
@@ -73,7 +75,32 @@ const AppRouter = () => (
       </MainLayout>
     </PrivateRoute>
   }
+  
 />
+
+  <Route
+      path="/prestadores"
+      element={
+        <PrivateRoute requiredRole="ADMIN">
+          <MainLayout>
+            <ProviderListPage />
+          </MainLayout>
+        </PrivateRoute>
+      }
+    />
+
+<Route
+  path="/prestadores/crear"
+  element={
+    <PrivateRoute requiredRole="ADMIN">
+      <MainLayout>
+        <CreateProviderPage />
+      </MainLayout>
+    </PrivateRoute>
+  }
+  
+/>
+
 
     {/* ...más rutas */}
     <Route path="*" element={<Navigate to="/" replace />} />

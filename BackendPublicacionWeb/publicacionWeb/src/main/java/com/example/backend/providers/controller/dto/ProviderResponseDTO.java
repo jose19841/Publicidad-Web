@@ -23,6 +23,6 @@ public class ProviderResponseDTO {
     private Boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private String CategoryName;
+    private String categoryName;
 
 }
