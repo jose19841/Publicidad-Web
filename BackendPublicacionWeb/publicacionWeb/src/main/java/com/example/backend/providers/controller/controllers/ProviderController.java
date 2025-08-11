@@ -2,7 +2,10 @@ package com.example.backend.providers.controller.controllers;
 
 import com.example.backend.providers.controller.dto.ProviderRequestDTO;
 import com.example.backend.providers.controller.dto.ProviderResponseDTO;
+import com.example.backend.providers.domain.Provider;
+import com.example.backend.providers.service.Mapper.ProviderMapper;
 import com.example.backend.providers.service.ProviderService;
+import com.example.backend.providers.service.implementation.SearchProviderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -17,13 +20,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/providers")
 @RequiredArgsConstructor
-@Tag(name = "Providers", description = "API for managing providers")
+@Tag(name = "Proveedor", description = "API para administrar prestadores")
 public class ProviderController {
 
     private final ProviderService providerService;
+    private final SearchProviderService searchProviderService;
+    private final ProviderMapper providerMapper;
 
     @Operation(
-            summary = "Crear Proveedor",
+            summary = "Crear Prestador",
             description = "Crea un nuevo proveedor utilizando la información proporcionada"
     )
     @ApiResponses(value = {
@@ -37,8 +42,8 @@ public class ProviderController {
     }
 
     @Operation(
-            summary = "Listar Proveedores",
-            description = "Recupera una lista de todos los proveedores"
+            summary = "Listar Prestadores",
+            description = "Recupera una lista de todos los prestadores"
     )
     @ApiResponse(responseCode = "200", description = "List of providers retrieved successfully")
     @GetMapping("/getAll")
@@ -47,7 +52,7 @@ public class ProviderController {
     }
 
     @Operation(
-            summary = "Actualizar Proveedor",
+            summary = "Actualizar Prestador",
             description = "Actualiza un proveedor existente por su ID"
     )
     @ApiResponses(value = {
@@ -63,7 +68,7 @@ public class ProviderController {
     }
 
     @Operation(
-            summary = "Inhabilitar Proveedor",
+            summary = "Inhabilitar Prestador",
             description = "Inhabilita un proveedor por su ID"
     )
     @ApiResponses(value = {
@@ -74,5 +79,19 @@ public class ProviderController {
     public ResponseEntity<Void> disable(@PathVariable Long id) {
         providerService.disable(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(
+            summary = "Buscar Prestador por ID y aumentar contador de búsquedas",
+            description = "Obtiene un prestador por su ID y registra la búsqueda"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Provider found successfully"),
+            @ApiResponse(responseCode = "404", description = "Provider not found")
+    })
+    @GetMapping("/{id}")
+    public ProviderResponseDTO getProviderById(@PathVariable Long id) {
+        Provider provider = searchProviderService.execute(id);
+        return providerMapper.toDTO(provider);
     }
 }
