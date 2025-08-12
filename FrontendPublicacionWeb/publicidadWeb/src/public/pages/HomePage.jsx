@@ -5,11 +5,18 @@ import useProviders from "../hooks/useProviders";
 import HowItWorksSection from "../components/HowItWorksSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import { getProviderById } from "../services/providerService"
+
 
 export default function HomePage(){
-  const { list, loading, error, setQuery } = useProviders();
+  const { list, loading, error, setQuery, updateProviderInList } = useProviders();
 
   const handleSearch = (value) => setQuery(value); 
+   
+  const handleProviderUpdated = async (id) => {
+    const fresh = await getProviderById(id);
+    updateProviderInList(fresh);
+  };
 
   return (
     <>
@@ -20,12 +27,15 @@ export default function HomePage(){
           {error}
         </div>
       )}
+
+      
       <ProvidersSection
         title="Prestadores"
         items={list}
         loading={loading}
         hasMore={false}            
         onLoadMore={() => {}}
+        onProviderUpdated={handleProviderUpdated} 
       />
        <HowItWorksSection />  
          <ContactSection />

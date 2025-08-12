@@ -1,12 +1,22 @@
+// modules/providers/components/ProviderCard.jsx
 import React from "react";
 import "../styles/theme.css";
+import StarRating from "./StarRating";
 
-function truncate(text = "", max = 100) {
-  return text.length > max ? text.slice(0, max).trim() + "…" : text;
+function truncate(t = "", max = 100) {
+  return t.length > max ? t.slice(0, max).trim() + "…" : t;
+}
+function initials(name = "", last = "") {
+  const n = (name || "").trim()[0] || "";
+  const l = (last || "").trim()[0] || "";
+  return (n + l).toUpperCase() || "CT";
 }
 
 export default function ProviderCard({ provider, onView, onContact }) {
-  const { name, lastName, description, categoryName, photoUrl } = provider || {};
+  const {
+    name, lastName, description, categoryName, photoUrl,
+    averageRating = 0, totalRatings = 0
+  } = provider || {};
   const fullName = [name, lastName].filter(Boolean).join(" ");
 
   return (
@@ -32,7 +42,7 @@ export default function ProviderCard({ provider, onView, onContact }) {
         {photoUrl ? (
           <img src={photoUrl} alt={`Foto de ${fullName}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         ) : (
-          <span style={{ color: "var(--ct-muted)", fontWeight: 700 }}>CT</span>
+          <span style={{ color: "var(--ct-muted)", fontWeight: 700 }}>{initials(name, lastName)}</span>
         )}
       </div>
 
@@ -48,6 +58,14 @@ export default function ProviderCard({ provider, onView, onContact }) {
               {categoryName}
             </span>
           )}
+        </div>
+
+        {/* Rating resumido */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <StarRating value={averageRating} />
+          <span style={{ fontSize: 12, color: "var(--ct-muted)" }}>
+            {totalRatings > 0 ? `${averageRating.toFixed(1)} ➖ ${totalRatings} calificaciones` : "Sin calificaciones"}
+          </span>
         </div>
 
         {!!description && (

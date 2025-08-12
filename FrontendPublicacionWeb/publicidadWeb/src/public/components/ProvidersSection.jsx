@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import "../styles/theme.css";
 import ProviderCard from "./ProviderCard";
-import ProviderModal from "./ProviderModal";
+import ProviderModal from "../components/providerModal/ProviderModal";
 
-export default function ProvidersSection({ title = "Prestadores", items = [], loading, onLoadMore, hasMore }) {
+export default function ProvidersSection({ title = "Prestadores", items = [], loading, onLoadMore, hasMore,   onProviderUpdated }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
@@ -12,6 +12,8 @@ export default function ProvidersSection({ title = "Prestadores", items = [], lo
   const handleClose = () => { setOpen(false); setSelected(null); };
   const handleContact = (p) => { setSelected(p); setOpen(true); }; // o acción directa a WhatsApp si querés
 
+
+  
   return (
     <section aria-labelledby="providers-title" style={{ padding: "28px 0", background: "var(--ct-bg)" }}>
       <div className="ct-container" style={{ display: "grid", gap: 16 }}>
@@ -63,7 +65,7 @@ export default function ProvidersSection({ title = "Prestadores", items = [], lo
         @keyframes pulse { 0%{opacity:.6} 50%{opacity:1} 100%{opacity:.6} }
       `}</style>
 
-      <ProviderModal open={open} provider={selected} onClose={handleClose} />
+      <ProviderModal open={open} provider={selected} onClose={handleClose} onUpdated={onProviderUpdated}/>
     </section>
   );
 }

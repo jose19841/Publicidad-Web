@@ -24,8 +24,7 @@ import java.util.List;
 public class ProviderController {
 
     private final ProviderService providerService;
-    private final SearchProviderService searchProviderService;
-    private final ProviderMapper providerMapper;
+
 
     @Operation(
             summary = "Crear Prestador",
@@ -90,8 +89,7 @@ public class ProviderController {
             @ApiResponse(responseCode = "404", description = "Provider not found")
     })
     @GetMapping("/{id}")
-    public ProviderResponseDTO getProviderById(@PathVariable Long id) {
-        Provider provider = searchProviderService.execute(id);
-        return providerMapper.toDTO(provider);
+    public ResponseEntity<ProviderResponseDTO> getProviderById(@PathVariable Long id) {
+        return ResponseEntity.ok(providerService.search(id));
     }
 }

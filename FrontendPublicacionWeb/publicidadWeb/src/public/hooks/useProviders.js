@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+// modules/providers/hooks/useProviders.js
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { getAllProviders } from "../services/providerService";
 
 export default function useProviders(initialQuery = "") {
@@ -8,25 +9,31 @@ export default function useProviders(initialQuery = "") {
   const [error, setError] = useState("");
   const [query, setQuery] = useState(initialQuery);
 
-  useEffect(() => {
-    let ignore = false;
-    (async () => {
-      try {
-        setLoading(true);
-        setError("");
-        const res = await getAllProviders();
-        if (ignore) return;
-        setAll(res || []);
-      } catch (e) {
-        setError("No se pudo cargar la lista de prestadores.");
-      } finally {
-        if (!ignore) setLoading(false);
-      }
-    })();
-    return () => { ignore = true; };
+  const refetch = useCallback(async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await getAllProviders();
+      setAll(res || []);
+    } catch (e) {
+      setError("No se pudo cargar la lista de prestadores.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  // Filtro en memoria por nombre, apellido, rubro y descripción
+  // ⬇️ upsert local (sin backend)
+  const upsertProvider = useCallback((updated) => {
+    if (!updated?.id) return;
+    setAll(prev =>
+      prev.some(p => p.id === updated.id)
+        ? prev.map(p => (p.id === updated.id ? { ...p, ...updated } : p))
+        : [updated, ...prev]
+    );
+  }, []);
+
+  useEffect(() => { refetch(); }, [refetch]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return all;
@@ -42,5 +49,12 @@ export default function useProviders(initialQuery = "") {
 
   useEffect(() => { setList(filtered); }, [filtered]);
 
-  return { list, loading, error, setQuery };
+  const updateProviderInList = (updated) => {
+  if (!updated?.id) return;
+  setAll(prev =>
+    prev.map(p => (p.id === updated.id ? { ...p, ...updated } : p))
+  );
+};
+
+  return { list, loading, error, setQuery, refetch, upsertProvider, updateProviderInList };
 }
