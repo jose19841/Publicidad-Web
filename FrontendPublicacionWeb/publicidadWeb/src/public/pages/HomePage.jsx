@@ -1,31 +1,45 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../../context/AuthContext'
+import Header from "../components/Header";
+import SearchHero from "../components/SearchHero";
+import ProvidersSection from "../components/ProvidersSection";
+import useProviders from "../hooks/useProviders";
+import HowItWorksSection from "../components/HowItWorksSection";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
+import { getProviderById } from "../services/providerService"
 
-export default function HomePage() {
-  const { user, logout } = useAuth();
-  console.log(user)
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    navigate("/");
+export default function HomePage(){
+  const { list, loading, error, setQuery, updateProviderInList } = useProviders();
+
+  const handleSearch = (value) => setQuery(value); 
+   
+  const handleProviderUpdated = async (id) => {
+    const fresh = await getProviderById(id);
+    updateProviderInList(fresh);
   };
 
   return (
-    <div style={{ padding: 32 }}>
-      <h1>Página de Inicio</h1>
-      <p>Bienvenido al sitio de clasificados.</p>
-      <div>
-        {user ? (
-          <button onClick={handleLogout}>Cerrar sesión</button>
-        ) : (
-          <>
-            <Link to="/login">Iniciar sesión</Link> |{" "}
-            <Link to="/register">Registrarse</Link>
-          </>
-        )}
-      </div>
-    </div>
+    <>
+      <Header />
+      <SearchHero onSearch={handleSearch} />
+      {error && (
+        <div className="ct-container" style={{ color: "tomato", paddingTop: 12 }}>
+          {error}
+        </div>
+      )}
+
+      
+      <ProvidersSection
+        title="Prestadores"
+        items={list}
+        loading={loading}
+        hasMore={false}            
+        onLoadMore={() => {}}
+        onProviderUpdated={handleProviderUpdated} 
+      />
+       <HowItWorksSection />  
+         <ContactSection />
+         <Footer />
+    </>
   );
 }

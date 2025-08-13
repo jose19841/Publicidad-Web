@@ -24,5 +24,7 @@ public class ProviderResponseDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private String categoryName;
+    private Double averageRating;
+    private Long totalRatings;
 
 }

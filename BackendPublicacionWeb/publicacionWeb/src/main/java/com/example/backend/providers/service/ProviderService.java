@@ -2,10 +2,7 @@ package com.example.backend.providers.service;
 
 import com.example.backend.providers.controller.dto.ProviderRequestDTO;
 import com.example.backend.providers.controller.dto.ProviderResponseDTO;
-import com.example.backend.providers.service.usecase.CreateProviderUsecase;
-import com.example.backend.providers.service.usecase.DisableProviderUsecase;
-import com.example.backend.providers.service.usecase.GetAllProviderUsecase;
-import com.example.backend.providers.service.usecase.UpdateProviderUsecase;
+import com.example.backend.providers.service.usecase.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +16,7 @@ public class ProviderService {
     private final GetAllProviderUsecase getAllProviderUsecase;
     private final UpdateProviderUsecase updateProviderUsecase;
     private final DisableProviderUsecase disableProviderUsecase;
+    private final SearchProviderUsecase searchProviderService;
 
     public ProviderResponseDTO create(ProviderRequestDTO request){
         return createProviderUsecase.create(request);
@@ -28,11 +26,9 @@ public class ProviderService {
         return getAllProviderUsecase.getAll();
     }
 
-    public ProviderResponseDTO update(long id, ProviderRequestDTO request){
-        return updateProviderUsecase.update(id, request);
-    }
+    public ProviderResponseDTO update(long id, ProviderRequestDTO request){return updateProviderUsecase.update(id, request);}
 
-    public void disable(Long id){
-        disableProviderUsecase.disable(id);
-    }
+    public void disable(Long id){disableProviderUsecase.disable(id);}
+
+    public ProviderResponseDTO search(Long providerId) {return searchProviderService.execute(providerId);}
 }
