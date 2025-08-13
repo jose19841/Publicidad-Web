@@ -6,6 +6,7 @@ import com.example.backend.providers.domain.Provider;
 import com.example.backend.providers.service.Mapper.ProviderMapper;
 import com.example.backend.providers.service.ProviderService;
 import com.example.backend.providers.service.implementation.SearchProviderService;
+import com.example.backend.providers.service.usecase.SearchProvidersByNameOrCategoryUsecase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -24,6 +25,7 @@ import java.util.List;
 public class ProviderController {
 
     private final ProviderService providerService;
+    private final SearchProvidersByNameOrCategoryUsecase searchProvidersByNameOrCategoryUsecase;
 
 
     @Operation(
@@ -92,4 +94,25 @@ public class ProviderController {
     public ResponseEntity<ProviderResponseDTO> getProviderById(@PathVariable Long id) {
         return ResponseEntity.ok(providerService.search(id));
     }
+
+    @Operation(
+            summary = "Buscar prestadores por nombre o rubro",
+            description = "Permite buscar prestadores filtrando por nombre, rubro o ambos."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Lista de prestadores obtenida correctamente"),
+            @ApiResponse(responseCode = "204", description = "No se encontraron prestadores")
+    })
+    @GetMapping("/search")
+    public ResponseEntity<List<ProviderResponseDTO>> searchProviders(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String category) {
+        List<ProviderResponseDTO> results = searchProvidersByNameOrCategoryUsecase.execute(name, category);
+
+        if (results.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(results);
+    }
 }
+
