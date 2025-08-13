@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { searchProviders } from "../services/providerService";
+import { getAllProviders, searchProviders } from "../services/providerService";
 
 export default function useProviders(initialName = "", initialCategory = "") {
   const [list, setList] = useState([]);
@@ -26,8 +26,15 @@ export default function useProviders(initialName = "", initialCategory = "") {
       }
 
       // 3) Si explícitamente setearon category distinto del name, respetarlo
-      if ((!results || results.length === 0) && category?.trim() && category.trim() !== name?.trim()) {
-        results = await searchProviders({ name: "", category: category.trim() });
+      if (
+        (!results || results.length === 0) &&
+        category?.trim() &&
+        category.trim() !== name?.trim()
+      ) {
+        results = await searchProviders({
+          name: "",
+          category: category.trim(),
+        });
       }
 
       setList(results || []);
@@ -54,13 +61,29 @@ export default function useProviders(initialName = "", initialCategory = "") {
 
   const updateProviderInList = (updated) => {
     if (!updated?.id) return;
-    setList((prev) => prev.map((p) => (p.id === updated.id ? { ...p, ...updated } : p)));
+    setList((prev) =>
+      prev.map((p) => (p.id === updated.id ? { ...p, ...updated } : p))
+    );
   };
 
   // Unificamos el input del buscador
   const setQuery = useCallback((value) => {
     setName(value);
     setCategory(""); // evitamos AND; si no hay resultados, refetch probará por categoría con name
+  }, []);
+
+  const fetchAllProviders = useCallback(async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const results = await getAllProviders(); // <-- llama a la función del service
+      setList(results || []);
+    } catch {
+      setError("No se pudo cargar la lista de prestadores.");
+      setList([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   return {
@@ -75,6 +98,7 @@ export default function useProviders(initialName = "", initialCategory = "") {
     upsertProvider,
     updateProviderInList,
     query: name,
-    setQuery, // HomePage usa esto
+    setQuery,
+    fetchAllProviders,
   };
 }
