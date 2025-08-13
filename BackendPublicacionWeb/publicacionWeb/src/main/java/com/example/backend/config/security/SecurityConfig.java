@@ -5,11 +5,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
@@ -58,6 +60,10 @@ public class SecurityConfig {
                         .requestMatchers(publicPaths).permitAll()
                         .anyRequest().authenticated()
                 )
+                // 🔹 Esto evita la redirección a Google y devuelve 401 en API
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+                )
                 // 🔹 Configuración para Google OAuth2
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(googleOAuth2SuccessHandler)
@@ -65,4 +71,5 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 }

@@ -14,13 +14,14 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Icon } from "@iconify/react";
-
+import { useAuth } from "../../../context/AuthContext";
 /**
  * LoginForm reutilizable.
  * - disableNavigate: si es true, no hace navigate() y usa onSuccess.
  * - onSuccess: callback al loguear correctamente (para portal).
  */
 const LoginForm = ({ onSuccess, disableNavigate = false }) => {
+  const { login } = useAuth();
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -69,6 +70,7 @@ const LoginForm = ({ onSuccess, disableNavigate = false }) => {
         if (me) {
           clearInterval(timer);
           try { popup.close(); } catch {}
+          login(me)
           if (disableNavigate || onSuccess) {
             onSuccess?.(me);
             return;

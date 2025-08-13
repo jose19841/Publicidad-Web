@@ -7,6 +7,7 @@ import com.example.backend.users.service.mapper.UserMapper;
 import com.example.backend.users.service.usecase.GetUserSessionUseCase;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -28,7 +29,7 @@ public class GetUserSession implements GetUserSessionUseCase {
     public UserResponseDTO execute(HttpServletRequest request) {
         Optional<User> optionalUser = cookieService.getUserFromCookie(request);
         if (optionalUser.isEmpty()) {
-            throw new RuntimeException("Usuario no autenticado");
+            throw new AuthenticationCredentialsNotFoundException("Usuario no autenticado");
         }
         return userMapper.toDTO(optionalUser.get());
     }

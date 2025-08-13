@@ -37,7 +37,7 @@ export default function LoginPortal() {
             borderBottom: "1px solid var(--ct-border, #eee)",
           }}
         >
-          <h3 style={{ margin: 0 }}>Iniciar sesión</h3>
+          
         </div>
 
         <div style={{ padding: 16 }}>
