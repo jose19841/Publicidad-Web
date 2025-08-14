@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProviderRepository extends JpaRepository<Provider, Long> {
@@ -14,4 +15,7 @@ List<Provider> findByCategoryName(String category);
 List<Provider> findByNameAndCategoryName(String name, String category);
 boolean existsByNameAndLastName(String name, String lastName);
 boolean existsByPhone(String phone);
+Optional<Provider> findByPhone(String phone);
+
+    Optional<Provider> findByNameAndLastName(String name, String lastname);
 }

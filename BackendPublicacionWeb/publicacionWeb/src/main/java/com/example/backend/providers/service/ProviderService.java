@@ -2,6 +2,7 @@ package com.example.backend.providers.service;
 
 import com.example.backend.providers.controller.dto.ProviderRequestDTO;
 import com.example.backend.providers.controller.dto.ProviderResponseDTO;
+import com.example.backend.providers.controller.dto.ProviderUpdateRequestDTO;
 import com.example.backend.providers.service.usecase.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,17 +20,23 @@ public class ProviderService {
     private final DisableProviderUsecase disableProviderUsecase;
     private final SearchProviderUsecase searchProviderService;
 
-    public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image){
+    public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image) {
         return createProviderUsecase.create(request, image);
     }
 
-    public List<ProviderResponseDTO> getAll(){
+    public List<ProviderResponseDTO> getAll() {
         return getAllProviderUsecase.getAll();
     }
 
-    public ProviderResponseDTO update(long id, ProviderRequestDTO request){return updateProviderUsecase.update(id, request);}
+    public ProviderResponseDTO update(long id, ProviderUpdateRequestDTO request, MultipartFile image, String imageAction) {
+        return updateProviderUsecase.update(id, request, image, imageAction);
+    }
 
-    public void disable(Long id){disableProviderUsecase.disable(id);}
+    public void disable(Long id) {
+        disableProviderUsecase.disable(id);
+    }
 
-    public ProviderResponseDTO search(Long providerId) {return searchProviderService.execute(providerId);}
+    public ProviderResponseDTO search(Long providerId) {
+        return searchProviderService.execute(providerId);
+    }
 }
