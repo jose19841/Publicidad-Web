@@ -5,6 +5,7 @@ import com.example.backend.providers.controller.dto.ProviderResponseDTO;
 import com.example.backend.providers.service.usecase.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -18,8 +19,8 @@ public class ProviderService {
     private final DisableProviderUsecase disableProviderUsecase;
     private final SearchProviderUsecase searchProviderService;
 
-    public ProviderResponseDTO create(ProviderRequestDTO request){
-        return createProviderUsecase.create(request);
+    public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image){
+        return createProviderUsecase.create(request, image);
     }
 
     public List<ProviderResponseDTO> getAll(){

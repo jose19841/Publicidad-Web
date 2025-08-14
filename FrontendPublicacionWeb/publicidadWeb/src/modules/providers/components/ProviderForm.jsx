@@ -1,5 +1,6 @@
 import React from "react";
 import useProviderForm from "../hooks/useProviderForm";
+import ImageUpload from "./ImageUpload";
 
 const ProviderForm = ({ onSuccess, editingProvider }) => {
   const {
@@ -9,6 +10,7 @@ const ProviderForm = ({ onSuccess, editingProvider }) => {
     loadingCats,
     handleChange,
     handleSubmit,
+    setForm
   } = useProviderForm({ onSuccess, editingProvider });
 
   return (
@@ -109,16 +111,11 @@ const ProviderForm = ({ onSuccess, editingProvider }) => {
       </div>
 
       {/* Foto */}
-      <div className="mb-3">
-        <label>URL de la Foto</label>
-        <input
-          type="text"
-          name="photoUrl"
-          value={form.photoUrl || ""}
-          onChange={handleChange}
-          className="form-control"
-        />
-      </div>
+      <ImageUpload
+  value={form.image}
+  onChange={(file) => setForm({ ...form, image: file })}
+  error={errors.image}
+/>
 
       {/* Activo */}
       <div className="form-check mb-3">

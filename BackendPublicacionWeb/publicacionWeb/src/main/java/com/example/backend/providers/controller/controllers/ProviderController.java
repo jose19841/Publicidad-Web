@@ -7,14 +7,24 @@ import com.example.backend.providers.service.Mapper.ProviderMapper;
 import com.example.backend.providers.service.ProviderService;
 import com.example.backend.providers.service.implementation.SearchProviderService;
 import com.example.backend.providers.service.usecase.SearchProvidersByNameOrCategoryUsecase;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,21 +36,61 @@ public class ProviderController {
 
     private final ProviderService providerService;
     private final SearchProvidersByNameOrCategoryUsecase searchProvidersByNameOrCategoryUsecase;
+    private final ObjectMapper objectMapper;
+
 
 
     @Operation(
-            summary = "Crear Prestador",
-            description = "Crea un nuevo proveedor utilizando la información proporcionada"
+            summary = "Registrar proveedor con imagen",
+            description = """
+        Este endpoint permite registrar un nuevo proveedor.
+        <br><br>
+        El campo <code>provider</code> debe enviarse como un <b>String plano</b> que contenga un JSON con la estructura de <code>ProviderRequestDTO</code>.
+        <br>
+        El campo <code>image</code> permite adjuntar una imagen opcional del proveedor.
+        """
     )
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Provider created successfully"),
-            @ApiResponse(responseCode = "400", description = "Invalid request data")
-    })
-    @PostMapping("/create")
-    public ResponseEntity<ProviderResponseDTO> create(
-            @Valid @RequestBody ProviderRequestDTO providerRequest) {
-        return ResponseEntity.ok(providerService.create(providerRequest));
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ProviderResponseDTO> createProvider(
+
+            @Parameter(
+                    name = "provider",
+                    description = "JSON como string plano representando un ProviderRequestDTO",
+                    required = true,
+                    schema = @Schema(implementation = ProviderRequestDTO.class),
+                    examples = {
+                            @ExampleObject(
+                                    name = "Ejemplo ProviderRequestDTO",
+                                    value = """
+                    {
+                      "name": "Juan",
+                      "lastName": "Pérez",
+                      "address": "Roca 601",
+                      "phone": "2923530179",
+                      "description": "Albañil las 24 hs",
+                      "isActive": true,
+                      "categoryId": 1
+                    }
+                """
+                            )
+                    }
+            )
+            @RequestPart("provider") String providerJson,
+
+            @Parameter(
+                    name = "image",
+                    description = "Imagen del proveedor (formatos JPG, PNG o WEBP).",
+                    required = false
+            )
+            @RequestPart(value = "image", required = false) MultipartFile image
+    ) throws JsonProcessingException {
+
+        ProviderRequestDTO provider = objectMapper.readValue(providerJson, ProviderRequestDTO.class);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(providerService.create(provider, image));
     }
+
+
 
     @Operation(
             summary = "Listar Prestadores",

@@ -18,18 +18,21 @@ public class UpdateProviderService implements UpdateProviderUsecase {
 
     @Override
     public ProviderResponseDTO update(Long id, ProviderRequestDTO request) {
-        Provider provider = providerRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("El proveedor con el id: " + id + "no existe"));
+//        Provider provider = providerRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("El proveedor con el id: " + id + "no existe"));
 
-        provider.setName(request.getName());
-        provider.setLastName(request.getLastName());
-        provider.setAddress(request.getAddress());
-        provider.setPhone(request.getPhone());
-        provider.setDescription(request.getDescription());
-        provider.setPhotoUrl(request.getPhotoUrl());
-        provider.setIsActive(request.getIsActive());
+//        provider.setName(request.getName());
+//        provider.setLastName(request.getLastName());
+//        provider.setAddress(request.getAddress());
+//        provider.setPhone(request.getPhone());
+//        provider.setDescription(request.getDescription());
+//        provider.setPhotoUrl(request.getPhotoUrl());
+//        provider.setIsActive(request.getIsActive());
 
-        Provider updateProvider = providerRepository.save(provider);
-        return providerMapper.toDTO(updateProvider);
+        ProviderResponseDTO updateProvider = new ProviderResponseDTO();
+     //           providerRepository.save(provider);
+
+    //    providerMapper.toDTO(updateProvider);
+        return updateProvider;
     }
 }

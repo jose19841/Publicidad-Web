@@ -5,16 +5,16 @@ import createProviderService from "../services/createProviderService";
 import editProviderService from "../services/editProviderService";
 
 export default function useProviderForm({ onSuccess, editingProvider = null }) {
-  const [form, setForm] = useState({
-    name: "",
-    lastName: "",
-    address: "",
-    phone: "",
-    description: "",
-    photoUrl: "",
-    isActive: true,
-    categoryId: ""
-  });
+const [form, setForm] = useState({
+  name: "",
+  lastName: "",
+  address: "",
+  phone: "",
+  description: "",
+  image: null, 
+  isActive: true,
+  categoryId: ""
+});
 
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
@@ -69,19 +69,22 @@ export default function useProviderForm({ onSuccess, editingProvider = null }) {
     }
   }, [isEdit, form.categoryId, editingProvider, categories]);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const newValue =
-      name === "categoryId"
-        ? value
-          ? Number(value)
-          : ""
-        : type === "checkbox"
-        ? checked
-        : value;
+const handleChange = (e) => {
+  const { name, value, type, checked, files } = e.target;
+  let newValue;
+  
+  if (type === "file") {
+    newValue = files[0] || null;
+  } else if (name === "categoryId") {
+    newValue = value ? Number(value) : "";
+  } else if (type === "checkbox") {
+    newValue = checked;
+  } else {
+    newValue = value;
+  }
 
-    setForm((prev) => ({ ...prev, [name]: newValue }));
-  };
+  setForm((prev) => ({ ...prev, [name]: newValue }));
+};
 
   const validate = () => {
     const errs = {};
@@ -93,42 +96,59 @@ export default function useProviderForm({ onSuccess, editingProvider = null }) {
     return errs;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errs = validate();
-    setErrors(errs);
-    if (Object.keys(errs).length) return;
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const errs = validate();
+  setErrors(errs);
+  if (Object.keys(errs).length) return;
 
-    try {
-      if (isEdit) {
-        await editProviderService(editingProvider.id, form);
-        Swal.fire("¡Actualizado!", "Proveedor actualizado correctamente.", "success");
-        onSuccess && onSuccess(); // Edición: refrescar
-      } else {
-        const nuevoProv = await createProviderService(form);
-        Swal.fire("¡Creado!", "Proveedor registrado correctamente.", "success");
+  try {
+    const fd = new FormData();
 
-        setForm({
-          name: "",
-          lastName: "",
-          address: "",
-          phone: "",
-          description: "",
-          photoUrl: "",
-          isActive: true,
-          categoryId: ""
-        });
-        setErrors({});
-        onSuccess && onSuccess(nuevoProv); // Registro: agregar a tabla
-      }
-    } catch (err) {
-      Swal.fire(
-        "Error",
-        err?.response?.data?.message || "No se pudo guardar el prestador.",
-        "error"
-      );
+    const providerJson = {
+      name: form.name,
+      lastName: form.lastName,
+      address: form.address,
+      phone: form.phone,
+      description: form.description,
+      isActive: form.isActive,
+      categoryId: form.categoryId
+    };
+
+    fd.append("provider", JSON.stringify(providerJson));
+    if (form.image) {
+      fd.append("image", form.image);
     }
-  };
+
+    if (isEdit) {
+      await editProviderService(editingProvider.id, fd);
+      Swal.fire("¡Actualizado!", "Proveedor actualizado correctamente.", "success");
+      onSuccess && onSuccess();
+    } else {
+      const nuevo = await createProviderService(fd);
+      Swal.fire("¡Creado!", "Proveedor registrado correctamente.", "success");
+      setForm({
+        name: "",
+        lastName: "",
+        address: "",
+        phone: "",
+        description: "",
+        image: null,
+        isActive: true,
+        categoryId: ""
+      });
+      setErrors({});
+      onSuccess && onSuccess(nuevo);
+    }
+  } catch (err) {
+    Swal.fire("Error",
+      err?.response?.data?.error || "No se pudo guardar el prestador.",
+      "error"
+    );
+  }
+};
+
+
 
   return {
     form,

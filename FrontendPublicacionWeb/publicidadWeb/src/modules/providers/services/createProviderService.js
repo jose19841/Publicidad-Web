@@ -1,7 +1,8 @@
 // src/modules/providers/services/createProviderService.js
-import apiClient from "../../../services/apiClient";
+import axios from "axios";
 
-export default async function createProviderService(payload) {
-  const { data } = await apiClient.post("/api/providers/create", payload);
+export default async function createProviderService(formData) {
+  const { data } = await axios.post("http://localhost:8080/api/providers", formData, { withCredentials: true} );
   return data;
 }
+

@@ -12,4 +12,6 @@ public interface ProviderRepository extends JpaRepository<Provider, Long> {
 List<Provider> findByName(String name);
 List<Provider> findByCategoryName(String category);
 List<Provider> findByNameAndCategoryName(String name, String category);
+boolean existsByNameAndLastName(String name, String lastName);
+boolean existsByPhone(String phone);
 }

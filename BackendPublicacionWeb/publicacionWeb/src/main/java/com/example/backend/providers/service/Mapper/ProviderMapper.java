@@ -14,9 +14,6 @@ public class ProviderMapper {
         provider.setAddress(dto.getAddress());
         provider.setPhone(dto.getPhone());
         provider.setDescription(dto.getDescription());
-        provider.setPhotoUrl(dto.getPhotoUrl());
-
-        // ✅ Si no se envía isActive en el DTO, lo dejamos true por defecto
         provider.setIsActive(dto.getIsActive() != null ? dto.getIsActive() : true);
 
         return provider;

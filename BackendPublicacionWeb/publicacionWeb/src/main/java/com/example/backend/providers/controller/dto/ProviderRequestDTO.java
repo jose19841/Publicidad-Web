@@ -15,8 +15,10 @@ public class ProviderRequestDTO {
     private String address;
     private String phone;
     private String description;
-    private String photoUrl;
     private Boolean isActive;
     private Long categoryId;
 
 }
+
+
+
