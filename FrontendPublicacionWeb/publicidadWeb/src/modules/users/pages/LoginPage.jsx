@@ -22,7 +22,7 @@ const LoginPage = () => {
           maxWidth: "100%",
         }}
       >
-        <LoginForm />
+        <LoginForm z/>
       </Box>
     </Box>
   );
