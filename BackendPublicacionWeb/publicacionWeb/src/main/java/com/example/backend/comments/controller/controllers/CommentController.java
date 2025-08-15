@@ -2,6 +2,7 @@ package com.example.backend.comments.controller.controllers;
 
 import com.example.backend.comments.controller.dto.CommentRequestDTO;
 import com.example.backend.comments.controller.dto.CommentResponseDTO;
+import com.example.backend.comments.service.CommentService;
 import com.example.backend.comments.service.usecase.CreateCommentUsecase;
 import com.example.backend.comments.service.usecase.GetCommentsByProviderUsecase;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,8 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommentController {
 
-    private final CreateCommentUsecase createCommentUsecase;
-    private final GetCommentsByProviderUsecase getCommentsByProviderUsecase;
+    private final CommentService commentService;
 
     @Operation(
             summary = "Crear un nuevo comentario",
@@ -39,14 +39,14 @@ public class CommentController {
                             examples = @ExampleObject(
                                     name = "Ejemplo de respuesta",
                                     value = """
-                    {
-                      "id": 10,
-                      "userId": 3,
-                      "username": "juanperez",
-                      "content": "Muy buen servicio, volveré a contratar.",
-                      "createdAt": "2025-08-13T16:45:23.123"
-                    }
-                    """
+                                            {
+                                              "id": 10,
+                                              "userId": 3,
+                                              "username": "juanperez",
+                                              "content": "Muy buen servicio, volveré a contratar.",
+                                              "createdAt": "2025-08-13T16:45:23.123"
+                                            }
+                                            """
                             )
                     )
             ),
@@ -65,17 +65,17 @@ public class CommentController {
                             examples = @ExampleObject(
                                     name = "Ejemplo de request",
                                     value = """
-                        {
-                          "providerId": 1,
-                          "content": "Muy buen servicio, volveré a contratar."
-                        }
-                        """
+                                            {
+                                              "providerId": 1,
+                                              "content": "Muy buen servicio, volveré a contratar."
+                                            }
+                                            """
                             )
                     )
             )
             @RequestBody CommentRequestDTO request
     ) {
-        CommentResponseDTO response = createCommentUsecase.createComment(request);
+        CommentResponseDTO response = commentService.createComment(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -93,23 +93,23 @@ public class CommentController {
                             examples = @ExampleObject(
                                     name = "Ejemplo de respuesta",
                                     value = """
-                    [
-                      {
-                        "id": 10,
-                        "userId": 3,
-                        "username": "juanperez",
-                        "content": "Muy buen servicio, volveré a contratar.",
-                        "createdAt": "2025-08-13T16:45:23.123"
-                      },
-                      {
-                        "id": 11,
-                        "userId": 4,
-                        "username": "maria",
-                        "content": "Excelente atención y rapidez.",
-                        "createdAt": "2025-08-13T17:02:10.456"
-                      }
-                    ]
-                    """
+                                            [
+                                              {
+                                                "id": 10,
+                                                "userId": 3,
+                                                "username": "juanperez",
+                                                "content": "Muy buen servicio, volveré a contratar.",
+                                                "createdAt": "2025-08-13T16:45:23.123"
+                                              },
+                                              {
+                                                "id": 11,
+                                                "userId": 4,
+                                                "username": "maria",
+                                                "content": "Excelente atención y rapidez.",
+                                                "createdAt": "2025-08-13T17:02:10.456"
+                                              }
+                                            ]
+                                            """
                             )
                     )
             ),
@@ -120,7 +120,7 @@ public class CommentController {
     public ResponseEntity<List<CommentResponseDTO>> getCommentsByProvider(
             @RequestParam Long providerId
     ) {
-        List<CommentResponseDTO> comments = getCommentsByProviderUsecase.getCommentsByProvider(providerId);
+        List<CommentResponseDTO> comments = commentService.getCommentByProvider(providerId);
         return ResponseEntity.ok(comments);
     }
 }

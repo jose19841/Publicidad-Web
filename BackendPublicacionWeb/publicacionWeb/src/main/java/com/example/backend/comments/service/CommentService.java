@@ -23,11 +23,11 @@ public class CommentService {
     private GetCommentsByProviderUsecase getCommentsByProviderUsecase;
 
     // crear comentario
-    public CommentResponseDTO createComment (CommentRequestDTO request){
+    public CommentResponseDTO createComment(CommentRequestDTO request) {
         return createCommentUsecase.createComment(request);
     }
     // Listar comentarios por Prestador
-    public List<CommentResponseDTO> getCommentByProvider(Long providerId){
-        return  getCommentsByProviderUsecase.getCommentsByProvider(providerId);
+    public List<CommentResponseDTO> getCommentByProvider(Long providerId) {
+        return getCommentsByProviderUsecase.getCommentsByProvider(providerId);
     }
 }

@@ -17,7 +17,17 @@ export default function CommentModal({ open, onClose, onConfirm }) {
         </div>
         <footer style={{ padding:12, borderTop:"1px solid var(--ct-border)", background:"var(--ct-surface)", display:"flex", gap:8, justifyContent:"flex-end" }}>
           <button className="ct-btn" onClick={onClose}>Cancelar</button>
-          <button className="ct-btn primary" onClick={()=>onConfirm?.(content)} disabled={!content.trim()}>Publicar</button>
+         <button
+  className="ct-btn primary"
+  onClick={() => {
+    onConfirm?.(content);
+    setContent("");       // limpiar textarea
+    onClose?.();          // opcional: cerrar modal después de publicar
+  }}
+  disabled={!content.trim()}
+>
+  Publicar
+</button>
         </footer>
       </div>
     </div>

@@ -72,9 +72,7 @@ export default function ProviderModal({ open, provider, onClose, onUpdated }) {
   if (!open || !current) return null;
 
   const { id, phone } = current;
-  const waHref = phone
-    ? `https://wa.me/${phone.replace(/[^0-9]/g, "")}`
-    : null;
+  const waHref = phone ? `https://wa.me/${phone.replace(/[^0-9]/g, "")}` : null;
   const telHref = phone ? `tel:${phone}` : null;
 
   const openRate = withAuth(() => setRateOpen(true));
@@ -95,7 +93,7 @@ export default function ProviderModal({ open, provider, onClose, onUpdated }) {
   const handleConfirmComment = async (content) => {
     try {
       await send({ providerId: id, content });
-      refreshComments(); // ✅ actualiza la lista de comentarios
+      refreshComments();
       onUpdated?.(id);
       setCommentOpen(false);
       ok("Comentario enviado", "Gracias por compartir tu experiencia.");
@@ -129,8 +127,11 @@ export default function ProviderModal({ open, provider, onClose, onUpdated }) {
         }}
       >
         <Header provider={current} onClose={onClose} />
-        <Tabs value={tab} onChange={setTab} count={current.totalRatings ?? 0} />
-
+        <Tabs
+          value={tab}
+          onChange={setTab}
+          count={(current?.totalRatings ?? 0) + (comments?.length ?? 0)}
+        />
         <div style={{ padding: 16 }}>
           {tab === "info" ? (
             <InfoSection provider={current} />
@@ -138,7 +139,7 @@ export default function ProviderModal({ open, provider, onClose, onUpdated }) {
             <ReviewsSection
               averageScore={current.averageRating ?? 0}
               ratingsCount={current.totalRatings ?? 0}
-              comments={comments} // ✅ desde el hook
+              comments={comments}
               loading={commentsLoading}
             />
           )}
