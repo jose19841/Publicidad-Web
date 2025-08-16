@@ -1,37 +1,47 @@
 package com.example.backend.users.service;
 
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
 
-/**
- * Servicio responsable de enviar correos electrónicos simples.
- */
 @Service
 @RequiredArgsConstructor
 public class EmailService {
 
-    /**
-     * Componente de Spring encargado del envío de correos.
-     */
     private final JavaMailSender mailSender;
 
     /**
-     * Envía un correo electrónico con asunto y contenido especificados.
-     *
-     * @param to      dirección de correo electrónico del destinatario.
-     * @param subject asunto del correo.
-     * @param content contenido del mensaje.
+     * Enviar email en texto plano
      */
-    public void send(String to, String subject, String content) {
+    public void sendPlain(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
         message.setFrom("info@imperial-net.com");
-
         mailSender.send(message);
+    }
+
+    /**
+     * Enviar email en formato HTML
+     */
+    public void sendHtml(String to, String subject, String htmlContent) {
+        try {
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "UTF-8");
+
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(htmlContent, true); // true = HTML
+            helper.setFrom("info@imperial-net.com");
+
+            mailSender.send(mimeMessage);
+        } catch (Exception e) {
+            throw new RuntimeException("Error enviando correo HTML", e);
+        }
     }
 }

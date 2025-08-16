@@ -28,6 +28,8 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
     @Value("${frontend.base.url}")   // 👈 inyecta la URL base del frontend
     private String frontendBaseUrl;
 
+
+
     /**
      * Envía un token de recuperación de contraseña al correo del usuario.
      *
@@ -36,6 +38,9 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
     @Override
     @Transactional  // 👈 clave para que deleteByUser y save estén en la misma transacción
     public void execute(String email) {
+
+
+
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
@@ -54,11 +59,35 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
 
         String link = frontendBaseUrl + "/reset-password?token=" + token;
 
-        emailService.send(
+        String htmlContent =
+                "<!DOCTYPE html>" +
+                        "<html>" +
+                        "<head>" +
+                        "  <meta charset='UTF-8'>" +
+                        "  <style>" +
+                        "    .container { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 8px; background: #fafafa; }" +
+                        "    h2 { color: #2c3e50; }" +
+                        "    p { color: #555; font-size: 15px; }" +
+                        "    .button { display: inline-block; margin-top: 20px; padding: 12px 20px; background: #1976d2; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }" +
+                        "    .footer { margin-top: 30px; font-size: 12px; color: #888; }" +
+                        "  </style>" +
+                        "</head>" +
+                        "<body>" +
+                        "  <div class='container'>" +
+                        "    <h2>🔑 Recuperación de contraseña</h2>" +
+                        "    <p>Recibimos una solicitud para restablecer tu contraseña. Si fuiste vos, hacé clic en el siguiente botón:</p>" +
+                        "    <a href='" + link + "' class='button'>Restablecer contraseña</a>" +
+                        "    <p>Este enlace expirará en <b>30 minutos</b>. Si no solicitaste este cambio, podés ignorar este mensaje.</p>" +
+                        "    <div class='footer'>Imperial-Net © 2025</div>" +
+                        "  </div>" +
+                        "</body>" +
+                        "</html>";
+
+
+        emailService.sendHtml(
                 email,
                 "Recuperación de contraseña",
-                "Haz clic en el siguiente enlace para restablecer tu contraseña:\n" + link +
-                        "\n\nEste enlace expirará en 30 minutos."
+                htmlContent
         );
     }
 }

@@ -9,6 +9,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import useResetPasswordForm from "../hooks/useResetPassword";
 import "../styles/RecoverPassword.css"; 
+import { Link } from "react-router-dom";
 
 export default function ResetPasswordForm({ token }) {
   const {
@@ -106,6 +107,12 @@ export default function ResetPasswordForm({ token }) {
           </>
         )}
       </Stack>
+
+         <div className="mt-3">
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          Volver al inicio de sesión
+        </Link>
+      </div>
     </form>
   );
 }
