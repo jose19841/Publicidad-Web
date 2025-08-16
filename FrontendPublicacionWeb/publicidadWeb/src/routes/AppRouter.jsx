@@ -12,6 +12,8 @@ import UserListPage from "../modules/users/pages/UserListPage.jsx";
 import UserRegisterPage from "../modules/users/pages/UserRegisterPage.jsx";
 import CreateProviderPage from "../modules/providers/pages/CreateProviderPage.jsx";
 import ProviderListPage from "../modules/providers/pages/ProviderListPage.jsx";
+import RecoverPasswordPage from "../modules/users/pages/RecoverPasswordPage.jsx";
+import ResetPasswordPage from "../modules/users/pages/ResetPasswordPage.jsx";
 
 const AppRouter = () => (
   <Routes>
@@ -19,6 +21,9 @@ const AppRouter = () => (
     <Route path="/login" element={<LoginPage />} />
     <Route path="/register" element={<RegisterPage />} />
     <Route path="/publicaciones" element={<HomePage />} />
+    <Route path="/recuperar-contraseña" element={<RecoverPasswordPage />} />
+     <Route path="/reset-password" element={<ResetPasswordPage />} />
+
 
     {/* Rutas protegidas solo para ADMIN */}
 

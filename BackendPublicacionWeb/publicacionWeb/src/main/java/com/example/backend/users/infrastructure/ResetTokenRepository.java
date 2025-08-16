@@ -1,6 +1,7 @@
 package com.example.backend.users.infrastructure;
 
 import com.example.backend.users.domain.ResetToken;
+import com.example.backend.users.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +22,8 @@ public interface ResetTokenRepository extends JpaRepository<ResetToken, Long> {
      * @return Un {@link Optional} que contiene el {@link ResetToken} si se encuentra en la base de datos, o vacío si no se encuentra.
      */
     Optional<ResetToken> findByToken(String token);
+
+    void deleteByUser(User user);
+
+    Optional<ResetToken> findByUser(User user);
 }

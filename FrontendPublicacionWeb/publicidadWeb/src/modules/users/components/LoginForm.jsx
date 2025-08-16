@@ -72,7 +72,7 @@ export default function LoginForm({ onSuccess, disableNavigate = false }) {
               mt: -0.5
             }}
           >
-            <Link href="/forgot-password" variant="body2" sx={{ color: "text.secondary" }}>
+            <Link href="/recuperar-contraseña" variant="body2" sx={{ color: "text.secondary" }}>
               ¿Olvidaste tu contraseña?
             </Link>
             <Link href="/register" variant="body2" sx={{ fontWeight: 600 }}>
