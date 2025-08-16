@@ -211,5 +211,19 @@ public class ProviderController {
         }
         return ResponseEntity.ok(results);
     }
+    //ENDPOINT PARA HABILITAR UN PRESTADOR POR SU ID
+    @Operation(
+            summary = "Habilitar Prestador",
+            description = "Habilita un prestador por su ID"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Prestador habilitado correctamente"),
+            @ApiResponse(responseCode = "404", description = "Prestador no encontrado")
+    })
+    @PutMapping("/enable/{id}")
+    public ResponseEntity<Void> enable(@PathVariable Long id) {
+        providerService.enable(id);
+        return ResponseEntity.noContent().build();
+    }
 }
 

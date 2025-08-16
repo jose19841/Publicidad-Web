@@ -1,9 +1,10 @@
 // src/modules/providers/hooks/useProvidersTable.js
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Swal from "sweetalert2";
+import disableProviderService from "../services/disableProviderService";
+import editProviderService from "../services/editProviderService"; // solo si lo usás en handleUpdate
+import enableProviderService from "../services/enableProviderService";
 import getProviderService from "../services/getProviderService";
-import deleteProviderService from "../services/deleteProviderService";
-import editProviderService from "../services/editProviderService";
 
 export default function useProvidersTable() {
   const [allData, setAllData] = useState([]);
@@ -65,8 +66,8 @@ export default function useProvidersTable() {
     if (!confirm.isConfirmed) return;
 
     try {
-      await deleteProviderService(provider.id); // 204 No Content
-      markDisabledLocal(provider.id); // Reflejar en UI sin refetch
+      await disableProviderService(provider.id); // DELETE /api/providers/disable/{id} -> 204
+      markDisabledLocal(provider.id);
       Swal.fire("Inhabilitado", "El prestador ha sido inhabilitado.", "success");
     } catch (err) {
       Swal.fire(
@@ -77,7 +78,7 @@ export default function useProvidersTable() {
     }
   };
 
-  // Habilitar (PUT con todo el provider + isActive: true) -> evita 409
+  // Habilitar (usa endpoint dedicado PUT /enable/{id})
   const handleEnable = async (provider) => {
     const confirm = await Swal.fire({
       title: "¿Habilitar prestador?",
@@ -90,8 +91,8 @@ export default function useProvidersTable() {
     if (!confirm.isConfirmed) return;
 
     try {
-      await editProviderService(provider.id, { ...provider, isActive: true }); // <-- FIX
-      markEnabledLocal(provider.id); // Reflejar en UI sin refetch
+      await enableProviderService(provider.id); // PUT /api/providers/enable/{id} -> 204
+      markEnabledLocal(provider.id);
       Swal.fire("Habilitado", "El prestador ha sido habilitado.", "success");
     } catch (err) {
       Swal.fire(
@@ -102,7 +103,7 @@ export default function useProvidersTable() {
     }
   };
 
-  // Actualizar datos del proveedor
+  // Actualizar datos del proveedor (sigue usando tu edit service)
   const handleUpdate = async (id, payload) => {
     try {
       const updated = await editProviderService(id, payload);

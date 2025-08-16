@@ -36,18 +36,31 @@ export async function getProviderById(id) {
 
 export async function searchProviders({ name, category }) {
   try {
-    const params = {};
-    if (name) params.name = name;
-    if (category) params.category = category;
+    let providers = [];
 
-    // ✅ Endpoint público: no enviar cookies para evitar redirección OAuth
-    const { data } = await apiClient.get("/api/providers/search", {
-      params,
-      withCredentials: false,
-    });
+    // ✅ Si hay categoría y no hay búsqueda por nombre → pedimos al backend normalmente
+    if (category && !name) {
+      const { data } = await apiClient.get("/api/providers/search", {
+        params: { category },
+        withCredentials: false,
+      });
+      providers = data || [];
+    } else {
+      // 🚨 Si hay búsqueda por nombre (solo o junto con categoría) → traemos TODO y filtramos en frontend
+      const { data } = await apiClient.get("/api/providers/getAll", {
+        withCredentials: false,
+      });
+      providers = data || [];
+
+      if (category) {
+        providers = providers.filter(p =>
+          p.categoryName?.toLowerCase().includes(category.toLowerCase())
+        );
+      }
+    }
 
     // Normalización para asegurar estructura consistente
-    return (data || []).map(item => ({
+    providers = providers.map(item => ({
       id: item.id,
       name: item.name ?? "",
       lastName: item.lastName ?? "",
@@ -62,6 +75,18 @@ export async function searchProviders({ name, category }) {
       averageRating: item.averageRating ?? 0,
       totalRatings: item.totalRatings ?? 0,
     }));
+
+    // 🔎 Filtro adicional en frontend → nombre, apellido y nombre completo
+    if (name) {
+      const search = name.toLowerCase();
+      providers = providers.filter(p =>
+        p.name.toLowerCase().includes(search) ||
+        p.lastName.toLowerCase().includes(search) ||
+        `${p.name} ${p.lastName}`.toLowerCase().includes(search)
+      );
+    }
+
+    return providers;
   } catch (e) {
     if (e.response?.status === 204) {
       return [];
