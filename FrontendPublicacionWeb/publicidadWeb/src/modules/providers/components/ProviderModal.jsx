@@ -1,99 +1,20 @@
-import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+import React from "react";
 import ImageUpload from "./ImageUpload";
-import useUpdateProvider from "../hooks/useUpdateProvider";
+import useProviderModalLogic from "../hooks/useProviderModalLogic";
 
-export default function ProviderModal({ isOpen, provider, onClose , onSuccess}) {
-  const [formValues, setFormValues] = useState({
-    name: "",
-    lastName: "",
-    address: "",
-    phone: "",
-    description: "",
-    isActive: true,
-  });
-
-  const { update, loading } = useUpdateProvider();
-
-  // keep | replace | remove
-  const [imageAction, setImageAction] = useState("keep");
-  const [imageValue, setImageValue] = useState(null);
-  const [saving, setSaving] = useState(false);
-
-  useEffect(() => {
-    if (provider) {
-      setFormValues({
-        name: provider.name || "",
-        lastName: provider.lastName || "",
-        address: provider.address || "",
-        phone: provider.phone || "",
-        description: provider.description || "",
-        isActive: provider.isActive ?? true,
-        categoryId: provider.categoryId || null,
-      });
-      setImageAction(provider.photoUrl ? "keep" : "replace");
-      setImageValue(provider.photoUrl || null);
-    }
-  }, [provider]);
+export default function ProviderModal({ isOpen, provider, onClose, onSuccess }) {
+  const {
+    formValues,
+    imageAction,
+    setImageAction,
+    imageValue,
+    setImageValue,
+    saving,
+    handleChange,
+    handleSave
+  } = useProviderModalLogic({ provider, onClose, onSuccess });
 
   if (!isOpen) return null;
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormValues((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleSave = async () => {
-    try {
-      setSaving(true);
-
-      const providerData = {
-        name: formValues.name,
-        lastName: formValues.lastName,
-        address: formValues.address,
-        phone: formValues.phone,
-        description: formValues.description,
-        isActive: formValues.isActive,
-        categoryId: formValues.categoryId,
-      };
-
-      const formData = new FormData();
-      formData.append(
-        "provider",
-        new Blob([JSON.stringify(providerData)], { type: "application/json" })
-      );
-
-      if (imageAction === "replace" && typeof imageValue === "object") {
-        formData.append("image", imageValue);
-        formData.append("imageAction", "replace");
-      } else if (imageAction === "remove") {
-        formData.append("imageAction", "remove");
-      } else {
-        formData.append("imageAction", "keep");
-      }
-
-      await update(provider.id, formData, true);
-
-      Swal.fire("Éxito", "Proveedor actualizado correctamente", "success");
-
-      if (onSuccess) {
-        onSuccess(); // refresca tabla y cierra modal
-      } else {
-        onClose();
-      }
-    } catch (err) {
-      Swal.fire(
-        "Error",
-        err?.response?.data?.message || "No se pudo actualizar el proveedor",
-        "error"
-      );
-    } finally {
-      setSaving(false);
-    }
-  };
 
   return (
     <div className="modal show" style={{ display: "block" }}>
@@ -107,7 +28,6 @@ export default function ProviderModal({ isOpen, provider, onClose , onSuccess}) 
           </div>
 
           <div className="modal-body">
-            {/* Campos de texto */}
             {["name", "lastName", "address", "phone"].map((field) => (
               <div className="mb-3" key={field}>
                 <label>{field}</label>
@@ -130,7 +50,6 @@ export default function ProviderModal({ isOpen, provider, onClose , onSuccess}) 
               ></textarea>
             </div>
 
-            {/* Opciones de imagen */}
             <div className="mb-3">
               <label className="form-label">Imagen del proveedor</label>
               <div className="d-flex gap-3 mb-2">

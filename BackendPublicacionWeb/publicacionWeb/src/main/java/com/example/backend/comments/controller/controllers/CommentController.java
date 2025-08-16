@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,6 +56,7 @@ public class CommentController {
             @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
     })
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<CommentResponseDTO> createComment(
             @io.swagger.v3.oas.annotations.parameters.RequestBody(
                     description = "Datos para crear un nuevo comentario",
@@ -116,7 +118,7 @@ public class CommentController {
             @ApiResponse(responseCode = "404", description = "Proveedor no encontrado", content = @Content),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
     })
-    @GetMapping
+    @GetMapping("/getAllByProvider")
     public ResponseEntity<List<CommentResponseDTO>> getCommentsByProvider(
             @RequestParam Long providerId
     ) {

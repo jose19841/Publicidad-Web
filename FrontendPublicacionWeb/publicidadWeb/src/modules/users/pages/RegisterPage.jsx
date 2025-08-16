@@ -1,15 +1,17 @@
 import RegisterForm from "../components/RegisterForm";
 import Box from "@mui/material/Box";
+import "../styles/LoginPage.css"; 
 
 const RegisterPage = () => {
   return (
+    <div className="register-container">
     <Box
       sx={{
         height: "100dvh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-       background: "linear-gradient(135deg, #1c2c76ff, #181818ff)",
+      
       }}
     >
       <Box
@@ -25,6 +27,7 @@ const RegisterPage = () => {
         <RegisterForm />
       </Box>
     </Box>
+    </div>
   );
 };
 

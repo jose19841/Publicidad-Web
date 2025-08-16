@@ -1,9 +1,11 @@
 import ReactDOM from "react-dom";
-import { useAuth } from "../../../context/AuthContext";
 import LoginForm from "../components/LoginForm";
+import useLoginPortal from "../hooks/useLoginPortal";
+import "../styles/LoginPortal.css";
 
 export default function LoginPortal() {
-  const { loginOpen, setLoginOpen, login } = useAuth();
+  const { loginOpen, closePortal, handleSuccess, handleBackdropClick } = useLoginPortal();
+
   if (!loginOpen) return null;
 
   return ReactDOM.createPortal(
@@ -11,48 +13,18 @@ export default function LoginPortal() {
       role="dialog"
       aria-modal="true"
       aria-label="Formulario de inicio de sesión"
-      onClick={(e) => e.target === e.currentTarget && setLoginOpen(false)}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0,0,0,.5)",
-        display: "grid",
-        placeItems: "center",
-        zIndex: 9999,
-        padding: 16,
-      }}
+      className="login-portal-backdrop"
+      onClick={handleBackdropClick}
     >
-      <div
-        style={{
-          width: "min(460px,100%)",
-          background: "white",
-          borderRadius: 12,
-          border: "1px solid var(--ct-border, #eee)",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            padding: 16,
-            borderBottom: "1px solid var(--ct-border, #eee)",
-          }}
-        >
-          
-        </div>
+      <div className="login-portal-container">
+        <div className="login-portal-header"></div>
 
-        <div style={{ padding: 16 }}>
-          <LoginForm
-            disableNavigate
-            onSuccess={(user) => {
-              login(user); 
-              setLoginOpen(false); 
-            }}
-          />
+        <div className="login-portal-body">
+          <LoginForm disableNavigate onSuccess={handleSuccess} />
           <button
             type="button"
-            className="ct-btn-red"
-            onClick={() => setLoginOpen(false)}
-            style={{ marginTop: 8 }}
+            className="ct-btn-red login-portal-cancel"
+            onClick={closePortal}
           >
             Cancelar
           </button>

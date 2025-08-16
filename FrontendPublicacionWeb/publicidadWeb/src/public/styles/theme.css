@@ -27,7 +27,7 @@
   border: 1px solid var(--ct-border);
   padding: 10px 14px;
   border-radius: 10px;
-  background: red;
+  background: rgb(170, 45, 45);
   color: var(--ct-text);
   cursor: pointer;
   font-weight: 600;

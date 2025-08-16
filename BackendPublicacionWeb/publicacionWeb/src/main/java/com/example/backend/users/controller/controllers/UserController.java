@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -35,6 +36,7 @@ public class UserController {
                     @ApiResponse(responseCode = "400", description = "Datos inválidos")
             }
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/userRegister")
     public ResponseEntity<Map<String, String>> userRegister(
             @Valid @RequestBody UserRequestDTO userRequest
@@ -53,6 +55,7 @@ public class UserController {
                     @ApiResponse(responseCode = "200", description = "Lista de usuarios obtenida correctamente")
             }
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getUsers")
     public ResponseEntity<?> getUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
@@ -67,6 +70,7 @@ public class UserController {
                     @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
             }
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(
             @Parameter(description = "ID del usuario", required = true)
@@ -86,6 +90,7 @@ public class UserController {
                     @ApiResponse(responseCode = "400", description = "Error en los datos proporcionados")
             }
     )
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PostMapping("/change-password")
     public ResponseEntity<String> changePassword(
             HttpServletRequest request,

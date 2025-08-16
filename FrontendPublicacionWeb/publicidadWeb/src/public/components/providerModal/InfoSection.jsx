@@ -1,6 +1,6 @@
 // modules/providers/components/ProviderModal/InfoSection.jsx
 import React from "react";
-import StarRating from "../StarRating";
+import StarRating from "../shared/StarRating";
 
 export default function InfoSection({ provider }) {
   const {

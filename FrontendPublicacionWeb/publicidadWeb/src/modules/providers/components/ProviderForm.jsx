@@ -1,143 +1,50 @@
-  import React from "react";
-  import useProviderForm from "../hooks/useProviderForm";
-  import ImageUpload from "./ImageUpload";
+import useProviderForm from "../hooks/useProviderForm";
+import ImageUpload from "./ImageUpload";
+import ProviderNameField from "./fields/ProviderNameField";
+import ProviderLastNameField from "./fields/ProviderLastNameField";
+import ProviderAddressField from "./fields/ProviderAddressField";
+import ProviderPhoneField from "./fields/ProviderPhoneField";
+import ProviderCategoryField from "./fields/ProviderCategoryField";
+import ProviderDescriptionField from "./fields/ProviderDescriptionField";
+import ProviderActiveCheckbox from "./fields/ProviderActiveCheckbox";
 
-  const ProviderForm = ({ onSuccess, editingProvider }) => {
-    const {
-      form,
-      errors,
-      categories,
-      loadingCats,
-      handleChange,
-      handleSubmit,
-      setForm
-    } = useProviderForm({ onSuccess, editingProvider });
+export default function ProviderForm({ onSuccess, editingProvider }) {
+  const {
+    form,
+    errors,
+    categories,
+    loadingCats,
+    handleChange,
+    handleSubmit,
+    setForm
+  } = useProviderForm({ onSuccess, editingProvider });
 
-    return (
-      <form onSubmit={handleSubmit} className="card card-body shadow-sm mb-4">
-        
-        {/* Nombre */}
-        <div className="mb-3">
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="name"
-            value={form.name || ""}
-            onChange={handleChange}
-            className={`form-control ${errors.name ? "is-invalid" : ""}`}
-          />
-          {errors.name && <div className="invalid-feedback">{errors.name}</div>}
-        </div>
+  return (
+    <form onSubmit={handleSubmit} className="card card-body shadow-sm mb-4">
+      <ProviderNameField value={form.name} error={errors.name} onChange={handleChange} />
+      <ProviderLastNameField value={form.lastName} error={errors.lastName} onChange={handleChange} />
+      <ProviderAddressField value={form.address} error={errors.address} onChange={handleChange} />
+      <ProviderPhoneField value={form.phone} error={errors.phone} onChange={handleChange} />
+      <ProviderCategoryField
+        value={form.categoryId}
+        error={errors.categoryId}
+        categories={categories}
+        loading={loadingCats}
+        onChange={handleChange}
+      />
+      <ProviderDescriptionField value={form.description} onChange={handleChange} />
 
-        {/* Apellido */}
-        <div className="mb-3">
-          <label>Apellido</label>
-          <input
-            type="text"
-            name="lastName"
-            value={form.lastName || ""}
-            onChange={handleChange}
-            className={`form-control ${errors.lastName ? "is-invalid" : ""}`}
-          />
-          {errors.lastName && (
-            <div className="invalid-feedback">{errors.lastName}</div>
-          )}
-        </div>
+      <ImageUpload
+        value={form.image}
+        onChange={(file) => setForm({ ...form, image: file })}
+        error={errors.image}
+      />
 
-        {/* Dirección */}
-        <div className="mb-3">
-          <label>Dirección</label>
-          <input
-            type="text"
-            name="address"
-            value={form.address || ""}
-            onChange={handleChange}
-            className={`form-control ${errors.address ? "is-invalid" : ""}`}
-          />
-          {errors.address && (
-            <div className="invalid-feedback">{errors.address}</div>
-          )}
-        </div>
+      <ProviderActiveCheckbox value={form.isActive} onChange={handleChange} />
 
-        {/* Teléfono */}
-        <div className="mb-3">
-          <label>Teléfono</label>
-          <input
-            type="text"
-            name="phone"
-            value={form.phone || ""}
-            onChange={handleChange}
-            className={`form-control ${errors.phone ? "is-invalid" : ""}`}
-          />
-          {errors.phone && (
-            <div className="invalid-feedback">{errors.phone}</div>
-          )}
-        </div>
-
-        {/* Categoría */}
-        <div className="mb-3">
-          <label>Categoría</label>
-          {loadingCats ? (
-            <p>Cargando categorías...</p>
-          ) : (
-            <select
-              name="categoryId"
-              value={form.categoryId || ""}
-              onChange={handleChange}
-              className={`form-control ${errors.categoryId ? "is-invalid" : ""}`}
-            >
-              <option value="">Seleccione una categoría</option>
-              {categories.map((cat) => (
-                <option key={cat.id} value={cat.id}>
-                  {cat.name}
-                </option>
-              ))}
-            </select>
-          )}
-          {errors.categoryId && (
-            <div className="invalid-feedback">{errors.categoryId}</div>
-          )}
-        </div>
-
-        {/* Descripción */}
-        <div className="mb-3">
-          <label>Descripción</label>
-          <textarea
-            name="description"
-            value={form.description || ""}
-            onChange={handleChange}
-            className="form-control"
-          />
-        </div>
-
-        {/* Foto */}
-        <ImageUpload
-    value={form.image}
-    onChange={(file) => setForm({ ...form, image: file })}
-    error={errors.image}
-  />
-
-        {/* Activo */}
-        <div className="form-check mb-3">
-          <input
-            type="checkbox"
-            name="isActive"
-            checked={form.isActive || false}
-            onChange={handleChange}
-            className="form-check-input"
-            id="isActive"
-          />
-          <label htmlFor="isActive" className="form-check-label">
-            Activo
-          </label>
-        </div>
-
-        {/* Botón */}
-        <button type="submit" className="btn btn-primary">
-          {editingProvider ? "Actualizar" : "Crear"} Proveedor
-        </button>
-      </form>
-    );
-  };
-
-  export default ProviderForm;
+      <button type="submit" className="btn btn-primary">
+        {editingProvider ? "Actualizar" : "Crear"} Proveedor
+      </button>
+    </form>
+  );
+}

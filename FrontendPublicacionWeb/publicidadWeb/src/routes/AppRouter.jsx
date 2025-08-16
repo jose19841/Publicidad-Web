@@ -53,32 +53,29 @@ const AppRouter = () => (
       }
     />
 
+    <Route
+      path="/usuarios"
+      element={
+        <PrivateRoute requiredRole="ADMIN">
+          <MainLayout>
+            <UserListPage />
+          </MainLayout>
+        </PrivateRoute>
+      }
+    />
 
     <Route
-  path="/usuarios"
-  element={
-    <PrivateRoute requiredRole="ADMIN">
-      <MainLayout>
-        <UserListPage />
-      </MainLayout>
-    </PrivateRoute>
-  }
-/>
-
+      path="/usuarios/registrar"
+      element={
+        <PrivateRoute requiredRole="ADMIN">
+          <MainLayout>
+            <UserRegisterPage />
+          </MainLayout>
+        </PrivateRoute>
+      }
+    />
 
     <Route
-  path="/usuarios/registrar"
-  element={
-    <PrivateRoute requiredRole="ADMIN">
-      <MainLayout>
-        <UserRegisterPage />
-      </MainLayout>
-    </PrivateRoute>
-  }
-  
-/>
-
-  <Route
       path="/prestadores"
       element={
         <PrivateRoute requiredRole="ADMIN">
@@ -89,18 +86,16 @@ const AppRouter = () => (
       }
     />
 
-<Route
-  path="/prestadores/crear"
-  element={
-    <PrivateRoute requiredRole="ADMIN">
-      <MainLayout>
-        <CreateProviderPage />
-      </MainLayout>
-    </PrivateRoute>
-  }
-  
-/>
-
+    <Route
+      path="/prestadores/crear"
+      element={
+        <PrivateRoute requiredRole="ADMIN">
+          <MainLayout>
+            <CreateProviderPage />
+          </MainLayout>
+        </PrivateRoute>
+      }
+    />
 
     {/* ...más rutas */}
     <Route path="*" element={<Navigate to="/" replace />} />

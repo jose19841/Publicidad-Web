@@ -13,7 +13,7 @@ import {
 export const sidebarSections = [
   {
     title: "Inicio",
-    path: "/",
+    path: "/admin/dashboard",
     icon: <FaHome />,
   },
   {

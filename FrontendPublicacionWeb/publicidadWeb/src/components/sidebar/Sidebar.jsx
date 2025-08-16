@@ -1,28 +1,32 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { sidebarSections } from "./sidebarMenu";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { FaChevronDown, FaChevronRight, FaUserCircle, FaSignOutAlt, FaEdit } from "react-icons/fa";
+import { useAuth } from "../../context/AuthContext"; // <- tu contexto de auth
 
 export default function Sidebar() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [openIndex, setOpenIndex] = useState(null);
 
-  // Devuelve true solo si la ruta es exactamente igual
   const isActivePath = (path) => location.pathname === path;
-
-  // Devuelve true si algún hijo está activo (para abrir el submenú)
-  const hasActiveChild = (children) =>
-    children.some((child) => isActivePath(child.path));
-
-  // Permite que solo un submenú se expanda a la vez
+  const hasActiveChild = (children) => children.some((child) => isActivePath(child.path));
   const handleToggle = (index) => {
     setOpenIndex((prev) => (prev === index ? null : index));
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
-    <aside className="bg-dark text-white p-3" style={{ width: 250 }}>
+    <aside className="bg-dark text-white p-3 d-flex flex-column" style={{ width: 250, minHeight: "100vh" }}>
       <h2 className="fs-4 mb-4 text-center">Panel Admin</h2>
-      <ul className="nav flex-column">
+
+      {/* Menú principal */}
+      <ul className="nav flex-column flex-grow-1">
         {sidebarSections.map((section, idx) =>
           section.children ? (
             <li className="nav-item mb-2" key={section.title}>
@@ -34,17 +38,11 @@ export default function Sidebar() {
               >
                 <span className="me-2">{section.icon}</span>
                 <span className="flex-grow-1 text-start">{section.title}</span>
-                {openIndex === idx || hasActiveChild(section.children) ? (
-                  <FaChevronDown />
-                ) : (
-                  <FaChevronRight />
-                )}
+                {openIndex === idx || hasActiveChild(section.children) ? <FaChevronDown /> : <FaChevronRight />}
               </button>
               <ul
                 className={`nav flex-column ms-3 collapse${
-                  openIndex === idx || hasActiveChild(section.children)
-                    ? " show"
-                    : ""
+                  openIndex === idx || hasActiveChild(section.children) ? " show" : ""
                 }`}
                 style={{ transition: "height 0.2s" }}
               >
@@ -79,6 +77,31 @@ export default function Sidebar() {
           )
         )}
       </ul>
+
+      {/* Sección de usuario */}
+      <div className="border-top pt-3 mt-3">
+        <div className="dropdown">
+          <button
+            className="btn btn-outline-light dropdown-toggle w-100 d-flex align-items-center gap-2"
+            data-bs-toggle="dropdown"
+          >
+            <FaUserCircle size={20} />
+            <span>{user?.name || "Administrador"}</span>
+          </button>
+          <ul className="dropdown-menu dropdown-menu-dark w-100">
+            <li>
+              <Link className="dropdown-item" to="/admin/perfil">
+                <FaEdit /> Editar perfil
+              </Link>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={handleLogout}>
+                <FaSignOutAlt /> Cerrar sesión
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </aside>
   );
 }

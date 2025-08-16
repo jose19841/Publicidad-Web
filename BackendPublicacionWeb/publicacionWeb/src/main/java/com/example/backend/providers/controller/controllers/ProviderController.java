@@ -24,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,7 +42,7 @@ public class ProviderController {
     private final ObjectMapper objectMapper;
 
 
-    //ENDPOINT PARA REGISTRAR UN NUEVO PROVEEDOR CON IMAGEN
+    //ENDPOINT PARA REGISTRAR UN NUEVO PROVEEDOR CON IMAGEN -admin
     @Operation(
             summary = "Registrar proveedor con imagen",
             description = """
@@ -52,6 +53,7 @@ public class ProviderController {
                     El campo <code>image</code> permite adjuntar una imagen opcional del proveedor.
                     """
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ProviderResponseDTO> createProvider(
 
@@ -93,7 +95,7 @@ public class ProviderController {
     }
 
 
-    //ENPOINT PARA LISTAR TODOS LOS PRESTADORES
+    //ENPOINT PARA LISTAR TODOS LOS PRESTADORES - publico
     @Operation(
             summary = "Listar Prestadores",
             description = "Recupera una lista de todos los prestadores"
@@ -130,6 +132,7 @@ public class ProviderController {
                     content = @Content(mediaType = "application/json")
             )
     })
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping(value = "/update/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ProviderResponseDTO> update(
             @Parameter(description = "ID del proveedor a actualizar", example = "1")
@@ -159,6 +162,7 @@ public class ProviderController {
     }
 
     //ENDPOINT PARA INHABILITAR UN PROVEEDOR POR SU ID
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(
             summary = "Inhabilitar Prestador",
             description = "Inhabilita un proveedor por su ID"
@@ -187,7 +191,7 @@ public class ProviderController {
         return ResponseEntity.ok(providerService.search(id));
     }
 
-    //ENDPOINT PARA BUSCAR PRESTADORES POR NOMBRE O RUBRO
+    //ENDPOINT PARA BUSCAR PRESTADORES POR NOMBRE O RUBRO- publico
     @Operation(
             summary = "Buscar prestadores por nombre o rubro",
             description = "Permite buscar prestadores filtrando por nombre, rubro o ambos."

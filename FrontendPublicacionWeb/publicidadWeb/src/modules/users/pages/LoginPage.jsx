@@ -1,30 +1,33 @@
 import LoginForm from "../components/LoginForm";
 import Box from "@mui/material/Box";
+import "../styles/LoginPage.css";
 
 const LoginPage = () => {
   return (
-    <Box
-      sx={{
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "linear-gradient(135deg, #1c2c76ff, #181818ff)",
-      }}
-    >
+    <div className="login-container">
       <Box
         sx={{
-          background: "#fff",
-          padding: 4,
-          borderRadius: 3,
-          boxShadow: 4,
-          width: 400,
-          maxWidth: "100%",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 2,
         }}
       >
-        <LoginForm z/>
+        <Box
+          sx={{
+            background: "#fff",
+            padding: 4,
+            borderRadius: 3,
+            boxShadow: 4,
+            width: 400,
+            maxWidth: "100%",
+          }}
+        >
+          <LoginForm />
+        </Box>
       </Box>
-    </Box>
+    </div>
   );
 };
 
