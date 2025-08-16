@@ -19,6 +19,7 @@ public class ProviderService {
     private final UpdateProviderUsecase updateProviderUsecase;
     private final DisableProviderUsecase disableProviderUsecase;
     private final SearchProviderUsecase searchProviderService;
+    private final EnableProviderUsecase enableProviderUsecase;
 
     public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image) {
         return createProviderUsecase.create(request, image);
@@ -35,8 +36,11 @@ public class ProviderService {
     public void disable(Long id) {
         disableProviderUsecase.disable(id);
     }
+    public void enable(Long id){enableProviderUsecase.enable(id);}
 
     public ProviderResponseDTO search(Long providerId) {
         return searchProviderService.execute(providerId);
     }
 }
+
+
