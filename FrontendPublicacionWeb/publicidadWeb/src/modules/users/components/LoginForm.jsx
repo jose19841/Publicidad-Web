@@ -38,6 +38,7 @@ export default function LoginForm({ onSuccess, disableNavigate = false }) {
             setRememberMe={setRememberMe}
             error={error}
           />
+          
 
           {/* CTA principal */}
           <Button

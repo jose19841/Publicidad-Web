@@ -6,8 +6,8 @@ export const getUsers = async () => {
   return data;
 };
 
-export const deleteUser = async (id) => {
-  await apiClient.delete(`/user/${id}`);
+export const changeStatus = async (id) => {
+  await apiClient.patch(`/user/${id}/status`);
 };
 
 export const updateUser = async (id, userData) => {

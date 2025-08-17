@@ -113,4 +113,18 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> getUserSession(HttpServletRequest request) {
         return ResponseEntity.ok(userService.getUserSession(request));
     }
+
+    //SEXTO ENDPOINT
+    @PatchMapping("/{id}/status")
+    @PreAuthorize("hasRole('ADMIN')")  // Solo ADMIN puede acceder
+    @Operation(
+            summary = "Cambiar estado del usuario",
+            description = "Permite a un administrador habilitar o inhabilitar un usuario enviando solo su ID."
+    )
+    public ResponseEntity<UserResponseDTO> changeStatus(@PathVariable Long id) {
+        UserResponseDTO updated = userService.changeUserStatus(id);
+        return ResponseEntity.ok(updated);
+    }
+
+
 }

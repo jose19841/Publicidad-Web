@@ -4,7 +4,7 @@ import "../styles/LoginPage.css";
 
 const LoginPage = () => {
   return (
-    <div className="login-container">
+    <div className="login-container pt-3 pb-5 ">
       <Box
         sx={{
           height: "100vh",

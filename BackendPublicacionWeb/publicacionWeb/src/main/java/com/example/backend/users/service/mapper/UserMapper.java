@@ -47,7 +47,7 @@ public class UserMapper {
         return UserResponseDTO.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .username(user.getUsername())
+                .username(user.getName())
                 .role(user.getRole())
                 .enabled(user.isEnabled())
                 .createdAt(user.getCreatedAt() != null ? user.getCreatedAt().format(formatter) : null)

@@ -11,6 +11,9 @@ export default function useLoginForm({ onSuccess, disableNavigate }) {
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // 👇 estado para error visible en el form
+  const [socialError, setSocialError] = useState(null);
+
   const { loading, error, handleLogin } = useLogin();
   const navigate = useNavigate();
 
@@ -63,9 +66,17 @@ export default function useLoginForm({ onSuccess, disableNavigate }) {
           else if (me.role === "USER")  navigate("/publicaciones");
           else                          navigate("/");
         }
-      } catch {
-        // No hay sesión todavía
-      }
+      }catch (e) {
+  try {
+    if (popup.location.href.includes("error=disabled")) {
+      clearInterval(timer);
+      popup.close();
+      setSocialError("Usuario Inhabilitado.");
+    }
+  } catch {
+    // Mientras el popup siga en Google (cross-origin), no podemos leer → ignoramos
+  }
+}
     }, 800);
   };
 
@@ -74,7 +85,8 @@ export default function useLoginForm({ onSuccess, disableNavigate }) {
     password, setPassword,
     rememberMe, setRememberMe,
     showPassword, setShowPassword,
-    loading, error,
+    loading,
+    error: error || socialError,   
     onSubmit,
     openGooglePopup
   };

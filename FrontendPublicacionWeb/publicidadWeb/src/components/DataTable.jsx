@@ -53,7 +53,7 @@ const DataTable = ({
                                 className={`dropdown-item${action.variant === "danger" ? " text-danger" : ""}`}
                                 onClick={() => action.onClick && action.onClick(item)}
                               >
-                                {action.label}
+                              {typeof action.label === "function" ? action.label(item) : action.label}
                               </button>
                             </li>
                           ))}

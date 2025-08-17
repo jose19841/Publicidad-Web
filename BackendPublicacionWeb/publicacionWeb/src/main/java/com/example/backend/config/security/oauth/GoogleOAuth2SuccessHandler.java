@@ -1,5 +1,6 @@
 package com.example.backend.config.security.oauth;
 
+import com.example.backend.shared.exceptions.DisabledUserException;
 import com.example.backend.users.domain.Role;
 import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.UserRepository;
@@ -58,6 +59,13 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
                     .build();
             return userRepository.save(u);
         });
+
+        // 🚨 VALIDAR ESTADO
+        if (!user.isEnabled()) {
+            // En lugar de throw → redirigimos al frontend con error
+            res.sendRedirect(FRONTEND_URL + "/login?error=disabled");
+            return;
+        }
 
         // 2) Marcar último login
         user.setLastLoginAt(LocalDateTime.now());

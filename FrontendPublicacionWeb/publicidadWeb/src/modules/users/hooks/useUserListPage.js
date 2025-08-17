@@ -23,7 +23,12 @@ export default function useUserListPage() {
   const columns = [
     { field: "email", label: "Email" },
     { field: "role", label: "Rol" },
-    { field: "enabled", label: "Estado", render: (value) => value ? "Activo" : "Inactivo" },
+    { field: "username", label: "Nombre de usuario" },
+    {
+      field: "enabled",
+      label: "Estado",
+      render: (value) => (value ? "Activo" : "Inactivo"),
+    },
   ];
 
   const actions = [
@@ -35,9 +40,8 @@ export default function useUserListPage() {
       },
     },
     {
-      label: "Eliminar",
-      variant: "danger",
-      onClick: handleDelete,
+      label: (user) => (user.enabled ? "Inhabilitar" : "Habilitar"),
+      onClick: (user) => handleDelete(user),
     },
   ];
 

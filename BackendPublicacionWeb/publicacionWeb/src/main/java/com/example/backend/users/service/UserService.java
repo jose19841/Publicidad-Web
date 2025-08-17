@@ -24,7 +24,7 @@ public class UserService {
     private final SendResetTokenUseCase sendResetToken;
     private final GetUserSessionUseCase getUserSession;
     private final ChangePasswordUseCase changePassword;
-    private final ChangeUserStateUseCase changeUserState;
+    private final ChangeUserStatusUseCase changeUserState;
     private final UpdateUserUseCase updateUser;
     private final GetAllUsersUseCase getAllUsers;
     private final RegisterUserUseCase registerUser;
@@ -40,8 +40,6 @@ public class UserService {
 
     public void updateUser(Long id, UserRequestDTO userRequest) { updateUser.execute(id,userRequest);}
 
-    public void changeUserState(Long id, String newState) { changeUserState.execute(id,newState);}
-
     public void changePassword(HttpServletRequest request, ChangePasswordDTO changePasswordDTO) { changePassword.execute(request,changePasswordDTO); }
 
     public UserResponseDTO getUserSession(HttpServletRequest request) { return getUserSession.execute(request);}
@@ -53,4 +51,6 @@ public class UserService {
     }
 
     public Optional<User> getUserByEmail(String email){return getUserByEmail.execute(email) ;}
+
+    public UserResponseDTO changeUserStatus(Long id) { return changeUserState.execute(id); }
 }

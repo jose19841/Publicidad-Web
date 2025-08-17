@@ -1,6 +1,8 @@
 // src/modules/users/hooks/useUsersTable.js
 import { useState, useEffect } from "react";
-import { getUsers, deleteUser } from "../services/userService";
+import { getUsers, changeStatus } from "../services/userService";
+import Swal from "sweetalert2";
+
 
 export default function useUsersTable(pageSize = 10) {
   const [users, setUsers] = useState([]);
@@ -47,16 +49,40 @@ export default function useUsersTable(pageSize = 10) {
     setPage(1);
   }, [search]);
 
-  // Eliminar usuario
-  const handleDelete = async (user) => {
-    if (!window.confirm(`¿Eliminar a ${user.email}?`)) return;
+  // Cambiar estado del usuario (habilitado/inhabilitado)
+const handleDelete = async (user) => {
+  const result = await Swal.fire({
+    title: "¿Estás seguro?",
+    text: `Se cambiará el estado del usuario: ${user.email}`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, confirmar",
+    cancelButtonText: "Cancelar",
+  });
+
+  if (result.isConfirmed) {
     try {
-      await deleteUser(user.id);
+      await changeStatus(user.id);
       fetchUsers();
+
+      Swal.fire({
+        title: "Hecho",
+        text: "El estado del usuario fue actualizado correctamente",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     } catch (e) {
-      alert("Error al eliminar usuario");
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo actualizar el estado del usuario",
+        icon: "error",
+      });
     }
-  };
+  }
+};
 
   return {
     users: pagedData,

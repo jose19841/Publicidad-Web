@@ -38,6 +38,7 @@ export default function UserListPage() {
         total={total}
         onPageChange={setPage}
       />
+     
       <UserActionsModal
         open={modalOpen}
         user={selectedUser}
