@@ -18,12 +18,14 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Optional;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyMap;
 import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.within;
+
 
 @ExtendWith(MockitoExtension.class)
 class AuthenticationServiceImplTest {
@@ -43,75 +45,65 @@ class AuthenticationServiceImplTest {
     @InjectMocks
     private AuthenticationServiceImpl authenticationService;
 
-
     @Test
-   void intentoDeLoginConUsuarioNoExistente() {
-
-            // Arrange
-            AuthenticationRequest request = new AuthenticationRequest();
-            request.setEmail("noexiste@mail.com");
-            request.setPassword("1234");
-
-            when(userRepository.findByEmail("noexiste@mail.com"))
-                    .thenReturn(Optional.empty());
-
-            // Act + Assert
-            assertThatThrownBy(() -> authenticationService.login(request))
-                    .isInstanceOf(InvalidCredentialsException.class)
-                    .hasMessageContaining("Usuario no encontrado");
-
-            // Verificar que no se llamaron los otros métodos
-            verify(authenticationManager, never()).authenticate(any());
-            verify(userRepository, never()).save(any());
-            verify(jwtService, never()).generateToken(anyMap(), any());
-        }
-
-
-
-
-    @Test
-    void intentoDeLoginConUsuarioDeshabilitado() {
-
-        // Arrange
+    void intentoDeLoginConUsuarioNoExistente() {
         AuthenticationRequest request = new AuthenticationRequest();
-        request.setEmail("info@email.com");
+        request.setEmail("noexiste@mail.com");
         request.setPassword("1234");
-        User user = new User();
-        user.setEmail("info@email.com");
-        user.setEnabled(false); // Usuario deshabilitado
-        when(userRepository.findByEmail("info@email.com"))
-                .thenReturn(Optional.of(user));
-        // Act + Assert
+
+        when(userRepository.findByEmail("noexiste@mail.com"))
+                .thenReturn(Optional.empty());
+
         assertThatThrownBy(() -> authenticationService.login(request))
-                .isInstanceOf(com.example.backend.shared.exceptions.DisabledUserException.class)
-                .hasMessageContaining("El usuario está deshabilitado");
-        // Verificar que no se llamaron los otros métodos
+                .isInstanceOf(InvalidCredentialsException.class)
+                .hasMessageContaining("Usuario no encontrado");
+
         verify(authenticationManager, never()).authenticate(any());
         verify(userRepository, never()).save(any());
         verify(jwtService, never()).generateToken(anyMap(), any());
+    }
 
+    @Test
+    void intentoDeLoginConUsuarioDeshabilitado() {
+        AuthenticationRequest request = new AuthenticationRequest();
+        request.setEmail("info@email.com");
+        request.setPassword("1234");
+
+        User user = new User();
+        user.setEmail("info@email.com");
+        user.setEnabled(false);
+
+        when(userRepository.findByEmail("info@email.com"))
+                .thenReturn(Optional.of(user));
+
+        assertThatThrownBy(() -> authenticationService.login(request))
+                .isInstanceOf(com.example.backend.shared.exceptions.DisabledUserException.class)
+                .hasMessageContaining("El usuario está deshabilitado");
+
+        verify(authenticationManager, never()).authenticate(any());
+        verify(userRepository, never()).save(any());
+        verify(jwtService, never()).generateToken(anyMap(), any());
     }
 
     @Test
     void intentoDeLoginConCredencialesIncorrectas() {
-        // Aquí deberías implementar el test para intentar hacer login con credenciales incorrectas
-        // y verificar que se lanza la excepción InvalidCredentialsException.
-        // Arrange
         AuthenticationRequest request = new AuthenticationRequest();
         request.setEmail("info@email.com");
         request.setPassword("wrongpassword");
+
         User user = new User();
         user.setEmail("info@email.com");
-        user.setEnabled(true); // Usuario habilitado
+        user.setEnabled(true);
+
         when(userRepository.findByEmail("info@email.com"))
                 .thenReturn(Optional.of(user));
         when(authenticationManager.authenticate(any()))
                 .thenThrow(new org.springframework.security.authentication.BadCredentialsException("Bad credentials"));
-        // Act + Assert
+
         assertThatThrownBy(() -> authenticationService.login(request))
                 .isInstanceOf(InvalidCredentialsException.class)
                 .hasMessageContaining("Contraseña incorrecta");
-        // Verificar que no se llamaron los otros métodos
+
         verify(userRepository, never()).save(any());
         verify(jwtService, never()).generateToken(anyMap(), any());
         verify(authenticationManager).authenticate(any());
@@ -119,38 +111,37 @@ class AuthenticationServiceImplTest {
 
     @Test
     void loginExitoso() {
-        // Aquí deberías implementar el test para un login exitoso
-        // y verificar que se devuelve un AuthenticationResponse con un token JWT válido.
-
-        // Arrange
         AuthenticationRequest request = new AuthenticationRequest();
         request.setEmail("info@email.com");
         request.setPassword("1234");
+
         User user = new User();
         user.setEmail("info@email.com");
-        user.setEnabled(true); // Usuario habilitado
-        user.setLastLoginAt(null); // Último login no establecido
+        user.setEnabled(true);
+        user.setLastLoginAt(null);
+
         when(userRepository.findByEmail("info@email.com"))
                 .thenReturn(Optional.of(user));
         when(jwtService.generateToken(anyMap(), any(User.class)))
                 .thenReturn("mocked-jwt-token");
-        // Simular autenticación exitosa
         when(authenticationManager.authenticate(any()))
                 .thenReturn(new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList()));
-        // Act
+
         var response = authenticationService.login(request);
-        // Assert
+
         assertNotNull(response);
         assertEquals("mocked-jwt-token", response.getToken());
-        // Verificar que se actualizó el último login
         verify(userRepository).save(user);
+
         assertNotNull(user.getLastLoginAt());
-        assertTrue(user.getLastLoginAt().isBefore(LocalDateTime.now()));
+
+        // ✅ Verificar que la fecha esté cercana al "ahora" (máx 2 segundos de diferencia)
+        assertThat(user.getLastLoginAt())
+                .isCloseTo(LocalDateTime.now(), within(2, java.time.temporal.ChronoUnit.SECONDS));
     }
 
     @Test
     void errorGenerandoTokenJWT() {
-        // Arrange
         AuthenticationRequest request = new AuthenticationRequest();
         request.setEmail("info@email.com");
         request.setPassword("1234");
@@ -166,53 +157,44 @@ class AuthenticationServiceImplTest {
         when(authenticationManager.authenticate(any()))
                 .thenReturn(new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList()));
 
-        // Act + Assert
         assertThatThrownBy(() -> authenticationService.login(request))
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("Error generando token JWT");
 
-        // ✅ Se actualizó el último login ANTES del fallo
         verify(userRepository).save(user);
         assertNotNull(user.getLastLoginAt());
-
-        // ✅ Sí se intentó generar token y falló
         verify(jwtService).generateToken(anyMap(), any(User.class));
-
-        // ✅ Sí se autenticó
         verify(authenticationManager).authenticate(any());
     }
 
-
     @Test
     void persistenciaDelUltimoLogin() {
-        // Aquí deberías implementar el test para verificar que se actualiza correctamente
-        // el campo lastLoginAt del usuario después de un login exitoso.
-        // Arrange
         AuthenticationRequest request = new AuthenticationRequest();
         request.setEmail("info@email.com");
         request.setPassword("1234");
+
         User user = new User();
         user.setEmail("info@email.com");
-        user.setEnabled(true); // Usuario habilitado
-        user.setLastLoginAt(null); // Último login no establecido
+        user.setEnabled(true);
+        user.setLastLoginAt(null);
+
         when(userRepository.findByEmail("info@email.com"))
                 .thenReturn(Optional.of(user));
         when(jwtService.generateToken(anyMap(), any(User.class)))
                 .thenReturn("mocked-jwt-token");
-        // Simular autenticación exitosa
         when(authenticationManager.authenticate(any()))
                 .thenReturn(new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList()));
-        // Act
+
         var response = authenticationService.login(request);
-        // Assert
+
         assertNotNull(response);
         assertEquals("mocked-jwt-token", response.getToken());
-        // Verificar que se actualizó el último login
         verify(userRepository).save(user);
+
         assertNotNull(user.getLastLoginAt());
-        assertTrue(user.getLastLoginAt().isBefore(LocalDateTime.now()));
 
+        // ✅ Igual que en loginExitoso: usar closeTo
+        assertThat(user.getLastLoginAt())
+                .isCloseTo(LocalDateTime.now(), within(2, java.time.temporal.ChronoUnit.SECONDS));
     }
-
-
 }

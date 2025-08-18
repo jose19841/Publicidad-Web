@@ -20,4 +20,9 @@ public class PublicidadWebApplication {
 		userService.insertAdminUser();
 	}
 
+    @PostConstruct
+    public void checkEnv() {
+        System.out.println("JWT_SECRET = " + System.getenv("JWT_SECRET"));
+    }
+
 }
