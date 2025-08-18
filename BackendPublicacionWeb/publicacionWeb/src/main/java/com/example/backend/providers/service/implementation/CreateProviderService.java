@@ -47,6 +47,12 @@ public class CreateProviderService implements CreateProviderUsecase {
                         "Categoría con id " + request.getCategoryId() + " no encontrada"
                 ));
 
+        if (request.getDescription() != null && request.getDescription().length() > 255) {
+            throw new RuntimeException(
+                    "La descripción no puede superar los 255 caracteres."
+            );
+        }
+
         // 2) Mapear DTO -> Entidad
         validateProviderRequest(request);
         Provider provider = providerMapper.toEntity(request);
