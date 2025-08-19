@@ -63,7 +63,7 @@ class ProviderMapperTest {
         provider.setPhotoUrl("foto.jpg");
         provider.setIsActive(true);
         provider.setCreatedAt(LocalDateTime.now().minusDays(1));
-        provider.setUpdatedAt(LocalDateTime.now());
+        provider.setModifiedAt(LocalDateTime.now());
 
         Category category = new Category();
         category.setName("Electricista");

@@ -54,6 +54,9 @@ class ResetPasswordTest {
         String newPassword = "newPassword123";
         ResetToken expiredToken = new ResetToken();
         expiredToken.setExpiryDate(LocalDateTime.now().minusDays(1));
+        User dummyUser = new User();
+        dummyUser.setEmail("test@test.com");
+        expiredToken.setUser(dummyUser);
         when(resetTokenRepository.findByToken(token)).thenReturn(Optional.of(expiredToken));
         // Act & Assert
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {

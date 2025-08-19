@@ -50,7 +50,7 @@ class EnableProviderServiceTest {
         Exception exception = assertThrows(RuntimeException.class, () -> {
             enableProviderService.enable(providerId);
         });
-        assertEquals("El prestador con el id: " + providerId + " No existe", exception.getMessage());
+        assertEquals("El prestador con el id: " + providerId + " no existe", exception.getMessage());
         verify( providerRepository).findById(providerId);
 
     }

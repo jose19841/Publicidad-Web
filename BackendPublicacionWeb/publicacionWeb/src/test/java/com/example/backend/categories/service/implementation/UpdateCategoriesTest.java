@@ -66,7 +66,7 @@ class UpdateCategoriesTest {
         updated.setName(requestDTO.getName());
         updated.setDescription(requestDTO.getDescription());
         updated.setCreatedAt(createdAt);
-        updated.setUpdatedAt(updatedAt);
+        updated.setModifiedAt(updatedAt);
 
         // Lo que devuelve el mapper al response
         responseDTO = new CategoryResponseDTO(

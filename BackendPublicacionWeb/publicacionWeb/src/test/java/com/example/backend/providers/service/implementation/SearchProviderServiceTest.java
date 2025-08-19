@@ -44,7 +44,7 @@ class SearchProviderServiceTest {
         RuntimeException ex = assertThrows(RuntimeException.class,
                 () -> service.execute(id));
 
-        assertEquals("proveedor no encontrado", ex.getMessage());
+        assertEquals("Proveedor no encontrado", ex.getMessage());
         verify(providerRepository).findById(id);
         verifyNoInteractions(providerSearchRepository, providerMapper, ratingRepository);
     }

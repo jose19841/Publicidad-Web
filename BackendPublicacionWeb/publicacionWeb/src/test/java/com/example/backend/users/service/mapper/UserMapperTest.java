@@ -46,8 +46,6 @@ class UserMapperTest {
                 .username("dtoUser")
                 .role(Role.ADMIN)
                 .enabled(false)
-                .createdAt(LocalDateTime.of(2025, 1, 1, 10, 30))
-                .updatedAt(LocalDateTime.of(2025, 1, 2, 11, 40))
                 .lastLoginAt(LocalDateTime.of(2025, 1, 3, 12, 50))
                 .build();
 
@@ -58,8 +56,6 @@ class UserMapperTest {
         assertThat(dto.getUsername()).isEqualTo("dtoUser");
         assertThat(dto.getRole()).isEqualTo(Role.ADMIN);
         assertThat(dto.isEnabled()).isFalse();
-        assertThat(dto.getCreatedAt()).isEqualTo("01/01/2025 10:30");
-        assertThat(dto.getUpdatedAt()).isEqualTo("02/01/2025 11:40");
         assertThat(dto.getLastLoginAt()).isEqualTo("03/01/2025 12:50");
     }
 
@@ -71,8 +67,6 @@ class UserMapperTest {
                 .username("nullUser")
                 .role(Role.USER)
                 .enabled(true)
-                .createdAt(null)
-                .updatedAt(null)
                 .lastLoginAt(null)
                 .build();
         UserResponseDTO dto = mapper.toDTO(user);
