@@ -1,12 +1,13 @@
 package com.example.backend.categories.domain;
 
+import com.example.backend.shared.auduting.Auditable;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "category",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
-public class Category {
+public class Category extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,15 +19,8 @@ public class Category {
     @Column(length = 255)
     private String description;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column
-    private LocalDateTime updatedAt; // 🔥 Campo agregado
 
     public Category() {}
-
-    // Getters y setters
 
     public Long getId() {
         return id;
@@ -52,19 +46,6 @@ public class Category {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

@@ -2,6 +2,7 @@ package com.example.backend.comments.domain;
 
 
 import com.example.backend.providers.domain.Provider;
+import com.example.backend.shared.auduting.Auditable;
 import com.example.backend.users.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comment {
+public class Comment extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +26,6 @@ public class Comment {
 
     @Column(nullable = false, length = 500)
     private String content;
-
-    @Column(nullable = false,updatable = false)
-    private LocalDateTime createdAt;
 
     // relacion con usuario
     @ManyToOne(optional=false)
@@ -39,8 +37,4 @@ public class Comment {
     @JoinColumn(name = "provider_id", nullable = false)
     private Provider provider;
 
-    @PrePersist
-    public void prepersist(){
-        this.createdAt= LocalDateTime.now();
-    }
 }

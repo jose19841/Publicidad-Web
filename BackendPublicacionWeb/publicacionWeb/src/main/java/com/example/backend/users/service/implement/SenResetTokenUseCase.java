@@ -1,6 +1,5 @@
 package com.example.backend.users.service.implement;
 
-import com.example.backend.config.security.CookieService;
 import com.example.backend.users.domain.ResetToken;
 import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.ResetTokenRepository;
@@ -9,26 +8,24 @@ import com.example.backend.users.service.EmailService;
 import com.example.backend.users.service.usecase.SendResetTokenUseCase;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class SenResetTokenUseCase implements SendResetTokenUseCase {
 
     private final UserRepository userRepository;
     private final ResetTokenRepository resetTokenRepository;
     private final EmailService emailService;
 
-    @Value("${frontend.base.url}")   // 👈 inyecta la URL base del frontend
+    @Value("${frontend.base.url}")
     private String frontendBaseUrl;
-
-
 
     /**
      * Envía un token de recuperación de contraseña al correo del usuario.
@@ -36,20 +33,29 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
      * @param email email del usuario
      */
     @Override
-    @Transactional  // 👈 clave para que deleteByUser y save estén en la misma transacción
+    @Transactional
     public void execute(String email) {
-
-
+        log.info("Iniciando proceso de envío de token de recuperación para el email: {}", email);
 
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> {
+                    log.error("Usuario con email {} no encontrado en la base de datos", email);
+                    return new RuntimeException("Usuario no encontrado");
+                });
 
-        //  Buscar token existente
+        log.debug("Usuario encontrado: ID={}, email={}", user.getId(), user.getEmail());
+
+        // Buscar token existente
         resetTokenRepository.findByUser(user).ifPresent(existingToken -> {
             if (existingToken.getExpiryDate().isBefore(LocalDateTime.now())) {
-                resetTokenRepository.delete(existingToken); // está vencido, lo borro
+                log.info("Token existente para el usuario {} vencido. Eliminando token anterior...", user.getEmail());
+                resetTokenRepository.delete(existingToken);
             } else {
-                throw new IllegalStateException("Ya se ha enviado el correo de recuperación correctamente. Verifique su casilla de correo o en la sección de Spam.");
+                log.error("Se intentó generar un token para {} pero ya existe uno vigente hasta {}",
+                        user.getEmail(), existingToken.getExpiryDate());
+                throw new IllegalStateException(
+                        "Ya se ha enviado el correo de recuperación correctamente. Verifique su casilla de correo o en la sección de Spam."
+                );
             }
         });
 
@@ -57,7 +63,11 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
         ResetToken resetToken = new ResetToken(token, user, LocalDateTime.now().plusMinutes(30));
         resetTokenRepository.save(resetToken);
 
+        log.info("Nuevo token generado y guardado para el usuario {} con expiración en 30 minutos", user.getEmail());
+        log.debug("Token generado: {}", token);
+
         String link = frontendBaseUrl + "/reset-password?token=" + token;
+        log.debug("Enlace de recuperación generado: {}", link);
 
         String htmlContent =
                 "<!DOCTYPE html>" +
@@ -83,11 +93,7 @@ public class SenResetTokenUseCase implements SendResetTokenUseCase {
                         "</body>" +
                         "</html>";
 
-
-        emailService.sendHtml(
-                email,
-                "Recuperación de contraseña",
-                htmlContent
-        );
+        emailService.sendHtml(email, "Recuperación de contraseña", htmlContent);
+        log.info("Correo de recuperación enviado exitosamente a {}", email);
     }
 }

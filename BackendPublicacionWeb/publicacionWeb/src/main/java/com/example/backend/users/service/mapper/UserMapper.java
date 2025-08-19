@@ -51,7 +51,7 @@ public class UserMapper {
                 .role(user.getRole())
                 .enabled(user.isEnabled())
                 .createdAt(user.getCreatedAt() != null ? user.getCreatedAt().format(formatter) : null)
-                .updatedAt(user.getUpdatedAt() != null ? user.getUpdatedAt().format(formatter) : null)
+                .updatedAt(user.getModifiedAt() != null ? user.getModifiedAt().format(formatter) : null)
                 .lastLoginAt(user.getLastLoginAt() != null ? user.getLastLoginAt().format(formatter) : null)
                 .build();
     }

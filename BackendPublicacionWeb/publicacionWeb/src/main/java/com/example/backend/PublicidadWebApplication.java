@@ -5,8 +5,10 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class PublicidadWebApplication {
 
 	@Autowired
@@ -20,9 +22,5 @@ public class PublicidadWebApplication {
 		userService.insertAdminUser();
 	}
 
-    @PostConstruct
-    public void checkEnv() {
-        System.out.println("JWT_SECRET = " + System.getenv("JWT_SECRET"));
-    }
 
 }

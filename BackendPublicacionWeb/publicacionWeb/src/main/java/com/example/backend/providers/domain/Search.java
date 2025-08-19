@@ -1,5 +1,6 @@
 package com.example.backend.providers.domain;
 
+import com.example.backend.shared.auduting.Auditable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

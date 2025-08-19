@@ -9,6 +9,7 @@ import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.UserRepository;
 import com.example.backend.users.service.usecase.AuthenticationUseCase;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,8 +18,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationUseCase {
@@ -30,10 +31,16 @@ public class AuthenticationServiceImpl implements AuthenticationUseCase {
 
     @Override
     public AuthenticationResponse login(AuthenticationRequest request) {
-        var user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new InvalidCredentialsException("Usuario no encontrado."));
+        log.debug("Intento de login recibido para email={}", request.getEmail());
+
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> {
+                    log.error("Usuario no encontrado con email={}", request.getEmail());
+                    return new InvalidCredentialsException("Usuario no encontrado.");
+                });
 
         if (!user.isEnabled()) {
+            log.warn("Intento de login para usuario deshabilitado, email={}", user.getEmail());
             throw new DisabledUserException("El usuario está deshabilitado.");
         }
 
@@ -44,16 +51,20 @@ public class AuthenticationServiceImpl implements AuthenticationUseCase {
                             request.getPassword()
                     )
             );
+            log.debug("Autenticación exitosa para usuario id={}, email={}", user.getId(), user.getEmail());
         } catch (Exception e) {
+            log.error("Contraseña incorrecta para usuario email={}", request.getEmail());
             throw new InvalidCredentialsException("Contraseña incorrecta.");
         }
 
         // Actualizar último login
         user.setLastLoginAt(LocalDateTime.now());
         userRepository.save(user);
+        log.info("Último login actualizado para usuario id={}, email={}", user.getId(), user.getEmail());
 
         Map<String, Object> claims = new HashMap<>();
         String jwt = jwtService.generateToken(claims, user);
+        log.info("JWT generado exitosamente para usuario id={}", user.getId());
 
         return AuthenticationResponse.builder()
                 .token(jwt)

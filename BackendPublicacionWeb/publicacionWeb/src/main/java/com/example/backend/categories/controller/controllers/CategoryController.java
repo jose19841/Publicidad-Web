@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("api/categories")
-@Tag(name = "Categorías", description = "API para administrar categrias")
+@Tag(name = "Categorías", description = "API para administrar categorías")
 public class CategoryController {
 
     @Autowired
@@ -35,7 +37,9 @@ public class CategoryController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CategoryResponseDTO> createCategory(
             @Valid @RequestBody CategoryRequestDTO requestDTO) {
+        log.info("Petición recibida para crear categoría con nombre={}", requestDTO.getName());
         CategoryResponseDTO response = categoryService.createCategory(requestDTO);
+        log.info("Categoría creada con id={} y nombre={}", response.getId(), response.getName());
         return ResponseEntity.ok(response);
     }
 
@@ -46,7 +50,9 @@ public class CategoryController {
     @ApiResponse(responseCode = "200", description = "List of categories retrieved successfully")
     @GetMapping
     public ResponseEntity<List<CategoryResponseDTO>> getAllCategories() {
+        log.info("Petición recibida para listar todas las categorías");
         List<CategoryResponseDTO> categories = categoryService.getAllCategories();
+        log.info("Se recuperaron {} categorías", categories.size());
         return ResponseEntity.ok(categories);
     }
 
@@ -64,7 +70,9 @@ public class CategoryController {
     public ResponseEntity<CategoryResponseDTO> updateCategory(
             @PathVariable Long id,
             @Valid @RequestBody CategoryRequestDTO requestDTO) {
+        log.info("Petición recibida para actualizar categoría id={} con nuevos datos", id);
         CategoryResponseDTO updated = categoryService.updateCategory(id, requestDTO);
+        log.info("Categoría actualizada id={} nuevoNombre={}", updated.getId(), updated.getName());
         return ResponseEntity.ok(updated);
     }
 
@@ -79,7 +87,9 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        log.info("Petición recibida para eliminar categoría id={}", id);
         categoryService.deleteCategory(id);
+        log.info("Categoría eliminada id={}", id);
         return ResponseEntity.noContent().build();
     }
 }

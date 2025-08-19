@@ -10,9 +10,11 @@ import com.example.backend.users.service.usecase.GetUserByEmailUseCase;
 import com.example.backend.users.service.usecase.LoginUseCase;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class LoginService implements LoginUseCase {
@@ -24,15 +26,26 @@ public class LoginService implements LoginUseCase {
 
     @Override
     public UserResponseDTO execute(AuthenticationRequest request, HttpServletResponse response) {
+        log.info("Intentando autenticar usuario con email: {}", request.getEmail());
+
         // Autenticación y generación del token
         AuthenticationResponse authResponse = authentication.login(request);
+        log.debug("Token JWT generado para usuario {}", request.getEmail());
 
         // Crear cookie con el token
         ResponseCookie cookie = cookieService.createAuthCookie(authResponse.getToken());
         response.addHeader("Set-Cookie", cookie.toString());
+        log.info("Cookie de autenticación creada y añadida a la respuesta para usuario {}", request.getEmail());
 
         // Retornar DTO del usuario autenticado
-        return userMapper
-                .toDTO(getUserByEmail.execute(request.getEmail()).get());
+        UserResponseDTO userDTO = userMapper.toDTO(
+                getUserByEmail.execute(request.getEmail()).orElseThrow(() -> {
+                    log.error("No se encontró el usuario con email {} después de autenticar.", request.getEmail());
+                    return new RuntimeException("Usuario no encontrado tras autenticación.");
+                })
+        );
+
+        log.info("Usuario {} autenticado exitosamente con ID {}", userDTO.getEmail(), userDTO.getId());
+        return userDTO;
     }
 }

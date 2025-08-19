@@ -3,8 +3,6 @@ package com.example.backend.comments.controller.controllers;
 import com.example.backend.comments.controller.dto.CommentRequestDTO;
 import com.example.backend.comments.controller.dto.CommentResponseDTO;
 import com.example.backend.comments.service.CommentService;
-import com.example.backend.comments.service.usecase.CreateCommentUsecase;
-import com.example.backend.comments.service.usecase.GetCommentsByProviderUsecase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -13,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/comments")
 @RequiredArgsConstructor
@@ -33,26 +33,7 @@ public class CommentController {
             description = "Crea un comentario asociado a un proveedor usando el usuario autenticado"
     )
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "201",
-                    description = "Comentario creado correctamente",
-                    content = @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = CommentResponseDTO.class),
-                            examples = @ExampleObject(
-                                    name = "Ejemplo de respuesta",
-                                    value = """
-                                            {
-                                              "id": 10,
-                                              "userId": 3,
-                                              "username": "juanperez",
-                                              "content": "Muy buen servicio, volveré a contratar.",
-                                              "createdAt": "2025-08-13T16:45:23.123"
-                                            }
-                                            """
-                            )
-                    )
-            ),
+            @ApiResponse(responseCode = "201", description = "Comentario creado correctamente"),
             @ApiResponse(responseCode = "400", description = "Datos inválidos o incompletos", content = @Content),
             @ApiResponse(responseCode = "404", description = "Usuario o proveedor no encontrado", content = @Content),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
@@ -79,8 +60,17 @@ public class CommentController {
             )
             @RequestBody CommentRequestDTO request
     ) {
-        CommentResponseDTO response = commentService.createComment(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        log.info("→ [CommentController] Solicitud para crear comentario sobre providerId={} con contenido='{}'",
+                request.getProviderId(), request.getContent());
+        try {
+            CommentResponseDTO response = commentService.createComment(request);
+            log.info("✓ [CommentController] Comentario creado id={} userId={} providerId={}",
+                    response.getId(), response.getUserId(), request.getProviderId());
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        } catch (Exception e) {
+            log.error("✗ [CommentController] Error al crear comentario para providerId={}", request.getProviderId(), e);
+            throw e;
+        }
     }
 
     @Operation(
@@ -88,35 +78,7 @@ public class CommentController {
             description = "Devuelve la lista de comentarios asociados a un proveedor identificado por su ID"
     )
     @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Lista de comentarios obtenida correctamente",
-                    content = @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = CommentResponseDTO.class),
-                            examples = @ExampleObject(
-                                    name = "Ejemplo de respuesta",
-                                    value = """
-                                            [
-                                              {
-                                                "id": 10,
-                                                "userId": 3,
-                                                "username": "juanperez",
-                                                "content": "Muy buen servicio, volveré a contratar.",
-                                                "createdAt": "2025-08-13T16:45:23.123"
-                                              },
-                                              {
-                                                "id": 11,
-                                                "userId": 4,
-                                                "username": "maria",
-                                                "content": "Excelente atención y rapidez.",
-                                                "createdAt": "2025-08-13T17:02:10.456"
-                                              }
-                                            ]
-                                            """
-                            )
-                    )
-            ),
+            @ApiResponse(responseCode = "200", description = "Lista de comentarios obtenida correctamente"),
             @ApiResponse(responseCode = "404", description = "Proveedor no encontrado", content = @Content),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
     })
@@ -124,7 +86,15 @@ public class CommentController {
     public ResponseEntity<List<CommentResponseDTO>> getCommentsByProvider(
             @RequestParam Long providerId
     ) {
-        List<CommentResponseDTO> comments = commentService.getCommentByProvider(providerId);
-        return ResponseEntity.ok(comments);
+        log.info("→ [CommentController] Solicitud para obtener comentarios del providerId={}", providerId);
+        try {
+            List<CommentResponseDTO> comments = commentService.getCommentByProvider(providerId);
+            log.info("✓ [CommentController] Se recuperaron {} comentarios para providerId={}",
+                    comments.size(), providerId);
+            return ResponseEntity.ok(comments);
+        } catch (Exception e) {
+            log.error("✗ [CommentController] Error al recuperar comentarios para providerId={}", providerId, e);
+            throw e;
+        }
     }
 }

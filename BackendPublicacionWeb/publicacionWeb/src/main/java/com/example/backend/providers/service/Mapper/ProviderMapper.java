@@ -29,7 +29,7 @@ public class ProviderMapper {
         dto.setPhotoUrl(entity.getPhotoUrl());
         dto.setIsActive(entity.getIsActive());
         dto.setCreatedAt(entity.getCreatedAt());
-        dto.setUpdatedAt(entity.getUpdatedAt());
+        dto.setUpdatedAt(entity.getModifiedAt());
         if (entity.getCategory() != null) {
             dto.setCategoryName(entity.getCategory().getName());
         }

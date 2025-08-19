@@ -7,11 +7,13 @@ import com.example.backend.users.service.mapper.UserMapper;
 import com.example.backend.users.service.usecase.GetUserSessionUseCase;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class GetUserSession implements GetUserSessionUseCase {
@@ -27,10 +29,19 @@ public class GetUserSession implements GetUserSessionUseCase {
      */
     @Override
     public UserResponseDTO execute(HttpServletRequest request) {
+        log.debug("Buscando usuario autenticado en la cookie de sesión...");
+
         Optional<User> optionalUser = cookieService.getUserFromCookie(request);
+
         if (optionalUser.isEmpty()) {
+            log.warn("No se encontró usuario autenticado en la cookie de sesión.");
             throw new AuthenticationCredentialsNotFoundException("Usuario no autenticado");
         }
-        return userMapper.toDTO(optionalUser.get());
+
+        UserResponseDTO dto = userMapper.toDTO(optionalUser.get());
+        log.info("Sesión válida encontrada. Usuario autenticado: id={}, email={}",
+                dto.getId(), dto.getEmail());
+
+        return dto;
     }
 }

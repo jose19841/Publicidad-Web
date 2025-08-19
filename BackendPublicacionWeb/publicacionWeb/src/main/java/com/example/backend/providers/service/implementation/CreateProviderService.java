@@ -9,6 +9,7 @@ import com.example.backend.providers.infrastructure.ProviderRepository;
 import com.example.backend.providers.service.Mapper.ProviderMapper;
 import com.example.backend.providers.service.usecase.CreateProviderUsecase;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,69 +22,70 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CreateProviderService implements CreateProviderUsecase {
 
     private final ProviderRepository providerRepository;
     private final ProviderMapper providerMapper;
     private final CategoryRepository categoryRepository;
 
-    // Carpeta base (configúrala en application.properties: file.upload.dir=./uploads)
     @Value("${file.upload.dir:./uploads}")
     private String uploadDir;
 
-    // Opcional, si querés devolver URL absoluta: app.base-url=https://tusitio.com
     @Value("${app.base-url:}")
     private String baseUrl;
 
-    /**
-     * Crea un proveedor y opcionalmente guarda su imagen en disco.
-     * La imagen debe llegar por @RequestPart("image") como MultipartFile.
-     */
     @Override
     public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image) {
+        log.info("Iniciando creación de proveedor con nombre: {} {}", request.getName(), request.getLastName());
+
         // 1) Validar categoría
         Category category = categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new RuntimeException(
-                        "Categoría con id " + request.getCategoryId() + " no encontrada"
-                ));
+                .orElseThrow(() -> {
+                    log.error("Categoría con id {} no encontrada", request.getCategoryId());
+                    return new RuntimeException("Categoría con id " + request.getCategoryId() + " no encontrada");
+                });
 
         if (request.getDescription() != null && request.getDescription().length() > 255) {
-            throw new RuntimeException(
-                    "La descripción no puede superar los 255 caracteres."
-            );
+            log.error("Descripción excede los 255 caracteres: {}", request.getDescription().length());
+            throw new RuntimeException("La descripción no puede superar los 255 caracteres.");
         }
 
         // 2) Mapear DTO -> Entidad
         validateProviderRequest(request);
         Provider provider = providerMapper.toEntity(request);
         provider.setCategory(category);
+        log.debug("Proveedor mapeado: {}", provider);
 
-        // 3) Si hay imagen, guardarla y setear photoUrl
+        // 3) Guardar imagen si existe
         if (image != null && !image.isEmpty()) {
+            log.info("Procesando imagen para proveedor...");
             String photoUrl = storeImage(image, "proveedores");
             provider.setPhotoUrl(photoUrl);
+            log.debug("Imagen guardada en: {}", photoUrl);
         }
 
         // 4) Persistir
         Provider saved = providerRepository.save(provider);
+        log.info("Proveedor creado con id: {}", saved.getId());
+
         return providerMapper.toDTO(saved);
     }
 
-    /**
-     * Guarda la imagen en: {uploadDir}/{subfolder}/{uuid}.{ext}
-     * Devuelve la URL pública: /uploads/{subfolder}/{filename} (o absoluta si app.base-url está definido)
-     */
     private String storeImage(MultipartFile file, String subfolder) {
+        log.debug("Almacenando imagen en subcarpeta: {}", subfolder);
+
         // Validar tipo
         String contentType = file.getContentType();
         if (contentType == null ||
                 !(contentType.equals("image/jpeg")
                         || contentType.equals("image/png")
                         || contentType.equals("image/webp"))) {
+            log.error("Formato de imagen inválido: {}", contentType);
             throw new RuntimeException("Formato de imagen inválido. Use JPG, PNG o WEBP.");
         }
 
-        // Determinar extensión por contentType
+        // Determinar extensión
         String ext = switch (contentType) {
             case "image/jpeg" -> ".jpg";
             case "image/png" -> ".png";
@@ -91,20 +93,19 @@ public class CreateProviderService implements CreateProviderUsecase {
             default -> "";
         };
 
-        // Generar nombre seguro
         String filename = UUID.randomUUID() + ext;
-
-        // Crear carpeta si no existe
         Path targetFolder = Paths.get(uploadDir, subfolder).toAbsolutePath().normalize();
+
         try {
             Files.createDirectories(targetFolder);
             Path target = targetFolder.resolve(filename);
             file.transferTo(target.toFile());
+            log.info("Imagen guardada en ruta local: {}", target);
         } catch (IOException e) {
+            log.error("Error al guardar la imagen", e);
             throw new RuntimeException("No se pudo guardar la imagen", e);
         }
 
-        // Construir URL pública
         String publicPath = "/uploads/" + subfolder + "/" + filename;
         if (baseUrl != null && !baseUrl.isBlank()) {
             return baseUrl + publicPath;
@@ -112,33 +113,26 @@ public class CreateProviderService implements CreateProviderUsecase {
         return publicPath;
     }
 
-    /**
-     * Valida que los datos del proveedor cumplan las reglas del negocio.
-     * Lanza RuntimeException (o una excepción custom) con mensajes claros.
-     */
     private void validateProviderRequest(ProviderRequestDTO request) {
-        // Validar nombre único
+        log.debug("Validando datos del proveedor...");
+
         if (providerRepository.existsByNameAndLastName(
                 request.getName().trim(),
                 request.getLastName().trim()
         )) {
-            throw new RuntimeException(
-                    "Ya existe un proveedor registrado con el nombre y apellido indicados."
-            );
+            log.error("Duplicado: nombre={} apellido={}", request.getName(), request.getLastName());
+            throw new RuntimeException("Ya existe un proveedor registrado con el nombre y apellido indicados.");
         }
 
-        // Validar teléfono único
         if (providerRepository.existsByPhone(request.getPhone().trim())) {
-            throw new RuntimeException(
-                    "El teléfono ingresado ya está asociado a otro proveedor."
-            );
+            log.error("Teléfono duplicado: {}", request.getPhone());
+            throw new RuntimeException("El teléfono ingresado ya está asociado a otro proveedor.");
         }
 
-        // Validar descripción mínima
         if (request.getDescription() == null || request.getDescription().length() < 10) {
-            throw new RuntimeException(
-                    "La descripción debe tener al menos 10 caracteres."
-            );
+            log.error("Descripción inválida: {}", request.getDescription());
+            throw new RuntimeException("La descripción debe tener al menos 10 caracteres.");
         }
+        log.debug("Validación de proveedor exitosa");
     }
 }

@@ -12,16 +12,19 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Map;
 
 @RestController
 @RequestMapping("/providers/{providerId}/ratings")
 @RequiredArgsConstructor
 @Tag(name = "Ratings", description = "Endpoints para calificar prestadores")
+@Slf4j
 public class RatingController {
 
     private final RateProviderUseCase rateProviderUseCase;
@@ -50,21 +53,26 @@ public class RatingController {
             @Valid @RequestBody CreateRatingRequest request,
             HttpServletRequest httpRequest) {
 
-        // 1) Tomar usuario de la cookie JWT
+        log.info("Solicitud de calificación recibida -> providerId={}, score={}", providerId, request.getScore());
+
         var userOpt = cookieService.getUserFromCookie(httpRequest);
         if (userOpt.isEmpty()) {
+            log.warn("Intento de calificar proveedor {} con sesión inválida o expirada", providerId);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Map.of("error", "Sesión no válida o expirada."));
         }
 
         var user = userOpt.get();
+        log.debug("Usuario autenticado id={} calificando proveedor {}", user.getId(), providerId);
 
-        // 2) Ejecutar el caso de uso (como lo definimos)
         RatingResponse resp = rateProviderUseCase.execute(
                 providerId,
-                user.getId(),            // <-- id del usuario autenticado
+                user.getId(),
                 request.getScore()
         );
+
+        log.info("Proveedor {} calificado exitosamente por usuario {} con score={}",
+                providerId, user.getId(), request.getScore());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }

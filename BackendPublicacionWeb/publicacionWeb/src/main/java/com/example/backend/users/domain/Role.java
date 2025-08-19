@@ -8,7 +8,7 @@ package com.example.backend.users.domain;
  * - USER: Rol estándar para los usuarios normales, con acceso restringido a ciertas funcionalidades.
  * - ADMIN: Rol para los administradores, con permisos completos para gestionar la aplicación.
  */
-public enum Role {
+public enum Role  {
     USER,  // Rol para usuarios estándar con permisos limitados.
     ADMIN  // Rol para administradores con permisos completos.
 }

@@ -7,6 +7,7 @@ import com.example.backend.users.infrastructure.UserRepository;
 import com.example.backend.config.security.JwtService;
 import com.example.backend.config.security.CookieService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -20,6 +21,7 @@ import java.text.Normalizer;
 import java.util.Map;
 import java.util.UUID;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler {
@@ -35,16 +37,21 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
     public void onAuthenticationSuccess(HttpServletRequest req,
                                         HttpServletResponse res,
                                         Authentication authentication) throws IOException {
+        log.info("✅ Inicio de autenticación con Google OAuth2");
 
         OAuth2User principal = (OAuth2User) authentication.getPrincipal();
-        Map<String, Object> a = principal.getAttributes();
+        Map<String, Object> attributes = principal.getAttributes();
+        log.debug("Atributos recibidos de Google: {}", attributes);
 
-        String email = (String) a.get("email");
-        String name  = (String) a.getOrDefault("name",
-                (String) a.getOrDefault("given_name", "Google User"));
+        String email = (String) attributes.get("email");
+        String name  = (String) attributes.getOrDefault("name",
+                (String) attributes.getOrDefault("given_name", "Google User"));
 
-        // 1) Crear si no existe (username único y password dummy)
+        log.info("📧 Usuario autenticado por Google con email: {}", email);
+
+        // 1) Crear si no existe
         User user = userRepository.findByEmail(email).orElseGet(() -> {
+            log.info("Usuario con email {} no existe en DB, creando nuevo...", email);
             String baseUsername = email != null ? email.split("@")[0] : name;
             String username = makeUniqueUsername(slug(baseUsername));
 
@@ -57,12 +64,14 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
                     .accountLocked(false)
                     .loginAttempts(0)
                     .build();
+
+            log.info("Nuevo usuario creado con username: {}", username);
             return userRepository.save(u);
         });
 
         // 🚨 VALIDAR ESTADO
         if (!user.isEnabled()) {
-            // En lugar de throw → redirigimos al frontend con error
+            log.warn("❌ Usuario {} está deshabilitado. Redirigiendo a frontend con error...", user.getEmail());
             res.sendRedirect(FRONTEND_URL + "/login?error=disabled");
             return;
         }
@@ -71,14 +80,17 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
         user.setLastLoginAt(LocalDateTime.now());
         user.setLoginAttempts(0);
         userRepository.save(user);
+        log.info("🕒 Último login actualizado para usuario: {}", user.getEmail());
 
-        // 3) Emitir tu JWT y ponerlo en cookie
-        String jwt = jwtService.generateToken(user);                // usa tu método real
-        var cookie = cookieService.createAuthCookie(jwt);           // httpOnly / Secure en prod
+        // 3) Emitir JWT y ponerlo en cookie
+        String jwt = jwtService.generateToken(user);
+        var cookie = cookieService.createAuthCookie(jwt);
         res.addHeader("Set-Cookie", cookie.toString());
+        log.info("🔑 JWT generado y agregado en cookie para usuario {}", user.getEmail());
 
         // 4) Redirigir al frontend ya logueado
         res.sendRedirect(FRONTEND_URL + "/");
+        log.info("✅ Autenticación exitosa, redirigiendo al frontend");
     }
 
     // Helpers -----------------------------
@@ -96,6 +108,7 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
             i++;
             candidate = base + i;
         }
+        log.debug("Generado username único: {}", candidate);
         return candidate;
     }
 }

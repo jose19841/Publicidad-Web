@@ -1,0 +1,844 @@
+2025-08-19 00:16:06.602 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 46652 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 00:16:06.607 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 00:16:06.685 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 00:16:06.692 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 00:16:08.551 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 00:16:08.762 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 194 ms. Found 7 JPA repository interfaces.
+2025-08-19 00:16:09.887 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 00:16:09.930 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 00:16:09.931 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 00:16:10.027 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 00:16:10.028 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3335 ms
+2025-08-19 00:16:10.333 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 00:16:10.475 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 00:16:10.542 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 00:16:11.054 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 00:16:11.099 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 00:16:11.323 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44425459
+2025-08-19 00:16:11.325 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 00:16:11.351 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 00:16:11.355 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 00:16:11.396 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 00:16:12.552 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 00:16:12.712 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 00:16:13.662 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 00:16:14.649 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 00:16:14.651 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 00:16:14.977 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 00:16:15.752 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 00:16:15.789 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 00:16:15.801 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.002 seconds (process running for 10.788)
+2025-08-19 00:17:35.057 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 00:17:35.058 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 00:17:35.059 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-19 00:17:36.962 INFO  [http-nio-8080-exec-9] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1337 ms
+2025-08-19 00:18:26.542 INFO  [http-nio-8080-exec-3] c.e.b.c.c.c.CategoryController - Petición recibida para crear categoría con nombre=ELECTRICIDAD
+2025-08-19 00:18:26.581 INFO  [http-nio-8080-exec-3] c.e.b.c.c.c.CategoryController - Categoría creada con id=6 y nombre=ELECTRICIDAD
+2025-08-19 00:29:38.354 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 00:29:38.392 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 00:29:38.404 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 00:29:38.412 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 00:29:38.424 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 00:29:44.743 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 41744 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 00:29:44.748 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 00:29:44.830 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 00:29:44.830 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 00:29:46.789 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 00:29:47.028 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 217 ms. Found 7 JPA repository interfaces.
+2025-08-19 00:29:48.189 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 00:29:48.234 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 00:29:48.235 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 00:29:48.330 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 00:29:48.331 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3499 ms
+2025-08-19 00:29:48.663 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 00:29:48.806 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 00:29:48.938 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 00:29:49.476 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 00:29:49.524 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 00:29:49.781 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@329e9496
+2025-08-19 00:29:49.783 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 00:29:49.809 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 00:29:49.811 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 00:29:49.832 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 00:29:50.992 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 00:29:51.164 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 00:29:52.199 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 00:29:53.146 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 00:29:53.148 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 00:29:53.449 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 00:29:54.220 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 00:29:54.255 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 00:29:54.268 INFO  [restartedMain] c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.301 seconds (process running for 11.077)
+2025-08-19 00:30:00.887 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 00:30:00.925 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 00:30:00.935 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 00:30:00.943 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 00:30:00.954 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:20:52 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:20:52 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 40552 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:20:52 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:20:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:20:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:20:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:20:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 207 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:20:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:20:56 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:20:56 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:20:56 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:20:56 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:20:56 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3342 ms
+2025-08-19 01:20:56 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:20:56 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:20:56 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:20:56 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:20:56 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:20:57 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5cf3a889
+2025-08-19 01:20:57 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:20:57 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:20:57 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:20:57 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:20:58 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:20:58 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:20:59 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:20:59 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:20:59 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:21:00 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:21:00 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:21:00 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:21:01 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:21:01 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:21:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:21:01 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 9.677 seconds (process running for 10.455)
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:21:29 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:27:30 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:27:30 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:27:30 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:27:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:27:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:27:34 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:27:34 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 25444 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:27:34 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:27:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:27:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:27:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:27:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 204 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:27:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:27:38 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:27:38 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:27:38 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:27:38 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:27:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3548 ms
+2025-08-19 01:27:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:27:38 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:27:38 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:27:39 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:27:39 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:27:39 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62b8a3eb
+2025-08-19 01:27:39 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:27:39 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:27:39 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:27:39 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:27:40 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:27:40 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:27:41 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:27:41 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:27:42 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:27:43 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:27:43 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:27:43 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:27:43 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 31 mappings in 'requestMappingHandlerMapping'
+2025-08-19 01:27:43 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /uploads/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-08-19 01:27:44 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-19 01:27:44 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-19 01:27:44 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:27:44 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:27:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:27:44 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 11.057 seconds (process running for 11.876)
+2025-08-19 01:30:59 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:30:59 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:30:59 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:30:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:30:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:31:04 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:31:04 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 48556 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:31:04 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:31:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:31:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:31:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:31:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 212 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:31:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:31:08 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:31:08 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:31:08 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:31:08 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:31:08 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3380 ms
+2025-08-19 01:31:08 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:31:08 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:31:08 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:31:09 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:31:09 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:31:09 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47c130d0
+2025-08-19 01:31:09 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:31:09 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:31:09 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:31:09 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:31:10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:31:11 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:31:11 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:31:11 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:31:12 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:31:13 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:31:13 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:31:13 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:31:13 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 31 mappings in 'requestMappingHandlerMapping'
+2025-08-19 01:31:13 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /uploads/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-08-19 01:31:13 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-19 01:31:13 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-19 01:31:14 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:31:14 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:31:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:31:14 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.106 seconds (process running for 10.872)
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6b54dd28
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@548fd12d
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/providers/getAll", parameters={}
+2025-08-19 01:31:22 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.backend.providers.controller.controllers.ProviderController#getAll()
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:31:22 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:31:23 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-08-19 01:31:23 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.backend.providers.controller.dto.ProviderResponseDTO@29dcac48, com.example.backend.prov (truncated)...]
+2025-08-19 01:31:23 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-08-19 01:31:23 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (327 ms)
+2025-08-19 01:32:15 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:32:15 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:32:15 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:32:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:32:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:32:18 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:32:19 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 39776 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:32:19 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:32:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:32:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:32:20 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:32:21 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 178 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:32:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:32:22 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:32:22 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:32:22 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:32:22 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:32:22 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3465 ms
+2025-08-19 01:32:22 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:32:22 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:32:23 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:32:23 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:32:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:32:23 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@383656b4
+2025-08-19 01:32:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:32:23 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:32:23 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:32:23 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:32:25 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:32:25 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:32:25 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:32:26 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:32:26 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:32:27 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:32:27 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:32:27 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:32:28 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:32:28 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:32:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:32:28 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.666 seconds (process running for 11.453)
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:32:42 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (260 ms)
+2025-08-19 01:36:55 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:36:55 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:36:55 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:36:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:36:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:48:40 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:48:40 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 1876 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:48:40 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:48:40 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:48:40 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:48:42 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:48:42 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 183 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:48:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:48:43 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:48:43 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:48:43 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:48:43 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:48:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3591 ms
+2025-08-19 01:48:44 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:48:44 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:48:44 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:48:44 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:48:44 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:48:45 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a007e16
+2025-08-19 01:48:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:48:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:48:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:48:45 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:48:46 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:48:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:48:47 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:48:47 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:48:47 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:48:48 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:48:48 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:48:48 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:48:49 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:48:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:48:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:48:49 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.274 seconds (process running for 11.02)
+2025-08-19 01:49:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 01:49:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 01:49:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.c.controllers.AuthController - Intento de login para usuario: admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.implement.LoginService - Intentando autenticar usuario con email: admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - Último login actualizado para usuario id=3, email=admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.config.security.JwtService - Se generó un nuevo token para el usuario [admin@admin.com], rol: ADMIN
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - JWT generado exitosamente para usuario id=3
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.implement.LoginService - Cookie de autenticación creada y añadida a la respuesta para usuario admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.implement.GetUserByEmail - Usuario encontrado con email: admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.s.implement.LoginService - Usuario admin@admin.com autenticado exitosamente con ID 3
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.u.c.controllers.AuthController - Login exitoso para usuario: admin@admin.com
+2025-08-19 01:49:45 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/login -> 200 (646 ms)
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para crear categoría con nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.service.CategoryService - Iniciando creación de categoría con nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.s.i.RegisterCategory - → [RegisterCategory] Creando nueva categoría nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.s.i.RegisterCategory - ✓ [RegisterCategory] Categoría creada exitosamente id=7 nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.service.CategoryService - Categoría creada exitosamente id=7 nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.c.c.c.CategoryController - Categoría creada con id=7 y nombre=MECANICA
+2025-08-19 01:49:51 [http-nio-8080-exec-5] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /api/categories -> 200 (55 ms)
+2025-08-19 01:51:27 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:51:27 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:51:27 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:51:27 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:51:27 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:52:36 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:52:36 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 30792 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:52:36 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:52:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:52:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:52:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:52:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 181 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:52:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:52:40 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:52:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:52:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:52:40 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:52:40 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3570 ms
+2025-08-19 01:52:40 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:52:40 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:52:40 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:52:41 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:52:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:52:41 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e253ede
+2025-08-19 01:52:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:52:41 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:52:41 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:52:41 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:52:42 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:52:42 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:52:43 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:52:43 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:52:43 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:52:44 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:52:44 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:52:45 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:52:45 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:52:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:52:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:52:45 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.298 seconds (process running for 11.085)
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para crear categoría con nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.service.CategoryService - Iniciando creación de categoría con nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.s.i.RegisterCategory - → [RegisterCategory] Creando nueva categoría nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.s.i.RegisterCategory - ✓ [RegisterCategory] Categoría creada exitosamente id=8 nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.service.CategoryService - Categoría creada exitosamente id=8 nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.c.c.c.CategoryController - Categoría creada con id=8 y nombre=MECANICA
+2025-08-19 01:52:55 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /api/categories -> 200 (334 ms)
+2025-08-19 01:54:16 [http-nio-8080-exec-4] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:54:16 [http-nio-8080-exec-4] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:54:16 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:54:16 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (23 ms)
+2025-08-19 01:54:16 [http-nio-8080-exec-5] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:16 [http-nio-8080-exec-5] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:54:16 [http-nio-8080-exec-5] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:54:16 [http-nio-8080-exec-5] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:54:16 [http-nio-8080-exec-5] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (9 ms)
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (107 ms)
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:54:16 [http-nio-8080-exec-6] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (51 ms)
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.c.c.CommentController - → [CommentController] Solicitud para obtener comentarios del providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.service.CommentService - → [CommentService] Obteniendo comentarios para providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.s.i.GetCommentsByProviderService - → [GetCommentsByProviderService] Solicitando comentarios para providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.s.i.GetCommentsByProviderService - ✓ [GetCommentsByProviderService] Se recuperaron 8 comentarios para providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.service.CommentService - ✓ [CommentService] Se recuperaron 8 comentarios para providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.c.c.c.CommentController - ✓ [CommentController] Se recuperaron 8 comentarios para providerId=1
+2025-08-19 01:54:21 [http-nio-8080-exec-7] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /comments/getAllByProvider -> 200 (49 ms)
+2025-08-19 01:54:24 [http-nio-8080-exec-8] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:24 [http-nio-8080-exec-8] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /uploads/proveedores/c4f2e8ea-6d56-400f-9b1f-92ce2567530e.jpg -> 200 (14 ms)
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.c.c.CommentController - → [CommentController] Solicitud para obtener comentarios del providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.service.CommentService - → [CommentService] Obteniendo comentarios para providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.s.i.GetCommentsByProviderService - → [GetCommentsByProviderService] Solicitando comentarios para providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.s.i.GetCommentsByProviderService - ✓ [GetCommentsByProviderService] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.service.CommentService - ✓ [CommentService] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.c.c.c.CommentController - ✓ [CommentController] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:54:29 [http-nio-8080-exec-9] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /comments/getAllByProvider -> 200 (8 ms)
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.u.c.controllers.AuthController - Logout solicitado
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.LogoutService - Iniciando proceso de logout: invalidando cookie de autenticación.
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.LogoutService - Cookie de autenticación eliminada correctamente. Logout exitoso.
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.u.c.controllers.AuthController - Logout exitoso
+2025-08-19 01:55:02 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/logout -> 200 (10 ms)
+2025-08-19 01:55:08 [http-nio-8080-exec-4] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ✅ Inicio de autenticación con Google OAuth2
+2025-08-19 01:55:08 [http-nio-8080-exec-4] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - 📧 Usuario autenticado por Google con email: illescasjonathan39@gmail.com
+2025-08-19 01:55:08 [http-nio-8080-exec-4] WARN  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ❌ Usuario illescasjonathan39@gmail.com está deshabilitado. Redirigiendo a frontend con error...
+2025-08-19 01:55:13 [http-nio-8080-exec-7] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ✅ Inicio de autenticación con Google OAuth2
+2025-08-19 01:55:13 [http-nio-8080-exec-7] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - 📧 Usuario autenticado por Google con email: illescasjonathan39@gmail.com
+2025-08-19 01:55:13 [http-nio-8080-exec-7] WARN  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ❌ Usuario illescasjonathan39@gmail.com está deshabilitado. Redirigiendo a frontend con error...
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.c.controllers.AuthController - Intento de login para usuario: admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.LoginService - Intentando autenticar usuario con email: admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - Último login actualizado para usuario id=3, email=admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.config.security.JwtService - Se generó un nuevo token para el usuario [admin@admin.com], rol: ADMIN
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - JWT generado exitosamente para usuario id=3
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.LoginService - Cookie de autenticación creada y añadida a la respuesta para usuario admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.GetUserByEmail - Usuario encontrado con email: admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.LoginService - Usuario admin@admin.com autenticado exitosamente con ID 3
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.u.c.controllers.AuthController - Login exitoso para usuario: admin@admin.com
+2025-08-19 01:55:26 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/login -> 200 (278 ms)
+2025-08-19 01:55:53 [http-nio-8080-exec-2] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:53 [http-nio-8080-exec-5] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-5] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:55:54 [http-nio-8080-exec-5] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:55:54 [http-nio-8080-exec-5] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:55:54 [http-nio-8080-exec-5] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (13 ms)
+2025-08-19 01:55:54 [http-nio-8080-exec-4] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:54 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:55:54 [http-nio-8080-exec-4] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:55:54 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:55:54 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (13 ms)
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (68 ms)
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:55:54 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (67 ms)
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.u.c.controllers.AuthController - Logout solicitado
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.u.s.implement.LogoutService - Iniciando proceso de logout: invalidando cookie de autenticación.
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.u.s.implement.LogoutService - Cookie de autenticación eliminada correctamente. Logout exitoso.
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.u.c.controllers.AuthController - Logout exitoso
+2025-08-19 01:55:56 [http-nio-8080-exec-7] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/logout -> 200 (2 ms)
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.c.controllers.AuthController - Intento de login para usuario: admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.implement.LoginService - Intentando autenticar usuario con email: admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - Último login actualizado para usuario id=3, email=admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.config.security.JwtService - Se generó un nuevo token para el usuario [admin@admin.com], rol: ADMIN
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.i.AuthenticationServiceImpl - JWT generado exitosamente para usuario id=3
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.implement.LoginService - Cookie de autenticación creada y añadida a la respuesta para usuario admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.implement.GetUserByEmail - Usuario encontrado con email: admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.s.implement.LoginService - Usuario admin@admin.com autenticado exitosamente con ID 3
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.u.c.controllers.AuthController - Login exitoso para usuario: admin@admin.com
+2025-08-19 01:56:05 [http-nio-8080-exec-9] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/login -> 200 (98 ms)
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.u.c.controllers.UserController - Obteniendo lista de todos los usuarios
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.users.service.UserService - Obteniendo la lista completa de usuarios...
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.u.s.implement.GetAllUsers - Se encontraron 8 usuarios en la base de datos
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.users.service.UserService - Se recuperaron 8 usuarios.
+2025-08-19 01:56:09 [http-nio-8080-exec-10] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /user/getUsers -> 200 (15 ms)
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.u.c.controllers.UserController - Obteniendo lista de todos los usuarios
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.users.service.UserService - Obteniendo la lista completa de usuarios...
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.u.s.implement.GetAllUsers - Se encontraron 8 usuarios en la base de datos
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.users.service.UserService - Se recuperaron 8 usuarios.
+2025-08-19 01:56:09 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /user/getUsers -> 200 (11 ms)
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.UserController - Cambiando estado del usuario con ID: 17
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.users.service.UserService - Cambiando estado del usuario con ID: 17
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.u.s.i.ChangeUserStatusService - Cambiando estado del usuario con id=17 de false a true
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.users.service.UserService - Estado del usuario con ID 17 cambiado a: true
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.UserController - Estado del usuario con ID 17 cambiado correctamente
+2025-08-19 01:56:13 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [PATCH] /user/17/status -> 200 (29 ms)
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.u.c.controllers.UserController - Obteniendo lista de todos los usuarios
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.users.service.UserService - Obteniendo la lista completa de usuarios...
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.u.s.implement.GetAllUsers - Se encontraron 8 usuarios en la base de datos
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.users.service.UserService - Se recuperaron 8 usuarios.
+2025-08-19 01:56:13 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /user/getUsers -> 200 (12 ms)
+2025-08-19 01:56:19 [http-nio-8080-exec-6] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:19 [http-nio-8080-exec-6] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-6] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:56:19 [http-nio-8080-exec-6] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:56:19 [http-nio-8080-exec-6] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (13 ms)
+2025-08-19 01:56:19 [http-nio-8080-exec-7] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:19 [http-nio-8080-exec-7] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:56:19 [http-nio-8080-exec-7] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=3, email=admin@admin.com
+2025-08-19 01:56:19 [http-nio-8080-exec-7] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: admin@admin.com
+2025-08-19 01:56:19 [http-nio-8080-exec-7] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (12 ms)
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (66 ms)
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:56:19 [http-nio-8080-exec-8] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (60 ms)
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [admin@admin.com]
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.u.c.controllers.AuthController - Logout solicitado
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.u.s.implement.LogoutService - Iniciando proceso de logout: invalidando cookie de autenticación.
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.u.s.implement.LogoutService - Cookie de autenticación eliminada correctamente. Logout exitoso.
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.u.c.controllers.AuthController - Logout exitoso
+2025-08-19 01:56:20 [http-nio-8080-exec-10] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /auth/logout -> 200 (3 ms)
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ✅ Inicio de autenticación con Google OAuth2
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - 📧 Usuario autenticado por Google con email: illescasjonathan39@gmail.com
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - 🕒 Último login actualizado para usuario: illescasjonathan39@gmail.com
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.config.security.JwtService - Se generó un nuevo token para el usuario [illescasjonathan39@gmail.com], rol: USER
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - 🔑 JWT generado y agregado en cookie para usuario illescasjonathan39@gmail.com
+2025-08-19 01:56:23 [http-nio-8080-exec-5] INFO  c.e.b.c.s.o.GoogleOAuth2SuccessHandler - ✅ Autenticación exitosa, redirigiendo al frontend
+2025-08-19 01:56:23 [http-nio-8080-exec-4] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:23 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Obteniendo sesión actual
+2025-08-19 01:56:23 [http-nio-8080-exec-4] INFO  c.e.b.u.s.implement.GetUserSession - Sesión válida encontrada. Usuario autenticado: id=17, email=illescasjonathan39@gmail.com
+2025-08-19 01:56:23 [http-nio-8080-exec-4] INFO  c.e.b.u.c.controllers.AuthController - Sesión obtenida para usuario: illescasjonathan39@gmail.com
+2025-08-19 01:56:23 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /auth/me -> 200 (14 ms)
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (61 ms)
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-19 01:56:23 [http-nio-8080-exec-6] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (55 ms)
+2025-08-19 01:56:27 [http-nio-8080-exec-7] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:27 [http-nio-8080-exec-7] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /uploads/proveedores/c4f2e8ea-6d56-400f-9b1f-92ce2567530e.jpg -> 200 (5 ms)
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.c.c.CommentController - → [CommentController] Solicitud para obtener comentarios del providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.service.CommentService - → [CommentService] Obteniendo comentarios para providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.s.i.GetCommentsByProviderService - → [GetCommentsByProviderService] Solicitando comentarios para providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.s.i.GetCommentsByProviderService - ✓ [GetCommentsByProviderService] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.service.CommentService - ✓ [CommentService] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.c.c.c.CommentController - ✓ [CommentController] Se recuperaron 0 comentarios para providerId=5
+2025-08-19 01:56:29 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /comments/getAllByProvider -> 200 (7 ms)
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.r.c.c.RatingController - Solicitud de calificación recibida -> providerId=5, score=5
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.r.s.i.RateProviderService - Iniciando calificación -> providerId=5, userId=17, score=5
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.r.s.i.RateProviderService - Estadísticas actualizadas para providerId=5 -> promedio=5.0, cantidad=1
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.r.c.c.RatingController - Proveedor 5 calificado exitosamente por usuario 17 con score=5
+2025-08-19 01:56:33 [http-nio-8080-exec-9] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /providers/5/ratings -> 201 (95 ms)
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para obtener proveedor id=5
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Buscando proveedor id=5
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.s.i.SearchProviderService - Ejecutando búsqueda de proveedor con id: 5
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.s.i.SearchProviderService - Se retornó la información del proveedor id 5 con 1 calificaciones y promedio 5.0
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Proveedor encontrado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Proveedor recuperado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 01:56:33 [http-nio-8080-exec-10] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/5 -> 200 (45 ms)
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para obtener proveedor id=5
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Buscando proveedor id=5
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.SearchProviderService - Ejecutando búsqueda de proveedor con id: 5
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.SearchProviderService - Se retornó la información del proveedor id 5 con 1 calificaciones y promedio 5.0
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Proveedor encontrado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Proveedor recuperado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 01:56:33 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/5 -> 200 (27 ms)
+2025-08-19 01:57:18 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:57:18 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:57:18 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:57:18 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:57:18 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 01:57:24 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 01:57:24 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 9244 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 01:57:24 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 01:57:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 01:57:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 01:57:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 01:57:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 200 ms. Found 7 JPA repository interfaces.
+2025-08-19 01:57:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 01:57:27 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:57:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 01:57:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 01:57:27 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 01:57:27 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3478 ms
+2025-08-19 01:57:28 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 01:57:28 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 01:57:28 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 01:57:28 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 01:57:29 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 01:57:29 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21378034
+2025-08-19 01:57:29 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 01:57:29 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 01:57:29 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 01:57:29 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 01:57:30 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 01:57:30 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:57:31 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 01:57:31 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 01:57:31 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 01:57:32 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 01:57:32 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 01:57:32 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 01:57:33 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 01:57:33 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 01:57:33 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 01:57:33 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.415 seconds (process running for 11.206)
+2025-08-19 01:59:57 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 01:59:57 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 01:59:57 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 01:59:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 01:59:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 02:00:03 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 02:00:03 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 35252 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 02:00:03 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 02:00:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 02:00:03 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 02:00:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 02:00:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 196 ms. Found 7 JPA repository interfaces.
+2025-08-19 02:00:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 02:00:07 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 02:00:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 02:00:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 02:00:07 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 02:00:07 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3558 ms
+2025-08-19 02:00:07 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 02:00:08 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 02:00:08 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 02:00:08 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 02:00:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 02:00:08 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f51c8b9
+2025-08-19 02:00:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 02:00:08 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 02:00:08 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 02:00:08 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 02:00:10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 02:00:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 02:00:10 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 02:00:11 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 02:00:11 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 02:00:12 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 02:00:12 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 02:00:12 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 02:00:13 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 02:00:13 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 02:00:13 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 02:00:13 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.538 seconds (process running for 11.315)
+2025-08-19 02:00:35 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-19 02:00:35 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-19 02:00:35 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.c.c.CommentController - → [CommentController] Solicitud para crear comentario sobre providerId=5 con contenido='comentario'
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.service.CommentService - → [CommentService] Creando comentario para providerId=5 con contenido='comentario'
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.s.i.CreateCommentService - → [CreateCommentService] Creando comentario para providerId=5 con contenido='comentario'
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.s.i.CreateCommentService - ✓ [CreateCommentService] Comentario creado id=13 userId=17 providerId=5
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.service.CommentService - ✓ [CommentService] Comentario creado id=13 userId=17 providerId=5
+2025-08-19 02:00:35 [http-nio-8080-exec-2] INFO  c.e.b.c.c.c.CommentController - ✓ [CommentController] Comentario creado id=13 userId=17 providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [POST] /comments -> 201 (306 ms)
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.config.security.JwtService - Token válido para el usuario [illescasjonathan39@gmail.com]
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para obtener proveedor id=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.c.c.CommentController - → [CommentController] Solicitud para obtener comentarios del providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Buscando proveedor id=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.service.CommentService - → [CommentService] Obteniendo comentarios para providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.s.i.SearchProviderService - Ejecutando búsqueda de proveedor con id: 5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.s.i.GetCommentsByProviderService - → [GetCommentsByProviderService] Solicitando comentarios para providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.s.i.GetCommentsByProviderService - ✓ [GetCommentsByProviderService] Se recuperaron 1 comentarios para providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.service.CommentService - ✓ [CommentService] Se recuperaron 1 comentarios para providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.c.c.c.CommentController - ✓ [CommentController] Se recuperaron 1 comentarios para providerId=5
+2025-08-19 02:00:36 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /comments/getAllByProvider -> 200 (58 ms)
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.s.i.SearchProviderService - Se retornó la información del proveedor id 5 con 1 calificaciones y promedio 5.0
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Proveedor encontrado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Proveedor recuperado id=5 nombre=Pablo apellido=Escobar
+2025-08-19 02:00:36 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/5 -> 200 (130 ms)
+2025-08-19 02:06:17 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 02:06:17 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 02:06:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 02:06:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 02:06:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-19 02:07:05 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-19 02:07:05 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 11484 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-19 02:07:05 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-19 02:07:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-19 02:07:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-19 02:07:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-19 02:07:08 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 187 ms. Found 7 JPA repository interfaces.
+2025-08-19 02:07:09 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-19 02:07:09 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-19 02:07:09 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-19 02:07:09 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19 02:07:09 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-19 02:07:09 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3645 ms
+2025-08-19 02:07:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-19 02:07:10 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-19 02:07:10 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-19 02:07:10 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-19 02:07:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-19 02:07:11 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b084072
+2025-08-19 02:07:11 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-19 02:07:11 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-19 02:07:11 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-19 02:07:11 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-19 02:07:12 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-19 02:07:12 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 02:07:12 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-19 02:07:12 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-19 02:07:13 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-19 02:07:14 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-19 02:07:14 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-19 02:07:14 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-19 02:07:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-19 02:07:15 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-19 02:07:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-19 02:07:15 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 10.203 seconds (process running for 10.977)
+2025-08-19 02:08:41 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19 02:08:41 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-19 02:08:41 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-19 02:08:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-19 02:08:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

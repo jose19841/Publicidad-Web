@@ -11,10 +11,12 @@ import com.example.backend.providers.infrastructure.ProviderRepository;
 import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CreateCommentService implements CreateCommentUsecase {
@@ -23,23 +25,37 @@ public class CreateCommentService implements CreateCommentUsecase {
     private final UserRepository userRepository;
     private final CommentMapper commentMapper;
 
-
     @Override
     public CommentResponseDTO createComment(CommentRequestDTO request) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
+        log.info("→ [CreateCommentService] Creando comentario para providerId={} con contenido='{}'",
+                request.getProviderId(), request.getContent());
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            String email = auth.getName();
+            log.debug("[CreateCommentService] Usuario autenticado email={}", email);
 
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> {
+                        log.warn("✗ [CreateCommentService] Usuario no encontrado email={}", email);
+                        return new RuntimeException("Usuario no encontrado");
+                    });
 
-        Provider provider = providerRepository.findById(request.getProviderId())
-                .orElseThrow(() -> new RuntimeException("Prestador no encontrado"));
+            Provider provider = providerRepository.findById(request.getProviderId())
+                    .orElseThrow(() -> {
+                        log.warn("✗ [CreateCommentService] Prestador no encontrado providerId={}", request.getProviderId());
+                        return new RuntimeException("Prestador no encontrado");
+                    });
 
-        Comment comment = commentMapper.toEntity(request, user, provider);
-        Comment savedComment = commentRepository.save(comment);
+            Comment comment = commentMapper.toEntity(request, user, provider);
+            Comment savedComment = commentRepository.save(comment);
+            CommentResponseDTO response = commentMapper.toResponseDTO(savedComment);
 
-        return commentMapper.toResponseDTO(savedComment);
-
+            log.info("✓ [CreateCommentService] Comentario creado id={} userId={} providerId={}",
+                    response.getId(), response.getUserId(), response.getProviderId());
+            return response;
+        } catch (Exception e) {
+            log.error("✗ [CreateCommentService] Error al crear comentario para providerId={}", request.getProviderId(), e);
+            throw e;
+        }
     }
 }
-
