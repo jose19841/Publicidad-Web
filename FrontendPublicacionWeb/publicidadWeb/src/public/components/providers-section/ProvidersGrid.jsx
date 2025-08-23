@@ -1,5 +1,6 @@
 // src/components/providers-section/ProvidersGrid.jsx
 import ProviderCard from "./ProviderCard";
+import ProviderCardModern from "./ProviderCardModern";
 
 export default function ProvidersGrid({
   items,
@@ -27,7 +28,7 @@ export default function ProvidersGrid({
       {/* Cards */}
       {paginatedItems.map((p) => (
         <div role="listitem" key={p.id}>
-          <ProviderCard provider={p} onView={onView} onContact={onContact} />
+          <ProviderCardModern provider={p} onView={onView} onContact={onContact} />
         </div>
       ))}
     </div>

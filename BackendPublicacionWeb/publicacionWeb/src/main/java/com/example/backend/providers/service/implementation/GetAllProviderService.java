@@ -26,7 +26,7 @@ public class GetAllProviderService implements GetAllProviderUsecase {
     public List<ProviderResponseDTO> getAll() {
         log.info("Iniciando proceso de obtención de todos los proveedores");
 
-        List<ProviderResponseDTO> providers = providerRepository.findAll()
+        List<ProviderResponseDTO> providers = providerRepository.findActiveProvidersOrderByAvgRatingDesc()
                 .stream()
                 .map(provider -> {
                     log.debug("Procesando proveedor id={}, nombre={} {}",

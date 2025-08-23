@@ -3,7 +3,7 @@ import apiClient from '../../../services/apiClient';
 
 export default async function getCategoriesService({ page = 1, pageSize = 10 } = {}) {
   // El backend devuelve TODAS las categorías sin paginar
-  const response = await apiClient.get('/api/categories');
+  const response = await apiClient.get('/api/categories/getAll');
 
   const list = Array.isArray(response.data)
     ? response.data

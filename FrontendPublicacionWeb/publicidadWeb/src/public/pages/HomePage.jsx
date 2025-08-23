@@ -7,6 +7,7 @@ import ContactSection from "../components/contact/ContactSection";
 import Footer from "../components/Footer";
 import ErrorMessage from "../components/shared/ErrorMessage";
 import useHomePage from "../hooks/useHomePage";
+import CategoriesSection from "../components/category-section/CategoriesSection";
 
 export default function HomePage() {
   const {
@@ -22,6 +23,7 @@ export default function HomePage() {
     <>
       <Header />
       <SearchHero onSearch={onSearch} />
+       <CategoriesSection />
       <ErrorMessage message={error} />
       <ProvidersSection
         title="Prestadores"

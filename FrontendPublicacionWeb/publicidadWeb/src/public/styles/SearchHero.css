@@ -1,5 +1,5 @@
 .search-hero {
-  background: linear-gradient(180deg, #0b1b2b 0%, #12263a 60%, #0b1b2b 100%);
+    background: var(--ct-bg);
   color: var(--ct-text);
   padding: 56px 0;
   border-bottom: 1px solid var(--ct-border);

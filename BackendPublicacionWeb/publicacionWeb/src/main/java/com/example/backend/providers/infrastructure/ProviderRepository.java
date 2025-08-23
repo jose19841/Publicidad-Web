@@ -3,6 +3,7 @@ package com.example.backend.providers.infrastructure;
 
 import com.example.backend.providers.domain.Provider;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +18,15 @@ boolean existsByNameAndLastName(String name, String lastName);
 boolean existsByPhone(String phone);
 Optional<Provider> findByPhone(String phone);
 
-    Optional<Provider> findByNameAndLastName(String name, String lastname);
+Optional<Provider> findByNameAndLastName(String name, String lastname);
+
+    @Query("""
+           SELECT p
+           FROM Provider p
+           LEFT JOIN Rating r ON r.provider = p
+           WHERE p.isActive = true
+           GROUP BY p.id
+           ORDER BY COALESCE(AVG(r.score), 0) DESC, COUNT(r) DESC
+           """)
+    List<Provider> findActiveProvidersOrderByAvgRatingDesc();
 }

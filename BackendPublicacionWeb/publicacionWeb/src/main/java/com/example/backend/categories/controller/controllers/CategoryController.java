@@ -48,7 +48,7 @@ public class CategoryController {
             description = "Recupera una lista de todas las categorías"
     )
     @ApiResponse(responseCode = "200", description = "List of categories retrieved successfully")
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<CategoryResponseDTO>> getAllCategories() {
         log.info("Petición recibida para listar todas las categorías");
         List<CategoryResponseDTO> categories = categoryService.getAllCategories();

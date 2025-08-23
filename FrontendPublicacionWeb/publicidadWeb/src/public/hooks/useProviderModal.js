@@ -88,8 +88,30 @@ export default function useProviderModal(provider, open, onClose, onUpdated) {
     }
   };
 
-  const waHref = current?.phone ? `https://wa.me/${current.phone.replace(/[^0-9]/g, "")}` : null;
-  const telHref = current?.phone ? `tel:${current.phone}` : null;
+  // Helpers para formatear números
+  const formatPhoneForWhatsApp = (phone) => {
+    if (!phone) return null;
+    let clean = phone.replace(/\D/g, ""); // solo dígitos
+
+    // Si no tiene prefijo de país, le agregamos Argentina por defecto
+    if (!clean.startsWith("54")) {
+      clean = "54" + clean;
+    }
+
+    return `https://wa.me/${clean}`;
+  };
+
+  const formatPhoneForTel = (phone) => {
+    if (!phone) return null;
+    let clean = phone.replace(/\D/g, "");
+    if (!clean.startsWith("+")) {
+      clean = "+54" + clean;
+    }
+    return `tel:${clean}`;
+  };
+
+  const waHref = formatPhoneForWhatsApp(current?.phone);
+  const telHref = formatPhoneForTel(current?.phone);
 
   return {
     tab, setTab,

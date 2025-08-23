@@ -1,10 +1,10 @@
 :root {
-  --ct-bg: #0b1b2b; /* azul muy oscuro */
+  --ct-bg: #173b5f; /* azul muy oscuro */
   --ct-surface: #12263a; /* azul oscuro */
   --ct-primary: #1f6feb; /* azul vibrante */
   --ct-text: #e6edf3; /* texto claro */
   --ct-muted: #9fb3c8; /* texto secundario */
-  --ct-border: #274057; /* bordes */
+  --ct-border: #061a2d; /* bordes */
   --ct-focus: #9ecbff; /* foco accesible */
 }
 
