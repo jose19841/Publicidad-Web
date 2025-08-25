@@ -1,0 +1,106 @@
+2025-08-23 18:16:53 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-08-23 18:16:53 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Starting PublicidadWebApplication using Java 21.0.6 with PID 40360 (C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb\target\classes started by jonii in C:\Users\jonii\OneDrive\Escritorio\Proyectos\SISTEMA DE PUBLICIDAD\Publicidad-Web\BackendPublicacionWeb\publicacionWeb)
+2025-08-23 18:16:53 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - The following 1 profile is active: "dev"
+2025-08-23 18:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-23 18:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-23 18:16:56 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-23 18:16:56 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 209 ms. Found 7 JPA repository interfaces.
+2025-08-23 18:16:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-23 18:16:57 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-08-23 18:16:57 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-23 18:16:57 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-23 18:16:57 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-23 18:16:57 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4157 ms
+2025-08-23 18:16:58 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-23 18:16:58 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-23 18:16:58 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-23 18:16:59 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-23 18:16:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-23 18:16:59 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a2e417b
+2025-08-23 18:16:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-23 18:16:59 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-23 18:16:59 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-08-23 18:16:59 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-23 18:17:01 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-23 18:17:01 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-23 18:17:02 [restartedMain] INFO  c.e.b.users.service.UserService - Ejecutando inserción de usuario ADMIN inicial...
+2025-08-23 18:17:02 [restartedMain] INFO  c.e.b.users.service.UserService - Usuario ADMIN insertado correctamente (si no existía).
+2025-08-23 18:17:02 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-23 18:17:04 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-08-23 18:17:04 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-23 18:17:04 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-23 18:17:05 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-08-23 18:17:05 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-08-23 18:17:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-08-23 18:17:05 [restartedMain] INFO  c.e.backend.PublicidadWebApplication - Started PublicidadWebApplication in 13.158 seconds (process running for 14.157)
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para listar todas las categorías
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.service.CategoryService - Recuperando todas las categorías...
+2025-08-23 18:17:33 [http-nio-8080-exec-4] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-23 18:17:33 [http-nio-8080-exec-4] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.s.i.GetAllCategories - → [GetAllCategories] Solicitud para obtener todas las categorías ordenadas por nombre
+2025-08-23 18:17:33 [http-nio-8080-exec-4] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.s.i.GetAllCategories - ✓ [GetAllCategories] Se recuperaron 5 categorías
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.service.CategoryService - Se recuperaron 5 categorías
+2025-08-23 18:17:33 [http-nio-8080-exec-1] INFO  c.e.b.c.c.c.CategoryController - Se recuperaron 5 categorías
+2025-08-23 18:17:34 [http-nio-8080-exec-4] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-23 18:17:34 [http-nio-8080-exec-4] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-4] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/categories/getAll -> 200 (195 ms)
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para listar todas las categorías
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.service.CategoryService - Recuperando todas las categorías...
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.s.i.GetAllCategories - → [GetAllCategories] Solicitud para obtener todas las categorías ordenadas por nombre
+2025-08-23 18:17:34 [http-nio-8080-exec-4] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (203 ms)
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.s.i.GetAllCategories - ✓ [GetAllCategories] Se recuperaron 5 categorías
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.service.CategoryService - Se recuperaron 5 categorías
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.c.c.c.CategoryController - Se recuperaron 5 categorías
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-6] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/categories/getAll -> 200 (10 ms)
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-23 18:17:34 [http-nio-8080-exec-2] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (58 ms)
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para listar todas las categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.service.CategoryService - Recuperando todas las categorías...
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.s.i.GetAllCategories - → [GetAllCategories] Solicitud para obtener todas las categorías ordenadas por nombre
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.s.i.GetAllCategories - ✓ [GetAllCategories] Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.service.CategoryService - Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.c.c.c.CategoryController - Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-8] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/categories/getAll -> 200 (14 ms)
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.c.c.CategoryController - Petición recibida para listar todas las categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.service.CategoryService - Recuperando todas las categorías...
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.s.i.GetAllCategories - → [GetAllCategories] Solicitud para obtener todas las categorías ordenadas por nombre
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.s.i.GetAllCategories - ✓ [GetAllCategories] Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.service.CategoryService - Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.c.c.c.CategoryController - Se recuperaron 5 categorías
+2025-08-23 18:23:48 [http-nio-8080-exec-5] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/categories/getAll -> 200 (15 ms)
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-3] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (74 ms)
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - → [ProviderController] Solicitud para listar todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - → [ProviderService] Solicitando listado de todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Iniciando proceso de obtención de todos los proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.s.i.GetAllProviderService - Se obtuvieron 13 proveedores en total
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.service.ProviderService - ✓ [ProviderService] Se recuperaron 13 proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.p.c.c.ProviderController - ✓ [ProviderController] Se recuperaron 13 proveedores
+2025-08-23 18:23:48 [http-nio-8080-exec-1] INFO  c.e.b.s.logging.RequestLoggingFilter - [GET] /api/providers/getAll -> 200 (66 ms)
+2025-08-23 18:24:48 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-23 18:24:48 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-23 18:24:48 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-23 18:24:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-23 18:24:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

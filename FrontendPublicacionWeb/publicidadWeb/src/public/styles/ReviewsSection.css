@@ -1,0 +1,28 @@
+.reviews-section {
+  display: grid;
+  gap: 12px;
+}
+
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reviews-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews-total {
+  font-size: 13px;
+  color: var(--ct-muted);
+}
+
+.reviews-header-right {
+  display: flex;
+  gap: 8px;
+}

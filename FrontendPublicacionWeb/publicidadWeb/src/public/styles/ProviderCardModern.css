@@ -1,0 +1,217 @@
+/* Tarjeta estilo “business card” */
+.pcard {
+  --pc-pad: 14px;
+  --pc-radius: 16px;
+  --pc-aside-w: 180px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--pc-aside-w) 1fr;
+  gap: 0;
+  background: var(--ct-surface, #101418);
+  color: var(--ct-text, #e9eef5);
+  border: 1px solid var(--ct-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--pc-radius);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+/* Banda izquierda con geometrías */
+.pcard__aside {
+  position: relative;
+  background: linear-gradient(165deg, #113a46 0%, #0b2a33 55%, #0f2027 100%);
+}
+
+/* triángulo claro arriba */
+.pcard__aside::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: var(--pc-aside-w) solid rgba(255, 255, 255, 0.08);
+  border-bottom: 70px solid transparent;
+}
+
+/* pieza oblicua oscura */
+.pcard__aside::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: -18px;
+  width: 160px;
+  height: 160px;
+  background: rgba(0, 0, 0, 0.18);
+  transform: rotate(45deg);
+  border-radius: 22px;
+  filter: blur(0.2px);
+}
+
+/* Badge / avatar similar al hexágono de la referencia */
+.pcard__badge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 18px auto;
+  background: linear-gradient(160deg, #164d5b, #123e49);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.04);
+}
+
+.pcard__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pcard__badge.has-image {
+  z-index: 100;
+}
+
+.pcard__initials {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  color: #eaf7fb;
+}
+
+/* Contenido derecho */
+.pcard__content {
+  border: #0b2a33 10px solid;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 8px;
+  padding: var(--pc-pad) calc(var(--pc-pad) + 2px);
+  background: linear-gradient(
+        320deg,
+        rgba(255, 255, 255, 0.096) 55%,
+        transparent 40%
+      )
+      no-repeat,
+    linear-gradient(0deg, var(--ct-bg, #0c1116), var(--ct-bg, #0c1116))
+      no-repeat;
+}
+
+/* Header: nombre y rol */
+.pcard__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.pcard__name {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.pcard__name-strong {
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.pcard__name-light {
+  font-size: 1.12rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.pcard__role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border: 1px solid var(--ct-border, rgba(255, 255, 255, 0.1));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Meta: rating + lista de datos */
+.pcard__meta {
+  display: grid;
+  gap: 8px;
+}
+
+.pcard__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pcard__rating-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.pcard__list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pcard__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.pcard__desc {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+/* Acciones */
+.pcard__actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .pcard {
+    grid-template-columns: 84px 1fr;
+    --pc-aside-w: 84px;
+  }
+
+  .pcard__badge {
+    width: 62px;
+    height: 62px;
+  }
+
+  .pcard__name-strong,
+  .pcard__name-light {
+    font-size: 1rem;
+  }
+
+  .pcard__role {
+    display: none;
+  } /* más limpio en móvil */
+}
+
+@media (max-width: 420px) {
+  .pcard {
+    grid-template-columns: 1fr;
+  }
+  .pcard__aside {
+    height: 88px;
+  }
+  .pcard__badge {
+    margin: 12px var(--pc-pad);
+  }
+}
