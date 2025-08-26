@@ -18,6 +18,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -179,4 +180,64 @@ public class ProviderController {
         log.info("✓ [ProviderController] Proveedor habilitado id={}", id);
         return ResponseEntity.noContent().build();
     }
+
+
+    //ENDPOINT PARA OBTENER PRESTADORES PAGINADOS - publico
+    @Operation(
+            summary = "Listar prestadores paginados",
+            description = """
+    Recupera una lista de prestadores en formato paginado. <br><br>
+    Parámetros:
+    - <code>page</code>: Número de página (empezando en 0).
+    - <code>size</code>: Cantidad de registros por página.
+    
+    La respuesta incluye:
+    - <code>content</code>: Lista de prestadores.
+    - <code>totalElements</code>: Cantidad total de registros.
+    - <code>totalPages</code>: Cantidad total de páginas.
+    - <code>size</code>: Tamaño de la página.
+    - <code>number</code>: Página actual.
+    """
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Lista paginada de prestadores obtenida correctamente",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ProviderResponseDTO.class)
+                    )
+            )
+    })
+    @GetMapping("/paged")
+    public ResponseEntity<Page<ProviderResponseDTO>> getAllPaged(
+            @Parameter(
+                    description = "Número de página (comienza en 0).",
+                    example = "0"
+            )
+            @RequestParam(defaultValue = "0") int page,
+
+            @Parameter(
+                    description = "Cantidad de elementos por página.",
+                    example = "5"
+            )
+            @RequestParam(defaultValue = "5") int size
+    ) {
+        log.info("→ [ProviderController] Solicitud para listar proveedores paginados | page={} | size={}", page, size);
+        try {
+            Page<ProviderResponseDTO> result = providerService.getAllPaged(page, size);
+            log.info("✓ [ProviderController] Se recuperaron {} proveedores en la página {} de {} (total elementos={})",
+                    result.getContent().size(),
+                    result.getNumber(),
+                    result.getTotalPages(),
+                    result.getTotalElements()
+            );
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            log.error("✗ [ProviderController] Error al obtener proveedores paginados | page={} | size={}", page, size, e);
+            throw e;
+        }
+    }
+
+
 }

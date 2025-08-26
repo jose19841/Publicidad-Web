@@ -6,6 +6,7 @@ import com.example.backend.providers.controller.dto.ProviderUpdateRequestDTO;
 import com.example.backend.providers.service.usecase.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +23,7 @@ public class ProviderService {
     private final DisableProviderUsecase disableProviderUsecase;
     private final SearchProviderUsecase searchProviderService;
     private final EnableProviderUsecase enableProviderUsecase;
+    private final GetAllProvidersPagedUsecase getAllProvidersPagedUsecase;
 
     public ProviderResponseDTO create(ProviderRequestDTO request, MultipartFile image) {
         log.info("→ [ProviderService] Creando proveedor nombre={} apellido={} categoríaId={}",
@@ -96,5 +98,21 @@ public class ProviderService {
             log.error("✗ [ProviderService] Error al buscar proveedor id={}", providerId, e);
             throw e;
         }
+
+
+    }
+    public Page<ProviderResponseDTO> getAllPaged(int page, int size) {
+        log.info("→ [ProviderService] Iniciando recuperación de prestadores | página={} | size={}", page, size);
+
+        Page<ProviderResponseDTO> result = getAllProvidersPagedUsecase.execute(page, size);
+
+        log.info("✓ [ProviderService] Recuperados {} prestadores | página={} de {} | totalElements={}",
+                result.getContent().size(),
+                result.getNumber(),
+                result.getTotalPages(),
+                result.getTotalElements()
+        );
+
+        return result;
     }
 }

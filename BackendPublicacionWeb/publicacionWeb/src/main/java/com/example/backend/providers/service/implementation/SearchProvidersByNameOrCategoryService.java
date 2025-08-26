@@ -25,13 +25,13 @@ public class SearchProvidersByNameOrCategoryService implements SearchProvidersBy
         List<Provider> providers;
         if (name != null && category != null) {
             log.debug("Buscando proveedores por nombre y categoría");
-            providers = providerRepository.findByNameAndCategoryName(name, category);
+            providers = providerRepository.findByNameContainingIgnoreCaseAndCategoryNameContainingIgnoreCase(name, category);
         } else if (name != null) {
             log.debug("Buscando proveedores por nombre");
-            providers = providerRepository.findByName(name);
+            providers = providerRepository.findByNameContainingIgnoreCase(name);
         } else if (category != null) {
             log.debug("Buscando proveedores por categoría");
-            providers = providerRepository.findByCategoryName(category);
+            providers = providerRepository.findByCategoryNameContainingIgnoreCase(category);
         } else {
             log.debug("No se pasaron filtros, obteniendo todos los proveedores");
             providers = providerRepository.findAll();

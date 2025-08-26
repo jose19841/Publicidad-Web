@@ -24,10 +24,7 @@ export default function useHomePage() {
     updateProviderInList(fresh);
   }, [updateProviderInList]);
 
-  // Carga inicial
-  useEffect(() => {
-    fetchAllProviders();
-  }, [fetchAllProviders]);
+
 
   return {
     list,

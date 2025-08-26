@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getAllProviders, searchProviders } from "../services/providerService";
+import { getAllProviders, getProvidersPaged, searchProviders } from "../services/providerService";
 
 export default function useProviders(initialName = "", initialCategory = "") {
   const [list, setList] = useState([]);
@@ -46,9 +46,13 @@ export default function useProviders(initialName = "", initialCategory = "") {
     }
   }, [name, category]);
 
-  useEffect(() => {
+useEffect(() => {
+  if (name?.trim() || category?.trim()) {
     refetch();
-  }, [refetch]);
+  } else {
+    setList([]); // si no hay query, no llamo a nada
+  }
+}, [refetch, name, category]);
 
   const upsertProvider = useCallback((updated) => {
     if (!updated?.id) return;
@@ -72,15 +76,13 @@ export default function useProviders(initialName = "", initialCategory = "") {
     setCategory(""); // evitamos AND; si no hay resultados, refetch probará por categoría con name
   }, []);
 
-  const fetchAllProviders = useCallback(async () => {
+   const fetchAllProviders = useCallback(async () => {
     setLoading(true);
-    setError("");
     try {
-      const results = await getAllProviders(); // <-- llama a la función del service
-      setList(results || []);
-    } catch {
-      setError("No se pudo cargar la lista de prestadores.");
-      setList([]);
+      const data = await getProvidersPaged(0, 5); // primera página con tamaño 5
+      setList(data.content);                      // guardamos solo los proveedores
+    } catch (e) {
+      setError(e.message);
     } finally {
       setLoading(false);
     }

@@ -29,4 +29,11 @@ Optional<Provider> findByNameAndLastName(String name, String lastname);
            ORDER BY COALESCE(AVG(r.score), 0) DESC, COUNT(r) DESC
            """)
     List<Provider> findActiveProvidersOrderByAvgRatingDesc();
+
+
+    List<Provider> findByNameContainingIgnoreCase(String name);
+
+    List<Provider> findByCategoryNameContainingIgnoreCase(String category);
+
+    List<Provider> findByNameContainingIgnoreCaseAndCategoryNameContainingIgnoreCase(String name, String category);
 }

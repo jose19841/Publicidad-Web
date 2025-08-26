@@ -95,3 +95,16 @@ export async function searchProviders({ name, category }) {
     throw new Error(msg);
   }
 }
+
+export async function getProvidersPaged(page = 0, size = 5) {
+  try {
+    const { data } = await apiClient.get("/api/providers/paged", {
+      params: { page, size },
+      withCredentials: false,
+    });
+    return data; // Objeto Page<ProviderResponseDTO>
+  } catch (e) {
+    const msg = e?.response?.data?.message || "No se pudo obtener la lista paginada de prestadores";
+    throw new Error(msg);
+  }
+}
