@@ -1,0 +1,42 @@
+.comment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 60;
+}
+
+.comment-modal-container {
+  width: 520px;
+  background: var(--ct-bg);
+  border: 1px solid var(--ct-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.comment-modal-header {
+  padding: 12px;
+  border-bottom: 1px solid var(--ct-border);
+  background: var(--ct-surface);
+}
+
+.comment-modal-title {
+  color: var(--ct-focus);
+}
+
+.comment-modal-body {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.comment-modal-footer {
+  padding: 12px;
+  border-top: 1px solid var(--ct-border);
+  background: var(--ct-surface);
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

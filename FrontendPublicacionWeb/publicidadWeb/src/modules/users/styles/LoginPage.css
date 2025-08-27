@@ -1,0 +1,8 @@
+body{
+    background-color: black;
+}
+.login-container, .register-container {
+    background-image: url('../../../assets/img/fondoCubos.webp');
+    padding: 00px 0 10px 0;
+}
+
