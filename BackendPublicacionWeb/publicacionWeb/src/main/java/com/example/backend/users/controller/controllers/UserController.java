@@ -1,6 +1,7 @@
 package com.example.backend.users.controller.controllers;
 
 import com.example.backend.users.controller.dto.ChangePasswordDTO;
+import com.example.backend.users.controller.dto.UpdateLoggedUserDTO;
 import com.example.backend.users.controller.dto.UserRequestDTO;
 import com.example.backend.users.controller.dto.UserResponseDTO;
 import com.example.backend.users.service.UserService;
@@ -124,17 +125,45 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserSession(request));
     }
 
-    // SEXTO ENDPOINT
-    @PatchMapping("/{id}/status")
-    @PreAuthorize("hasRole('ADMIN')")  // Solo ADMIN puede acceder
+    // SEXTO ENDPOINT — Uctualizar Nombre de usuario comun
     @Operation(
-            summary = "Cambiar estado del usuario",
-            description = "Permite a un administrador habilitar o inhabilitar un usuario enviando solo su ID."
+            summary = "Actualziar Usuario Comun",
+            description = "Actualiza únicamente el username del usuario autenticado. Toma el email desde la sesión.",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Usuario actualizado correctamente"),
+                    @ApiResponse(responseCode = "404", description = "Usuario no encontrado"),
+                    @ApiResponse(responseCode = "400", description = "Datos inválidos")
+            }
     )
-    public ResponseEntity<UserResponseDTO> changeStatus(@PathVariable Long id) {
-        log.info("Cambiando estado del usuario con ID: {}", id);
-        UserResponseDTO updated = userService.changeUserStatus(id);
-        log.info("Estado del usuario con ID {} cambiado correctamente", id);
-        return ResponseEntity.ok(updated);
+    @PreAuthorize("hasRole('USER')")
+    @PutMapping("/updateLoggedUser")
+    public ResponseEntity<Map<String, String>> updateLoggedUser(
+            HttpServletRequest request,
+            @Valid @RequestBody UpdateLoggedUserDTO body
+    ) {
+        // Obtén el usuario autenticado de la sesión
+        UserResponseDTO me = userService.getUserSession(request);
+
+        // Verifica si el usuario y el email están disponibles
+        if (me == null || me.getEmail() == null || me.getEmail().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "No se ha encontrado el usuario en sesión."));
+        }
+
+        // Aseguramos que el nombre de usuario es válido
+        if (body.getUsername() == null || body.getUsername().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "El nombre de usuario no puede estar vacío."));
+        }
+
+        // Creamos el DTO con el nuevo username
+        UpdateLoggedUserDTO dto = UpdateLoggedUserDTO.builder()
+                .username(body.getUsername()) // Nombre de usuario del cuerpo de la solicitud
+                .build();
+
+        // Llamamos al servicio para actualizar el nombre de usuario
+        userService.updateLoggedUser(dto, me.getEmail()); // Le pasamos el email de la sesión
+
+        Map<String, String> resp = new HashMap<>();
+        resp.put("message", "Usuario actualizado correctamente");
+        return ResponseEntity.ok(resp);
     }
 }

@@ -1,23 +1,25 @@
 // src/components/header/HeaderDesktopActions.jsx
-import { NavLink } from "react-router-dom";
-
 export default function HeaderDesktopActions({
   user,
   menuUserOpen,
   toggleUserMenu,
   handleLogout,
+  onOpenProfile,
 }) {
   return (
     <div className="actions-desktop">
       {!user ? (
         <>
-          <NavLink to="/login" className="ct-btn">Iniciar sesión</NavLink>
-          <NavLink to="/register" className="ct-btn primary">Registrarse</NavLink>
+          <a href="/login" className="ct-btn">Iniciar sesión</a>
+          <a href="/register" className="ct-btn primary">Registrarse</a>
         </>
       ) : (
-        <div className="user-menu-wrapper">
+        // ancho fijo para que el drop y el disparador coincidan
+        <div className="user-menu-wrapper" style={{ width: 260 }}>
+          {/* disparador con el nombre (mismo ancho/alto) */}
           <button
-            className="ct-btn"
+            type="button"
+            className="ct-btn d-block w-100 text-center py-2"
             aria-haspopup="menu"
             aria-expanded={menuUserOpen}
             onClick={toggleUserMenu}
@@ -26,20 +28,53 @@ export default function HeaderDesktopActions({
           </button>
 
           {menuUserOpen && (
-            <ul role="menu" className="user-menu">
-              <li>
-                <NavLink to="/profile" role="menuitem" className="user-menu-link">
-                  Mi perfil
-                </NavLink>
-              </li>
-              <li>
-                <button
+            <ul role="menu" className="user-menu list-unstyled mt-2 mb-0 p-0 w-100 text-center">
+              {/* email (solo mostrar) — mismo tamaño */}
+              <li className="mb-2">
+                <a
+                  href="#"
                   role="menuitem"
-                  onClick={handleLogout}
-                  className="ct-btn user-menu-logout"
+                  className="user-menu-link d-block w-100 text-center py-2 rounded-3 text-truncate"
+                  onClick={(e) => e.preventDefault()}
+                  aria-disabled="true"
+                >
+                  {user?.email}
+                </a>
+              </li>
+
+              {/* editar perfil — mismo tamaño */}
+              <li className="mb-2">
+                <a
+                  href="#"
+                  role="menuitem"
+                  className="user-menu-link d-block w-100 text-center py-2 rounded-3"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleUserMenu();     // cerrar menú
+                    onOpenProfile?.();    // abrir modal (siguiente paso)
+                  }}
+                >
+                  Editar perfil
+                </a>
+              </li>
+
+              {/* cerrar sesión — forzado rojo (Bootstrap danger) sin cambiar tus clases */}
+              <li >
+                <a
+                  href="#"
+                  role="menuitem"
+                  className="ct-btn user-menu-logout d-block w-100 text-center py-2 rounded-3"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLogout();
+                  }}
+                  style={{
+                    backgroundColor: "var(--bs-danger)",  
+                    color: "#fff"
+                  }}
                 >
                   Cerrar sesión
-                </button>
+                </a>
               </li>
             </ul>
           )}

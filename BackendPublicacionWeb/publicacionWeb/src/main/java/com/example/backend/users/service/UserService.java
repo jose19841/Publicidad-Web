@@ -1,6 +1,7 @@
 package com.example.backend.users.service;
 
 import com.example.backend.users.controller.dto.ChangePasswordDTO;
+import com.example.backend.users.controller.dto.UpdateLoggedUserDTO;
 import com.example.backend.users.controller.dto.UserResponseDTO;
 import com.example.backend.users.controller.dto.UserRequestDTO;
 import com.example.backend.users.domain.User;
@@ -27,11 +28,12 @@ public class UserService {
     private final GetUserSessionUseCase getUserSession;
     private final ChangePasswordUseCase changePassword;
     private final ChangeUserStatusUseCase changeUserState;
-    private final UpdateUserUseCase updateUser;
+    private final UpdateUserUsecase updateUser;
     private final GetAllUsersUseCase getAllUsers;
     private final RegisterUserUseCase registerUser;
     private final InsertAdminUserUseCase insertAdminUser;
     private final GetUserByEmailUseCase getUserByEmail;
+    private final UpdateLoggedUserCase updateLoggedUser;
 
     public void insertAdminUser() {
         log.info("Ejecutando inserción de usuario ADMIN inicial...");
@@ -99,5 +101,10 @@ public class UserService {
         UserResponseDTO updated = changeUserState.execute(id);
         log.info("Estado del usuario con ID {} cambiado a: {}", id, updated.isEnabled());
         return updated;
+    }
+    public void updateLoggedUser(UpdateLoggedUserDTO dto, String email){
+        log.info("Atualizando username de usuario por email: {}", email);
+       updateLoggedUser.execute(dto, email);
+       log.info("Actualizacion realizada correctamente para: {}", email);
     }
 }
