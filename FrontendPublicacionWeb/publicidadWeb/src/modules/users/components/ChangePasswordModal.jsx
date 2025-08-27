@@ -56,7 +56,7 @@ export default function ChangePasswordModal({ show, onClose, onSubmit }) {
       await Swal.fire({
         icon: "error",
         title: "Error",
-        text: error?.response?.data?.message || "No se pudo cambiar la contraseña",
+        text: error?.response?.data?.error || "No se pudo cambiar la contraseña",
         confirmButtonColor: "#d33",
       });
     } finally {

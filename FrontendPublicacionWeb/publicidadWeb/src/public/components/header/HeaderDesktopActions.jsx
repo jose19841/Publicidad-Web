@@ -59,7 +59,7 @@ export default function HeaderDesktopActions({
               </li>
 
               {/* cerrar sesión — forzado rojo (Bootstrap danger) sin cambiar tus clases */}
-              <li>
+              <li >
                 <a
                   href="#"
                   role="menuitem"
@@ -69,9 +69,8 @@ export default function HeaderDesktopActions({
                     handleLogout();
                   }}
                   style={{
-                    backgroundColor: "var(--bs-danger)",  // fuerza ROJO
-                    borderColor: "var(--bs-danger)",
-                    color: "#fff",
+                    backgroundColor: "var(--bs-danger)",  
+                    color: "#fff"
                   }}
                 >
                   Cerrar sesión
