@@ -1,0 +1,70 @@
+/* Sección principal */
+.providers-section {
+  padding: 8px 0;
+  background: var(--ct-bg);
+}
+
+/* Contenedor principal */
+.providers-container {
+  display: grid;
+  gap: 16px;
+}
+
+/* Título */
+.providers-title {
+  margin: 0;
+  color: var(--ct-text);
+  font-size: 20px;
+}
+
+/* Botón "Ver todos" fuera del grid */
+.view-all-container {
+  margin: 12px 0 0 0;
+  text-align: left;
+}
+
+.providers-list {
+  display: grid;
+  grid-template-columns: 1fr; /* siempre 1 card por fila */
+  gap: 12px;
+}
+
+
+/* Skeleton */
+.skeleton-card {
+  background: var(--ct-surface);
+  border: 1px solid var(--ct-border);
+  border-radius: 14px;
+  height: 116px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: .6; }
+  50% { opacity: 1; }
+  100% { opacity: .6; }
+}
+
+/* Estado vacío */
+.empty-state {
+  border: 1px dashed var(--ct-border);
+  border-radius: 14px;
+  padding: 16px;
+  color: var(--ct-muted);
+}
+
+/* Contenedor botón "Cargar más" */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+/* Mantiene el aspecto y agrega hover sin JS */
+.providers-viewall-btn {
+  /* opcional: si tu .btn .btn-primary ya setean color, podés omitir */
+}
+.providers-viewall-btn:hover {
+  background: #1565c0; /* mismo que hacías en onMouseOver */
+}
+

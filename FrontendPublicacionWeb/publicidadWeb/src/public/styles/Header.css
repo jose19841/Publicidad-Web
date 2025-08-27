@@ -1,0 +1,146 @@
+.header {
+  background: var(--ct-bg);
+  border-bottom: 1px solid var(--ct-border);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 10px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.header-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--ct-text);
+}
+.header-logo-icon-blue {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--ct-surface);
+}
+
+.header-logo-text {
+  color: var(--ct-text);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 1.4rem;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+}
+
+.nav-list a {
+  color: var(--ct-text);
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ct-muted);
+}
+
+.actions-desktop {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-menu-wrapper {
+  position: relative;
+}
+
+.user-menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: var(--ct-surface);
+  border: 1px solid var(--ct-border);
+  border-radius: 12px;
+  padding: 8px;
+  list-style: none;
+  margin: 0;
+  min-width: 180px;
+}
+
+.user-menu-link {
+  display: block;
+  padding: 8px 10px;
+  color: var(--ct-text);
+  text-decoration: none;
+}
+
+.user-menu-logout {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.mobile-menu-btn {
+  display: inline-flex;
+}
+
+.mobile-menu {
+  border-top: 1px solid var(--ct-border);
+  background: var(--ct-surface);
+}
+
+.mobile-menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.mobile-menu-container a {
+  color: var(--ct-text);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (min-width: 960px) {
+  .nav-desktop,
+  .actions-desktop {
+    display: flex !important;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .nav-desktop {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+ 
+
+  .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+}

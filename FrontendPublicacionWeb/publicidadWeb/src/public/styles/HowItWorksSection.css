@@ -1,0 +1,72 @@
+/* Sección */
+.how {
+  padding: 36px 0;
+  background: var(--ct-bg);
+}
+
+.how-container {
+  display: grid;
+  gap: 16px;
+}
+
+.how-header {
+  display: grid;
+  gap: 6px;
+}
+
+.how-title {
+  margin: 0;
+  color: var(--ct-text);
+  font-size: 22px;
+}
+
+.how-subtitle {
+  margin: 0;
+  color: var(--ct-muted);
+}
+
+/* Grid de tarjetas */
+.how-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 840px) {
+  .how-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+/* StepCard */
+.stepcard {
+  background: var(--ct-surface);
+  border: 1px solid var(--ct-border);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+
+.stepcard:hover {
+  transform: translateY(-2px);
+}
+
+.stepcard-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.stepcard-title {
+  margin: 0;
+  color: var(--ct-text);
+  font-size: 18px;
+}
+
+.stepcard-text {
+  margin: 0;
+  color: var(--ct-muted);
+  line-height: 1.5;
+}

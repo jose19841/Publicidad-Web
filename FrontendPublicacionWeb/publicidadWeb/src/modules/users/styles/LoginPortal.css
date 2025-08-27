@@ -1,0 +1,30 @@
+.login-portal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.login-portal-container {
+  width: min(460px, 100%);
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--ct-border, #eee);
+  overflow: hidden;
+}
+
+.login-portal-header {
+  padding: 16px;
+  border-bottom: none
+}
+
+.login-portal-body {
+  padding: 16px;
+}
+
+.login-portal-cancel {
+  margin-top: 8px;
+}

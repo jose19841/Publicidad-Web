@@ -1,0 +1,40 @@
+/* Overlay del modal */
+.provider-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+/* Contenedor principal del modal */
+.provider-modal-container {
+  width: min(780px, 100%);
+  background: var(--ct-bg);
+  border: 1px solid var(--ct-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Contenido principal */
+.provider-modal-body {
+  padding: 16px;
+}
+
+/* Barra de acciones */
+.actions-bar {
+  padding: 16px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+/* Botones que deben mantener el mismo tamaño */
+.btn-same {
+  width: 100%;
+}
