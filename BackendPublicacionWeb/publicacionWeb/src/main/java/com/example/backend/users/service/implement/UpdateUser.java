@@ -5,7 +5,7 @@ import com.example.backend.users.controller.dto.UserRequestDTO;
 import com.example.backend.users.domain.Role;
 import com.example.backend.users.domain.User;
 import com.example.backend.users.infrastructure.UserRepository;
-import com.example.backend.users.service.usecase.UpdateUserUseCase;
+import com.example.backend.users.service.usecase.UpdateUserUsecase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-public class UpdateUser implements UpdateUserUseCase {
+public class UpdateUser implements UpdateUserUsecase {
 
     private final UserRepository userRepository;
 

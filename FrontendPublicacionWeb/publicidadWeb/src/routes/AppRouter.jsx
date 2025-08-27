@@ -14,6 +14,7 @@ import CreateProviderPage from "../modules/providers/pages/CreateProviderPage.js
 import ProviderListPage from "../modules/providers/pages/ProviderListPage.jsx";
 import RecoverPasswordPage from "../modules/users/pages/RecoverPasswordPage.jsx";
 import ResetPasswordPage from "../modules/users/pages/ResetPasswordPage.jsx";
+import ProviderRatingsPage from '../modules/admin/pages/ProviderRatingsPage.jsx'
 
 const AppRouter = () => (
   <Routes>
@@ -90,6 +91,7 @@ const AppRouter = () => (
         </PrivateRoute>
       }
     />
+    
 
     <Route
       path="/prestadores/crear"
@@ -97,6 +99,16 @@ const AppRouter = () => (
         <PrivateRoute requiredRole="ADMIN">
           <MainLayout>
             <CreateProviderPage />
+          </MainLayout>
+        </PrivateRoute>
+      }
+    />
+        <Route
+      path="/admin/ratings"
+      element={
+        <PrivateRoute requiredRole="ADMIN">
+          <MainLayout>
+            <ProviderRatingsPage />
           </MainLayout>
         </PrivateRoute>
       }

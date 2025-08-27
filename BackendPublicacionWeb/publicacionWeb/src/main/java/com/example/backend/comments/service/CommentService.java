@@ -4,6 +4,7 @@ import com.example.backend.comments.controller.dto.CommentRequestDTO;
 import com.example.backend.comments.controller.dto.CommentResponseDTO;
 import com.example.backend.comments.infrastructure.CommentRepository;
 import com.example.backend.comments.service.usecase.CreateCommentUsecase;
+import com.example.backend.comments.service.usecase.DeleteCommentUsecase;
 import com.example.backend.comments.service.usecase.GetCommentsByProviderUsecase;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class CommentService {
 
     @Autowired
     private GetCommentsByProviderUsecase getCommentsByProviderUsecase;
+
+    @Autowired
+    private DeleteCommentUsecase deleteCommentUsecase;
 
     // crear comentario
     public CommentResponseDTO createComment(CommentRequestDTO request) {
@@ -51,4 +55,18 @@ public class CommentService {
             throw e;
         }
     }
+
+    // Eliminar un comentario
+    public void deleteComment(Long id) {
+        log.info("→ [CommentService] Eliminando comentario id={}", id);
+        try {
+            deleteCommentUsecase.execute(id);
+            log.info("✓ [CommentService] Comentario id={} eliminado", id);
+        } catch (Exception e) {
+            log.error("✗ [CommentService] Error al eliminar comentario id={}", id, e);
+            throw e;
+        }
+    }
+
+
 }

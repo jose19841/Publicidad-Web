@@ -36,10 +36,9 @@ export const sidebarSections = [
   },
   {
     title: "Interacción",
-    icon: <FaStar />,
+    icon: <FaCommentDots />,
     children: [
-      { title: "Calificaciones", path: "/calificaciones", icon: <FaStar /> },
-      { title: "Comentarios", path: "/comentarios", icon: <FaCommentDots /> }
+      { title: "Calificaciones y Comentarios", path: "/admin/ratings", icon: <FaStar /> },
     ]
   },
   {

@@ -1,4 +1,3 @@
-// src/pages/DashboardAdminPage.jsx
 import React from "react";
 import { FaUsers, FaListAlt, FaStar, FaUserTie } from "react-icons/fa";
 import { Bar, Pie } from "react-chartjs-2";
@@ -12,35 +11,41 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import useDashboardMetrics from "../hooks/useDashboardMetrics";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
 
 export default function DashboardAdminPage() {
-  // Ejemplos estáticos — estos valores los podés traer del backend
+  const { metrics, loading, error } = useDashboardMetrics();
+
+  if (loading) return <p className="text-center mt-4">Cargando métricas...</p>;
+  if (error) return <p className="text-center text-danger mt-4">{error}</p>;
+  if (!metrics) return null;
+
   const stats = {
-    totalProviders: 128,
-    totalCategories: 14,
-    totalUsers: 450,
-    avgRating: 4.6,
+    totalProviders: metrics.totalProviders,
+    totalCategories: metrics.totalCategories,
+    totalUsers: metrics.totalUsers,
+    avgRating: metrics.averageRating.toFixed(1),
   };
 
   const providersPerCategory = {
-    labels: ["Albañiles", "Electricistas", "Pintores", "Plomeros", "Otros"],
+    labels: metrics.providersByCategory.map((c) => c.category),
     datasets: [
       {
         label: "Prestadores",
-        data: [40, 25, 18, 22, 23],
+        data: metrics.providersByCategory.map((c) => c.count),
         backgroundColor: "#007bff",
       },
     ],
   };
 
   const ratingsDistribution = {
-    labels: ["1 estrella", "2 estrellas", "3 estrellas", "4 estrellas", "5 estrellas"],
+    labels: metrics.ratingsDistribution.map((r) => `${r.stars} estrellas`),
     datasets: [
       {
         label: "Cantidad",
-        data: [3, 5, 12, 25, 83],
+        data: metrics.ratingsDistribution.map((r) => r.count),
         backgroundColor: ["#dc3545", "#fd7e14", "#ffc107", "#0dcaf0", "#198754"],
       },
     ],
@@ -99,7 +104,11 @@ export default function DashboardAdminPage() {
           <div className="card shadow-sm">
             <div className="card-header">Prestadores por categoría</div>
             <div className="card-body">
-              <Bar data={providersPerCategory} options={{ responsive: true }} style={{ height: "300px" }}/>
+              <Bar
+                data={providersPerCategory}
+                options={{ responsive: true, plugins: { legend: { display: false } } }}
+                style={{ height: "300px" }}
+              />
             </div>
           </div>
         </div>
@@ -108,7 +117,11 @@ export default function DashboardAdminPage() {
           <div className="card shadow-sm">
             <div className="card-header">Distribución de calificaciones</div>
             <div className="card-body">
-              <Pie data={ratingsDistribution} options={{ responsive: true }} style={{ height: "300px" }} />
+              <Pie
+                data={ratingsDistribution}
+                options={{ responsive: true }}
+                style={{ height: "300px" }}
+              />
             </div>
           </div>
         </div>

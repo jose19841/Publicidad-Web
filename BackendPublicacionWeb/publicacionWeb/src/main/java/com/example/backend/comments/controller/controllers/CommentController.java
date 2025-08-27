@@ -97,4 +97,28 @@ public class CommentController {
             throw e;
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Eliminar un comentario",
+            description = "Elimina un comentario identificado por su ID. Solo accesible para administradores."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Comentario eliminado correctamente"),
+            @ApiResponse(responseCode = "404", description = "Comentario no encontrado", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Acceso denegado", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor", content = @Content)
+    })
+    public ResponseEntity<Void> deleteComment(@PathVariable Long id) {
+        log.info("→ [CommentController] Solicitud para eliminar comentario id={}", id);
+        try {
+            commentService.deleteComment(id);
+            log.info("✓ [CommentController] Comentario id={} eliminado", id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            log.error("✗ [CommentController] Error al eliminar comentario id={}", id, e);
+            throw e;
+        }
+    }
 }

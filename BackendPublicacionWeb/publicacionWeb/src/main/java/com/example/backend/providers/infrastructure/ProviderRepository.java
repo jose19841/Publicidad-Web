@@ -1,6 +1,8 @@
 package com.example.backend.providers.infrastructure;
 
 
+import com.example.backend.admin.controller.dto.CategoryCountDTO;
+import com.example.backend.admin.controller.dto.DashboardMetricsDTO;
 import com.example.backend.providers.domain.Provider;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -36,4 +38,10 @@ Optional<Provider> findByNameAndLastName(String name, String lastname);
     List<Provider> findByCategoryNameContainingIgnoreCase(String category);
 
     List<Provider> findByNameContainingIgnoreCaseAndCategoryNameContainingIgnoreCase(String name, String category);
+
+    @Query("SELECT new com.example.backend.admin.controller.dto.CategoryCountDTO(c.name, COUNT(p)) " +
+            "FROM Category c LEFT JOIN Provider p ON p.category = c " +
+            "GROUP BY c.name")
+    List<CategoryCountDTO> countProvidersByCategory();
+
 }

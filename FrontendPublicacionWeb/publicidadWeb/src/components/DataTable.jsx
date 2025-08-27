@@ -15,7 +15,7 @@ const DataTable = ({
     <div className="card card-body shadow-sm">
       <div className="table-responsive " style={{ overflow: "visible" }}>
         <table className="table table-striped align-middle">
-          <thead>
+          <thead className="text-center">
             <tr>
               {columns.map((col) => (
                 <th key={col.field}>{col.label}</th>
@@ -23,7 +23,7 @@ const DataTable = ({
               {actions.length > 0 && <th className="text-center">Acciones</th>}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-group-divider text-center">
             {data.length > 0 ? (
               data.map((item) => (
                 <tr key={item.id}>

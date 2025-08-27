@@ -166,4 +166,19 @@ public class UserController {
         resp.put("message", "Usuario actualizado correctamente");
         return ResponseEntity.ok(resp);
     }
+
+    // SEPTIMO ENDPOINT
+    @PatchMapping("/{id}/status")
+    @PreAuthorize("hasRole('ADMIN')")  // Solo ADMIN puede acceder
+    @Operation(
+            summary = "Cambiar estado del usuario",
+            description = "Permite a un administrador habilitar o inhabilitar un usuario enviando solo su ID."
+    )
+    public ResponseEntity<UserResponseDTO> changeStatus(@PathVariable Long id) {
+        log.info("Cambiando estado del usuario con ID: {}", id);
+        UserResponseDTO updated = userService.changeUserStatus(id);
+        log.info("Estado del usuario con ID {} cambiado correctamente", id);
+        return ResponseEntity.ok(updated);
+    }
+
 }
